@@ -1,69 +1,52 @@
 import React from "react";
 import {
-    Card,
-    Image,
+    CardSurface,
+    CardImage,
     CardContent,
-    TitleContainer,
-    CardTitle,
+    CardContainerTitle,
+    CardContainerTitleText,
     DetailsButton,
     DetailsButtonVectors,
-    Vector,
-    AddressContainer,
-    AddressContainerVectors,
-    AddressContainerTitle,
-    KpiContainer,
-    ValueContainer1,
-    ValueDescription1,
-    ValueField1,
+    CardContainerAddress,
+    CardContainerAddressVectors,
+    CardContainerAddressValue,
+    CardContentContainerKPI,
+    CardContentContainerKPIValueContainer,
+    CardContentContainerKPIValueContainerDescription,
     Value1
 } from "../styles/PropertyCard.style";
 
 const PropertyCard = () => {
     return (
-        <Card>
-            <Image
-                alt=""
-                src="https://static.overlay-tech.com/assets/11b6e432-01e3-49a6-af28-ce04e08b8de6.png"
-            />
+        <CardSurface>
+            <CardImage src={process.env.PUBLIC_URL + "/RealEstateExample.png"} alt="RealEstateExample"/>
             <CardContent>
-                <TitleContainer>
-                    <CardTitle>Write a title here</CardTitle>
+                <CardContainerTitle>
+                    <CardContainerTitleText>Write a title here</CardContainerTitleText>
                     <DetailsButton>
-                        <DetailsButtonVectors>
-                            <Vector
-                                alt=""
-                                src="https://static.overlay-tech.com/assets/17426534-e0c5-4d48-b293-6bc7c6a040dd.svg"
-                            />
-                        </DetailsButtonVectors>
+                        <DetailsButtonVectors src={process.env.PUBLIC_URL + "/DetailsButtonLogo.svg"} alt="DetailsButton"/>
                     </DetailsButton>
-                </TitleContainer>
-                <AddressContainer>
-                    <AddressContainerVectors
-                        alt=""
-                        src="https://static.overlay-tech.com/assets/2d8505fe-40b4-4078-9bca-4db612940ed0.svg"
-                    />
-                    <AddressContainerTitle>
+                </CardContainerTitle>
+                <CardContainerAddress>
+                    <CardContainerAddressVectors src={process.env.PUBLIC_URL + "/AddressLogo.svg"} alt="AddressLogo"/>
+                    <CardContainerAddressValue>
                         Markstrasse 2, Berlin
-                    </AddressContainerTitle>
-                </AddressContainer>
-                <KpiContainer>
-                    <ValueContainer1>
-                        <ValueDescription1>
+                    </CardContainerAddressValue>
+                </CardContainerAddress>
+                <CardContentContainerKPI>
+                    <CardContentContainerKPIValueContainer>
+                        <CardContentContainerKPIValueContainerDescription>
                             Return on Investment
-                        </ValueDescription1>
-                        <ValueField1>
-                            <Value1>2.3 %</Value1>
-                        </ValueField1>
-                    </ValueContainer1>
-                    <ValueContainer1>
-                        <ValueDescription1>Cash Flow</ValueDescription1>
-                        <ValueField1>
-                            <Value1>820 €</Value1>
-                        </ValueField1>
-                    </ValueContainer1>
-                </KpiContainer>
+                        </CardContentContainerKPIValueContainerDescription>
+                        <Value1>2.3 %</Value1>
+                    </CardContentContainerKPIValueContainer>
+                    <CardContentContainerKPIValueContainer>
+                        <CardContentContainerKPIValueContainerDescription>Cash Flow</CardContentContainerKPIValueContainerDescription>
+                        <Value1>820 €</Value1>
+                    </CardContentContainerKPIValueContainer>
+                </CardContentContainerKPI>
             </CardContent>
-        </Card>
+        </CardSurface>
     );
 };
 

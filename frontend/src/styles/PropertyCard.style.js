@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Card = styled.div`
+export const CardSurface = styled.div`
   background-color: ${props => props.theme.colors.white};
   border-radius: 8px;
   padding: 16px;
@@ -9,7 +9,7 @@ export const Card = styled.div`
   flex-direction: column;
   align-items: flex-start;
 `;
-export const Image = styled.img`
+export const CardImage = styled.img`
   height: 220px;
   align-self: stretch;
   margin-bottom: 10px;
@@ -20,14 +20,15 @@ export const CardContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: space-between;
   align-self: stretch;
 `;
-export const TitleContainer = styled.div`
+export const CardContainerTitle = styled.div`
   display: flex;
   align-items: center;
   width: 373px;
 `;
-export const CardTitle = styled.h2`
+export const CardContainerTitleText = styled.h2`
   color: ${props => props.theme.colors.blackPrimary};
   flex: 1;
   margin-right: 20px;
@@ -49,28 +50,24 @@ export const DetailsButton = styled.button`
   justify-content: center;
   cursor: pointer;
 `;
-export const DetailsButtonVectors = styled.div`
+export const DetailsButtonVectors = styled.img`
   padding: 1.14px 1.15px 1.15px 1.14px;
   display: flex;
   align-items: center;
   width: 13.71px;
   height: 13.71px;
 `;
-export const Vector = styled.img`
-  width: 100%;
-  height: 100%;
-`;
-export const AddressContainer = styled.div`
+export const CardContainerAddress = styled.div`
   display: flex;
   align-items: center;
   width: 375px;
 `;
-export const AddressContainerVectors = styled.img`
+export const CardContainerAddressVectors = styled.img`
   width: 17.29px;
   height: 23.08px;
   margin-right: 10px;
 `;
-export const AddressContainerTitle = styled.p`
+export const CardContainerAddressValue = styled.p`
   font-family: "Inter",ui-serif;
   font-size: 16px;
   font-weight: 400;
@@ -78,14 +75,14 @@ export const AddressContainerTitle = styled.p`
   color: ${props => props.theme.colors.dimGray};
   flex: 1;
 `;
-export const KpiContainer = styled.div`
+export const CardContentContainerKPI = styled.div`
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 375px;
 `;
-export const ValueContainer1 = styled.div`
+export const CardContentContainerKPIValueContainer = styled.div`
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -94,27 +91,24 @@ export const ValueContainer1 = styled.div`
   width: 187px;
   align-self: stretch;
 `;
-export const ValueDescription1 = styled.p`
+export const CardContentContainerKPIValueContainerDescription = styled.div`
   font-family: "Inter",system-ui;
   font-size: 16px;
   font-weight: 700;
   line-height: normal;
   color: ${props => props.theme.colors.mediumSlateBlue};
   text-align: center;
-  margin-bottom: 8px;
+  padding: 10px;
 `;
-export const ValueField1 = styled.div`
+export const Value1 = styled.div`
   background-color: ${props =>
-    props.theme.colors.sandyBrown};
+          props.theme.colors.sandyBrown};
   border-radius: 10px;
-  padding: 6px 0;
-  display: flex;
-  align-items: center;
+  padding: 6px;
   height: 22px;
   width: 140px;
-`;
-export const Value1 = styled.p`
-  width: 140px;
+  /*display: flex;
+  align-items: center;*/
   color: ${props => props.theme.colors.mediumSlateBlue};
   text-align: center;
   font-family: ${props =>
