@@ -31,7 +31,7 @@ export const Vectors = styled.img`
   height: 55px;
 `;
 export const ApplicationName = styled.p`
-  font-family: "Inter";
+  font-family: "Inter",system-ui;
   font-size: 24px;
   font-weight: 700;
   line-height: normal;
@@ -58,7 +58,7 @@ export const NavLogo = styled.img`
   margin-right: 2px;
 `;
 export const NavTitle = styled.p`
-  font-family: "Inter";
+  font-family: "Inter",system-ui;
   font-size: 18px;
   font-weight: 700;
   line-height: 32px;
