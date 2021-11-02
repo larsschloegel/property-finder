@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import styled, {ThemeProvider} from "styled-components";
+import stylesheet from "./styles/Stylesheet";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import Homepage from "./pages/Homepage";
+import SearchInputs from "./pages/SearchInputs";
+import Properties from "./pages/Properties";
+import Login from "./pages/Login";
 
-function App() {
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <ThemeProvider theme={stylesheet}>
+        <PageLayout>
+          <Router>
+            <Header/>
+            <Switch>
+              <Route exact path="/">
+                <Homepage/>
+              </Route>
+              <Route exact path="/search-inputs">
+                <SearchInputs/>
+              </Route>
+              <Route exact path="/properties">
+                <Properties/>
+              </Route>
+              <Route exact path="/login">
+                <Login/>
+              </Route>
+            </Switch>
+          </Router>
+        </PageLayout>
+      </ThemeProvider>
+
   );
 }
-
-export default App;
+const PageLayout = styled.div`
+  background-color: #FFEAA7;
+  padding: 20px;
+`
