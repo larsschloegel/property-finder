@@ -2,12 +2,15 @@ import React from "react";
 import {
     HeaderSurface,
     ApplicationNameContainer,
-    Logo,
-    Vectors,
-    ApplicationName,
+    ApplicationNameLogoContainer,
+    ApplicationNameLogo,
+    ApplicationNameTitle,
     NavigationBar,
     NavItem,
-    NavLogo,
+    NavLogoContainerHome,
+    NavLogoContainerSearchInputs,
+    NavLogoContainerProperties,
+    NavLogoContainerLogin,
     NavTitle,
 } from "../styles/Header.style";
 
@@ -15,41 +18,26 @@ const Header = () => {
     return (
         <HeaderSurface>
             <ApplicationNameContainer>
-                <Logo>
-                    <Vectors
-                        alt=""
-                        src="https://static.overlay-tech.com/assets/15f36158-2302-432b-9e20-b08b99462e00.svg"
-                    />
-                </Logo>
-                <ApplicationName>Property Finder 2.0</ApplicationName>
+                <ApplicationNameLogoContainer>
+                    <ApplicationNameLogo/>
+                </ApplicationNameLogoContainer>
+                <ApplicationNameTitle>Property Finder 2.0</ApplicationNameTitle>
             </ApplicationNameContainer>
             <NavigationBar>
                 <NavItem to="/">
-                    <NavLogo
-                        alt=""
-                        src="https://static.overlay-tech.com/assets/997c7f60-f35d-4bba-9026-56c674dabf00.svg"
-                    />
+                    <NavLogoContainerHome/>
                     <NavTitle>Home</NavTitle>
                 </NavItem>
                 <NavItem to="/search-inputs">
-                    <NavLogo
-                        alt=""
-                        src="https://static.overlay-tech.com/assets/ec3b9b42-5353-4422-b1bf-864f44cf2ff5.svg"
-                    />
+                    <NavLogoContainerSearchInputs/>
                     <NavTitle>Search Inputs</NavTitle>
                 </NavItem>
                 <NavItem to="/properties">
-                    <NavLogo
-                        alt=""
-                        src="https://static.overlay-tech.com/assets/d3e15a1a-27ca-4009-85d0-a785dce393ae.svg"
-                    />
+                    <NavLogoContainerProperties/>
                     <NavTitle>Properties</NavTitle>
                 </NavItem>
                 <NavItem to="/login">
-                    <NavLogo
-                        alt=""
-                        src="https://static.overlay-tech.com/assets/17e0211f-d909-41e5-b31a-7ebb263f2824.svg"
-                    />
+                    <NavLogoContainerLogin/>
                     <NavTitle>Login</NavTitle>
                 </NavItem>
             </NavigationBar>
