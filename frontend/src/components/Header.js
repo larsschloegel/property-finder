@@ -7,10 +7,7 @@ import {
     ApplicationNameTitle,
     NavigationBar,
     NavItem,
-    NavLogoContainerHome,
-    NavLogoContainerSearchInputs,
-    NavLogoContainerProperties,
-    NavLogoContainerLogin,
+    NavLogoContainer,
     NavTitle,
 } from "../styles/Header.style";
 
@@ -25,19 +22,19 @@ const Header = () => {
             </ApplicationNameContainer>
             <NavigationBar>
                 <NavItem to="/">
-                    <NavLogoContainerHome/>
+                    <NavLogoContainer src={process.env.PUBLIC_URL + "/NavLogoHome.svg"} alt={"HomeLogo"}/>
                     <NavTitle>Home</NavTitle>
                 </NavItem>
-                <NavItem to="/search-inputs">
-                    <NavLogoContainerSearchInputs/>
+                <NavItem to="/search-inputs" >
+                    <NavLogoContainer src={process.env.PUBLIC_URL + "/NavLogoSearchInputs.svg"} alt={"SearchInputsLogo"}/>
                     <NavTitle>Search Inputs</NavTitle>
                 </NavItem>
                 <NavItem to="/properties">
-                    <NavLogoContainerProperties/>
+                    <NavLogoContainer src={process.env.PUBLIC_URL + "/NavLogoProperties.svg"} alt={"PropertiesLogo"}/>
                     <NavTitle>Properties</NavTitle>
                 </NavItem>
                 <NavItem to="/login">
-                    <NavLogoContainerLogin/>
+                    <NavLogoContainer src={process.env.PUBLIC_URL + "/NavLogoLogin.svg"} alt={"LoginLogo"}/>
                     <NavTitle>Login</NavTitle>
                 </NavItem>
             </NavigationBar>
