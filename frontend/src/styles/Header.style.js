@@ -56,16 +56,14 @@ export const NavItem = styled(NavLink)`
     margin-right: 2px;
   }
 `;
-export const NavLogoContainerHome = styled.svg`
-  background-color: rgba(194, 194, 194, 1);
-  width: 32px;
-  height: 32px;
-  background-image: url("/NavLogoHome.svg");
+export const NavLogoContainer = styled.img`
   margin-right: 16px;
-  border-radius: 4px;
+  border-radius: 20px;
   padding: 8px;
   display: flex;
   align-items: flex-start;
+  box-shadow: 0 2px 3px 0 rgba(38, 50, 56, 0.2),
+  0 3px 6px 0 rgba(38, 50, 56, 0.08);
 `;
 export const NavTitle = styled.p`
   font-family: "Inter",system-ui;
@@ -74,39 +72,6 @@ export const NavTitle = styled.p`
   letter-spacing: 0.2px;
   font-weight: 700;
   line-height: normal;
-`;
-export const NavLogoContainerSearchInputs = styled.div`
-  background-color: rgba(194, 194, 194, 1);
-  width: 32px;
-  height: 32px;
-  background-image: url("/NavLogoSearchInputs.svg");
-  margin-right: 16px;
-  border-radius: 4px;
-  padding: 8px;
-  display: flex;
-  align-items: flex-start;
-`;
-export const NavLogoContainerProperties = styled.div`
-  background-color: rgba(194, 194, 194, 1);
-  width: 32px;
-  height: 32px;
-  background-image: url("/NavLogoProperties.svg");
-  margin-right: 16px;
-  border-radius: 4px;
-  padding: 8px;
-  display: flex;
-  align-items: flex-start;
-`;
-export const NavLogoContainerLogin = styled.div`
-  background-color: rgba(194, 194, 194, 1);
-  width: 32px;
-  height: 32px;
-  background-image: url("/NavLogoLogin.svg");
-  margin-right: 16px;
-  border-radius: 4px;
-  padding: 8px;
-  display: flex;
-  align-items: flex-start;
 `;
 
 
