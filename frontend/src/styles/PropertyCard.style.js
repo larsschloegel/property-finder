@@ -28,7 +28,7 @@ export const CardContainerTitle = styled.div`
   align-items: center;
   width: 373px;
 `;
-export const CardContainerTitleText = styled.h2`
+export const CardContainerTitleText = styled.p`
   color: ${props => props.theme.colors.blackPrimary};
   flex: 1;
   margin-right: 20px;
@@ -67,7 +67,7 @@ export const CardContainerAddressVectors = styled.img`
   height: 23.08px;
   margin-right: 10px;
 `;
-export const CardContainerAddressValue = styled.p`
+export const CardContainerAddressValue = styled.div`
   font-family: "Inter",ui-serif;
   font-size: 16px;
   font-weight: 400;

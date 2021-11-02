@@ -6,6 +6,7 @@ import Homepage from "./pages/Homepage";
 import SearchInputs from "./pages/SearchInputs";
 import Properties from "./pages/Properties";
 import Login from "./pages/Login";
+import PropertyDetails from "./pages/PropertyDetails";
 
 
 export default function App() {
@@ -24,6 +25,9 @@ export default function App() {
               <Route exact path="/properties">
                 <Properties/>
               </Route>
+                <Route exact path="/properties/:id">
+                    <PropertyDetails/>
+                </Route>
               <Route exact path="/login">
                 <Login/>
               </Route>
