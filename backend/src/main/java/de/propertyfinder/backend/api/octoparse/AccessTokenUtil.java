@@ -1,30 +1,17 @@
-package de.propertyfinder.backend.api;
+package de.propertyfinder.backend.api.octoparse;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-
 @Slf4j
 @Service
-public class OctoparseApiService {
-    @Value("${de.propertyfinder.backend.octoparse.userName}")
-    private String userName;
+public class AccessTokenUtil {
 
-    @Value("${de.propertyfinder.backend.octoparse.passWord}")
-    private String passWord;
-
-    public String testVerifyApi() {
-        //Access token
-        String tokenUrl = "http://dataapi.octoparse.com/token";
-        String getToken = GetToken(userName, passWord, tokenUrl);
-        return getToken;
-    }
-
-    private String GetToken(String userName, String passWord, String tokenUrl) {
+    String GetToken(String userName, String passWord, String tokenUrl) {
         String token = null;
         if (null != userName && null != passWord && null != tokenUrl) {
             String postdata = String.format(
@@ -69,7 +56,7 @@ public class OctoparseApiService {
             int responseCode = conn.getResponseCode();
             if (HttpURLConnection.HTTP_OK == responseCode) {// The connection is successful
                 // When the correct response to process the data
-                StringBuffer sb = new StringBuffer();
+                StringBuilder sb = new StringBuilder();
                 String readLine;
                 BufferedReader responseReader;
                 //Process the response flow, must be consistent with the server response stream output coding
@@ -83,7 +70,7 @@ public class OctoparseApiService {
 
             }
         } catch (Exception e) {
-            System.out.println("Send a POST request is abnormal!" + e);
+            log.error("Send a POST request is abnormal!" + e);
             e.printStackTrace();
         }
 
@@ -102,17 +89,5 @@ public class OctoparseApiService {
         }
         return result;
     }
-
-
-    //processing access token
-
-
-    //List All Task in a Group
-
-    //Get Data
-
-
-    //Get non-exported Data
-
 
 }
