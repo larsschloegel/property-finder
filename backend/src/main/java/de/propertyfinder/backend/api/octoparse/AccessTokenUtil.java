@@ -11,7 +11,7 @@ import java.net.URL;
 @Service
 public class AccessTokenUtil {
 
-    String GetToken(String userName, String passWord, String tokenUrl) {
+    String getToken(String userName, String passWord, String tokenUrl) {
         String token = null;
         if (null != userName && null != passWord && null != tokenUrl) {
             String postdata = String.format(

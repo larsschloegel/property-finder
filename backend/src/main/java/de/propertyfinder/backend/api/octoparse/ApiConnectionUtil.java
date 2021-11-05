@@ -7,13 +7,13 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.List;
-import java.util.Map;
+
 
 @Slf4j
 @Service
-public class AllDataUtil {
-    public static String sendGet(String url, String param, String token) {
+public class ApiConnectionUtil {
+
+    static String sendGet(String url, String param, String token) {
         token=String.format("bearer %s", token);
         String result = "";
         BufferedReader in = null;
