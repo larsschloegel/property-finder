@@ -15,7 +15,7 @@ public class TestController {
     }
 
     @GetMapping
-    public String getData(){
+    public String getData() {
         return octoparseApiService.getAllProperties();
     }
 }
