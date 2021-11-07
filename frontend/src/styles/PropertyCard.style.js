@@ -39,7 +39,7 @@ export const CardSection = styled.section`
 export const Divider = styled.div`
   height: 3px;
   background-color: ${props => props.theme.colors.mediumSlateBlue};
-  margin: 10px;
+  margin: 10px 0px 10px 0px;
 `;
 
 export const CardTitle = styled.h2`
