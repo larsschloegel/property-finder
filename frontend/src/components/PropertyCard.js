@@ -10,7 +10,7 @@ import {
 } from "../styles/PropertyCard.style";
 import {Image} from "../styles/Header.style";
 
-const PropertyCard = () => {
+const PropertyCard = ({property}) => {
     return (
         <CardWrapper>
             <CardImageWrapper>
@@ -18,7 +18,7 @@ const PropertyCard = () => {
             </CardImageWrapper>
             <CardContentWrapper>
                 <CardSection>
-                    <CardTitle>Wunderschönes Haus</CardTitle>
+                    <CardTitle>{property.propertyName}</CardTitle>
                     <ButtonWrapper>
                         <Image src={process.env.PUBLIC_URL + "/DetailsLogoWhite.svg"} alt={"DetailsLogoWhite"}/>
                     </ButtonWrapper>
@@ -28,18 +28,18 @@ const PropertyCard = () => {
                         <AddressImageWrapper>
                             <Image src={process.env.PUBLIC_URL + "/AddressLogo.svg"} alt="AddressLogo"/>
                         </AddressImageWrapper>
-                        <Address>Marktstrasse 2, Berlin</Address>
+                        <Address>{property.address.street} {property.address.number}, {property.address.city}</Address>
                     </AddressWrapper>
                 </CardSection>
                 <Divider/>
                 <CardSection>
                     <KPIWrapper>
                         <KPITitle>Return on Investment</KPITitle>
-                        <KPI>2.3 %</KPI>
+                        <KPI>{property.adjustedNetReturn}</KPI>
                     </KPIWrapper>
                     <KPIWrapper>
                         <KPITitle>Cashflow</KPITitle>
-                        <KPI> 820 €</KPI>
+                        <KPI> {property.CFBTMonth}</KPI>
                     </KPIWrapper>
                 </CardSection>
             </CardContentWrapper>

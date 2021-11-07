@@ -23,6 +23,7 @@ export const CardImage = styled.img`
   transition: opacity 0.5s;
   object-position: center;
   object-fit: cover;
+  border-radius: 10px;
 `;
 export const CardContentWrapper = styled.div`
   flex: 3;

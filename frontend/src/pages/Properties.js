@@ -1,11 +1,11 @@
 import React from "react";
 import {Heading} from "../styles/Heading.style";
 import PropertyShowcase from "../components/PropertyShowcase";
-const Properties = () => {
+const Properties = ({properties}) => {
     return (
         <section>
             <Heading>Your dream investments</Heading>
-            <PropertyShowcase/>
+            <PropertyShowcase properties={properties}/>
         </section>
     )
 };

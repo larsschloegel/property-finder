@@ -7,9 +7,12 @@ import SearchInputs from "./pages/SearchInputs";
 import Properties from "./pages/Properties";
 import Login from "./pages/Login";
 import PropertyDetails from "./pages/PropertyDetails";
-
+import propertyResponse from "./properties.json";
 
 export default function App() {
+
+  const properties = propertyResponse;
+
   return (
       <ThemeProvider theme={stylesheet}>
         <PageLayout>
@@ -23,7 +26,7 @@ export default function App() {
                 <SearchInputs/>
               </Route>
               <Route exact path="/properties">
-                <Properties/>
+                <Properties properties={properties}/>
               </Route>
                 <Route exact path="/properties/:id">
                     <PropertyDetails/>

@@ -1,11 +1,13 @@
 import PropertyCard from "./PropertyCard";
 import styled from "styled-components";
 
-export default function PropertyShowcase() {
+export default function PropertyShowcase({properties}) {
 
     return (
         <Wrapper>
-            <PropertyCard/>
+            {
+                properties.map(property => <PropertyCard property={property}/> )
+            }
         </Wrapper>
     )
 }
