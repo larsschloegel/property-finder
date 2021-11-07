@@ -15,7 +15,7 @@ export default function PropertyShowcase({properties}) {
 const Wrapper = styled.section`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   min-height: calc(50vh - 60px);
   max-width: 1920px;
