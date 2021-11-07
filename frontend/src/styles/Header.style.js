@@ -56,7 +56,9 @@ export const NavItem = styled(NavLink)`
     margin-right: 2px;
   }
 `;
-export const NavLogoContainer = styled.img`
+export const ImageWrapper = styled.div`
+  width: 35px;
+  height: 35px;
   margin-right: 16px;
   border-radius: 20px;
   padding: 8px;
@@ -65,9 +67,12 @@ export const NavLogoContainer = styled.img`
   box-shadow: 0 2px 3px 0 rgba(38, 50, 56, 0.2),
   0 3px 6px 0 rgba(38, 50, 56, 0.08);
 `;
+export const Image = styled.img`
+  width: 100%;
+  height: 100%
+`;
 export const NavTitle = styled.p`
   font-family: "Inter",system-ui;
-  font-size: 18px;
   color: rgba(45, 52, 54, 1);
   letter-spacing: 0.2px;
   font-weight: 700;
