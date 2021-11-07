@@ -4,15 +4,17 @@ import styled from "styled-components";
 export default function PropertyShowcase() {
 
     return (
-        <Showcase>
+        <Wrapper>
             <PropertyCard/>
-        </Showcase>
+        </Wrapper>
     )
 }
 
-const Showcase = styled.div`
+const Wrapper = styled.section`
   display: flex;
   flex-wrap: wrap;
-  margin: 12px;
-  justify-content: left;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(50vh - 60px);
+  max-width: 1920px;
 `
