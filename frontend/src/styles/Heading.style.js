@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const Heading = styled.h1`
-  height: 83px;
-  width: 657px;
   font-family: "Inter",system-ui;
   font-size: 48px;
   font-weight: 700;

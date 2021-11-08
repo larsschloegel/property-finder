@@ -7,7 +7,8 @@ import {
     ApplicationNameTitle,
     NavigationBar,
     NavItem,
-    NavLogoContainer,
+    ImageWrapper,
+    Image,
     NavTitle,
 } from "../styles/Header.style";
 
@@ -22,19 +23,27 @@ const Header = () => {
             </ApplicationNameContainer>
             <NavigationBar>
                 <NavItem to="/">
-                    <NavLogoContainer src={process.env.PUBLIC_URL + "/NavLogoHome.svg"} alt={"HomeLogo"}/>
+                    <ImageWrapper>
+                        <Image src={process.env.PUBLIC_URL + "/HomeLogo.svg"} alt={"HomeLogo"}/>
+                    </ImageWrapper>
                     <NavTitle>Home</NavTitle>
                 </NavItem>
                 <NavItem to="/search-inputs" >
-                    <NavLogoContainer src={process.env.PUBLIC_URL + "/NavLogoSearchInputs.svg"} alt={"SearchInputsLogo"}/>
+                    <ImageWrapper>
+                        <Image src={process.env.PUBLIC_URL + "/DetailsLogo.svg"} alt={"SearchInputsLogo"}/>
+                    </ImageWrapper>
                     <NavTitle>Search Inputs</NavTitle>
                 </NavItem>
                 <NavItem to="/properties">
-                    <NavLogoContainer src={process.env.PUBLIC_URL + "/NavLogoProperties.svg"} alt={"PropertiesLogo"}/>
+                    <ImageWrapper>
+                        <Image src={process.env.PUBLIC_URL + "/PropertiesLogo.svg"} alt={"PropertiesLogo"}/>
+                    </ImageWrapper>
                     <NavTitle>Properties</NavTitle>
                 </NavItem>
                 <NavItem to="/login">
-                    <NavLogoContainer src={process.env.PUBLIC_URL + "/NavLogoLogin.svg"} alt={"LoginLogo"}/>
+                    <ImageWrapper>
+                        <Image src={process.env.PUBLIC_URL + "/LoginLogo.svg"} alt={"LoginLogo"}/>
+                    </ImageWrapper>
                     <NavTitle>Login</NavTitle>
                 </NavItem>
             </NavigationBar>
