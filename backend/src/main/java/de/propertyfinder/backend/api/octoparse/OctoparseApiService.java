@@ -1,4 +1,5 @@
 package de.propertyfinder.backend.api.octoparse;
+
 import com.alibaba.fastjson.JSONArray;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,13 +32,24 @@ public class OctoparseApiService {
     }
 
     public String getAllProperties() {
-        //Access token
+
         String tokenUrl = "https://dataapi.octoparse.com/token";
         String getToken = accessTokenUtil.getToken(userName, passWord, tokenUrl);
 
-        JSONObject jsonString = (JSONObject) JSON.parse(getToken);
-        String accessToken = jsonString.getString("access_token");
+        String accessToken = getValueFromJSON(getToken, "access_token");
+        log.info("AccessToken: " + accessToken);
 
+        String allOctoparseData = getAllDataFromOctoparse(accessToken);
+        return allOctoparseData;
+    }
+
+    public String getValueFromJSON(String Json, String key) {
+        JSONObject jsonString = (JSONObject) JSON.parse(Json);
+        String valueFromJson = jsonString.getString(key);
+        return valueFromJson;
+    }
+
+    public String getAllDataFromOctoparse(String accessToken) {
         //Get AllData
         String offset = "0";
         String size = "1000";
