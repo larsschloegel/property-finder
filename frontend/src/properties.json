@@ -6,7 +6,7 @@
     "propertyTyp": "Haus",
     "address": {
       "street": "Entenstraße",
-      "number": "2",
+      "number": "1",
       "PLZ": "60323",
       "city": "Frankfurt am Main",
       "state": "Hessen"
@@ -94,7 +94,7 @@
     "propertyTyp": "Haus",
     "address": {
       "street": "Entenstraße",
-      "number": "2",
+      "number": "3",
       "PLZ": "60323",
       "city": "Frankfurt am Main",
       "state": "Hessen"
@@ -138,7 +138,7 @@
     "propertyTyp": "Haus",
     "address": {
       "street": "Entenstraße",
-      "number": "2",
+      "number": "4",
       "PLZ": "60323",
       "city": "Frankfurt am Main",
       "state": "Hessen"
@@ -182,7 +182,7 @@
     "propertyTyp": "Haus",
     "address": {
       "street": "Entenstraße",
-      "number": "2",
+      "number": "5",
       "PLZ": "60323",
       "city": "Frankfurt am Main",
       "state": "Hessen"

@@ -13,6 +13,7 @@ import {useHistory} from "react-router-dom";
 
 export default function PropertyCard({property}){
     const history = useHistory()
+
     return (
         <CardWrapper>
             <CardImageWrapper>
