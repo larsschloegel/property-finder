@@ -9,8 +9,10 @@ import {
     KPIWrapper, KPITitle, KPI
 } from "../styles/PropertyCard.style";
 import {Image} from "../styles/Header.style";
+import {useHistory} from "react-router-dom";
 
-const PropertyCard = ({property}) => {
+export default function PropertyCard({property}){
+    const history = useHistory()
     return (
         <CardWrapper>
             <CardImageWrapper>
@@ -19,7 +21,7 @@ const PropertyCard = ({property}) => {
             <CardContentWrapper>
                 <CardSection>
                     <CardTitle>{property.propertyName}</CardTitle>
-                    <ButtonWrapper>
+                    <ButtonWrapper onClick={()=> history.push(`properties/${property.propertyId}`)}>
                         <Image src={process.env.PUBLIC_URL + "/DetailsLogoWhite.svg"} alt={"DetailsLogoWhite"}/>
                     </ButtonWrapper>
                 </CardSection>
@@ -44,7 +46,5 @@ const PropertyCard = ({property}) => {
                 </CardSection>
             </CardContentWrapper>
         </CardWrapper>
-    );
-};
-
-export default PropertyCard;
+    )
+}

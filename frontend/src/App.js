@@ -29,7 +29,7 @@ export default function App() {
                 <Properties properties={properties}/>
               </Route>
                 <Route exact path="/properties/:id">
-                    <PropertyDetails/>
+                    <PropertyDetails properties={properties}/>
                 </Route>
               <Route exact path="/login">
                 <Login/>
