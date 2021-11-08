@@ -7,10 +7,6 @@ import org.springframework.stereotype.Service;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
-import javax.json.Json;
-import javax.json.JsonObject;
-
-
 @Slf4j
 @Service
 public class OctoparseApiService {
@@ -39,8 +35,7 @@ public class OctoparseApiService {
         String accessToken = getValueFromJSON(getToken, "access_token");
         log.info("AccessToken: " + accessToken);
 
-        String allOctoparseData = getAllDataFromOctoparse(accessToken);
-        return allOctoparseData;
+        return getAllDataFromOctoparse(accessToken);
     }
 
     public String getValueFromJSON(String Json, String key) {
@@ -50,32 +45,25 @@ public class OctoparseApiService {
     }
 
     public String getAllDataFromOctoparse(String accessToken) {
-        //Get AllData
+        //Api need more request to get all data, second request should use the offset from the first request
         String offset = "0";
         String size = "1000";
         int restTotal = 1;
-        String precedAllDataUrl = "https://dataapi.octoparse.com/api/alldata/GetDataOfTaskByOffset";
-        String dataStringOfJSON = "";
-        String dataListStringOfJSON = "";
-        String allData = "";
+        String allDataUrlOctoparse = "https://dataapi.octoparse.com/api/alldata/GetDataOfTaskByOffset";
         JSONArray finalArray = new JSONArray();
         do {
             //send request
             String apiParam = "taskid=" + taskId + "&offset=" + offset + "&size=" + size;
-            String getDataByOffsetResult = apiConnectionUtil.sendGet(precedAllDataUrl, apiParam, accessToken);
-            //Get Data from JSON ->> Auslagern nicht vergessen
-            JSONObject getJSONDataByOffsetResult = (JSONObject) JSON.parse(getDataByOffsetResult);
-            dataStringOfJSON = getJSONDataByOffsetResult.getString("data");
-            JSONObject dataJson = (JSONObject) JSON.parse(dataStringOfJSON);
-            //get new offset of reqeust
-            offset = dataJson.getString("offset");
-            //get restTotal for end of loop
-            restTotal = dataJson.getInteger("restTotal");
-            log.info("restTotal: " + String.valueOf(restTotal));
-            dataListStringOfJSON = dataJson.getString("dataList");
-            //log.info("dataList" + dataListStringOfJSON);
-            JSONArray dataListJson = (JSONArray) JSON.parse(dataListStringOfJSON);
-            finalArray.addAll(dataListJson);
+            String getDataByOffsetResult = apiConnectionUtil.sendGet(allDataUrlOctoparse, apiParam, accessToken);
+
+            String dataJson = getValueFromJSON(getDataByOffsetResult,"data");
+            offset = getValueFromJSON(dataJson, "offset");
+            restTotal = Integer.parseInt(getValueFromJSON(dataJson, "restTotal"));
+            log.info("restTotal: " + restTotal);
+
+            dataJson = getValueFromJSON(dataJson, "dataList");
+            JSONArray dataJsonToArray = (JSONArray) JSON.parse(dataJson);
+            finalArray.addAll(dataJsonToArray);
 
         } while (restTotal != 0);
         return finalArray.toString();
