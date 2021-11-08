@@ -1,4 +1,5 @@
 package de.propertyfinder.backend.api.octoparse;
+import com.alibaba.fastjson.JSONArray;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -42,9 +43,10 @@ public class OctoparseApiService {
         String size = "1000";
         int restTotal = 1;
         String precedAllDataUrl = "https://dataapi.octoparse.com/api/alldata/GetDataOfTaskByOffset";
-        String dataStringOfJSON= "";
-        String allData="";
-        JSONObject finalObject = new JSONObject();
+        String dataStringOfJSON = "";
+        String dataListStringOfJSON = "";
+        String allData = "";
+        JSONArray finalArray = new JSONArray();
         do {
             //send request
             String apiParam = "taskid=" + taskId + "&offset=" + offset + "&size=" + size;
@@ -58,12 +60,12 @@ public class OctoparseApiService {
             //get restTotal for end of loop
             restTotal = dataJson.getInteger("restTotal");
             log.info("restTotal: " + String.valueOf(restTotal));
-
-            //finalObject.put("data", dataJson);
-            //finalObject.putAll(getJSONDataByOffsetResult);
-            //allData = JSONObject.toJSONString(dataJson);
+            dataListStringOfJSON = dataJson.getString("dataList");
+            //log.info("dataList" + dataListStringOfJSON);
+            JSONArray dataListJson = (JSONArray) JSON.parse(dataListStringOfJSON);
+            finalArray.addAll(dataListJson);
 
         } while (restTotal != 0);
-        return dataStringOfJSON;
+        return finalArray.toString();
     }
 }
