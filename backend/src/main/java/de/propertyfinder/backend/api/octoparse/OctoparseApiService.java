@@ -1,11 +1,19 @@
 package de.propertyfinder.backend.api.octoparse;
 
 import com.alibaba.fastjson.JSONArray;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 @Slf4j
@@ -28,7 +36,7 @@ public class OctoparseApiService {
         this.apiConnectionUtil = apiConnectionUtil;
     }
 
-    public String getAllProperties() {
+    public List<OctoparseApiDto> getAllProperties() throws JsonProcessingException {
 
         String tokenUrl = "https://dataapi.octoparse.com/token";
         String getToken = accessTokenUtil.getToken(userName, passWord, tokenUrl);
@@ -36,7 +44,8 @@ public class OctoparseApiService {
         String accessToken = getValueFromJson(getToken, "access_token");
         log.info("AccessToken: " + accessToken);
 
-        return getAllDataFromOctoparse(accessToken);
+        String allDataFromOctoparseApi = getAllDataFromOctoparse(accessToken);
+        return mapToOctoparseApiDto(allDataFromOctoparseApi);
     }
 
     public String getValueFromJson(String JsonInput, String key) {
@@ -68,8 +77,16 @@ public class OctoparseApiService {
             dataJson = getValueFromJson(dataJson, "dataList");
             JSONArray dataJsonToArray = (JSONArray) JSON.parse(dataJson);
             finalArray.addAll(dataJsonToArray);
-
         } while (restTotal != 0);
         return finalArray.toString();
+    }
+
+    public List<OctoparseApiDto> mapToOctoparseApiDto(String allDataFromOctoparseApi) throws JsonProcessingException {
+        final ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        /*OctoparseApiDto[] propertyArrayofObjects = objectMapper.readValue(allDataFromOctoparseApi, OctoparseApiDto[].class);
+        List<OctoparseApiDto> listOfPropertyObjects = new ArrayList(Arrays.asList(propertyArrayofObjects));*/
+        List<OctoparseApiDto> listOfPropertyObjects = objectMapper.readValue(allDataFromOctoparseApi, new TypeReference<List<OctoparseApiDto>>(){});
+        return listOfPropertyObjects;
     }
 }
