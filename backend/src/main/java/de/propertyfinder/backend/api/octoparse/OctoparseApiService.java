@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
+import java.util.NoSuchElementException;
+import java.util.Optional;
+
 @Slf4j
 @Service
 public class OctoparseApiService {
@@ -32,16 +35,19 @@ public class OctoparseApiService {
         String tokenUrl = "https://dataapi.octoparse.com/token";
         String getToken = accessTokenUtil.getToken(userName, passWord, tokenUrl);
 
-        String accessToken = getValueFromJSON(getToken, "access_token");
+        String accessToken = getValueFromJson(getToken, "access_token");
         log.info("AccessToken: " + accessToken);
 
         return getAllDataFromOctoparse(accessToken);
     }
 
-    public String getValueFromJSON(String Json, String key) {
-        JSONObject jsonString = (JSONObject) JSON.parse(Json);
-        String valueFromJson = jsonString.getString(key);
-        return valueFromJson;
+    public String getValueFromJson(String JsonInput, String key) {
+        JSONObject jsonString = (JSONObject) JSON.parse(JsonInput);
+        String value = jsonString.getString(key);
+        if(value == null){
+            throw new NullPointerException("Key "+  "\"" + key + "\"" + " not found in JSON");
+        }
+        return value;
     }
 
     public String getAllDataFromOctoparse(String accessToken) {
@@ -56,12 +62,12 @@ public class OctoparseApiService {
             String apiParam = "taskid=" + taskId + "&offset=" + offset + "&size=" + size;
             String getDataByOffsetResult = apiConnectionUtil.sendGet(allDataUrlOctoparse, apiParam, accessToken);
 
-            String dataJson = getValueFromJSON(getDataByOffsetResult,"data");
-            offset = getValueFromJSON(dataJson, "offset");
-            restTotal = Integer.parseInt(getValueFromJSON(dataJson, "restTotal"));
+            String dataJson = getValueFromJson(getDataByOffsetResult,"data");
+            offset = getValueFromJson(dataJson, "offset");
+            restTotal = Integer.parseInt(getValueFromJson(dataJson, "restTotal"));
             log.info("restTotal: " + restTotal);
 
-            dataJson = getValueFromJSON(dataJson, "dataList");
+            dataJson = getValueFromJson(dataJson, "dataList");
             JSONArray dataJsonToArray = (JSONArray) JSON.parse(dataJson);
             finalArray.addAll(dataJsonToArray);
 
