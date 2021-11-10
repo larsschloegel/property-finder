@@ -1,122 +1,111 @@
 import styled from "styled-components";
 
-export const CardSurface = styled.div`
-  background-color: ${props => props.theme.colors.white};
-  border-radius: 8px;
-  padding: 16px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+export const CardWrapper = styled.article`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  overflow: hidden;
+  background: ${props => props.theme.colors.white};
+  border-radius: 8px;
+  margin: 12px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  padding: 16px;
+`;
+
+export const CardImageWrapper = styled.div`
+  flex: 2;
+  width: 100%;
+  margin-bottom: 10px;
 `;
 export const CardImage = styled.img`
-  height: 220px;
-  align-self: stretch;
-  margin-bottom: 10px;
-  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  transition: opacity 0.5s;
+  object-position: center;
   object-fit: cover;
+  border-radius: 10px;
 `;
-export const CardContent = styled.div`
+export const CardContentWrapper = styled.div`
+  flex: 3;
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  align-self: stretch;
 `;
-export const CardContainerTitle = styled.div`
+export const CardSection = styled.section`
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  width: 373px;
+  padding: 5px;
 `;
-export const CardContainerTitleText = styled.p`
+export const Divider = styled.div`
+  height: 3px;
+  background-color: ${props => props.theme.colors.mediumSlateBlue};
+  margin: 10px 0px 10px 0px;
+`;
+
+export const CardTitle = styled.h2`
   color: ${props => props.theme.colors.blackPrimary};
   flex: 1;
-  margin-right: 20px;
-  font-family: ${props =>
-    props.theme.fonts.inter18Bold.family};
+  font-family: ${props => props.theme.fonts.inter18Bold.family};
   font-size: ${props => props.theme.fonts.inter18Bold.size};
-  font-weight: ${props =>
-    props.theme.fonts.inter18Bold.weight};
-  line-height: ${props =>
-    props.theme.fonts.inter18Bold.lineHeight};
+  font-weight: ${props => props.theme.fonts.inter18Bold.weight};
+  line-height: ${props => props.theme.fonts.inter18Bold.lineHeight};
 `;
-export const DetailsButton = styled.button`
-  background-color: ${props =>
-    props.theme.colors.mediumSlateBlue};
+export const ButtonWrapper = styled.button`
+  width: 40px;
+  height: 40px;
+  background-color: ${props => props.theme.colors.mediumSlateBlue};
   border-radius: 8px;
-  padding: 8px;
+  padding: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  box-shadow: 0 2px 3px 0 rgba(38, 50, 56, 0.2), 0 3px 6px 0 rgba(38, 50, 56, 0.08);
 `;
-export const DetailsButtonVectors = styled.img`
-  padding: 1.14px 1.15px 1.15px 1.14px;
+export const AddressWrapper = styled.div`
   display: flex;
   align-items: center;
-  width: 13.71px;
-  height: 13.71px;
+  width: 100%;
 `;
-export const CardContainerAddress = styled.div`
+export const AddressImageWrapper = styled.div`
+  width: 16px;
+  height: 16px;
   display: flex;
-  align-items: center;
-  width: 375px;
+  align-items: flex-start;
+  margin-right: 2px;
 `;
-export const CardContainerAddressVectors = styled.img`
-  width: 17.29px;
-  height: 23.08px;
-  margin-right: 10px;
-`;
-export const CardContainerAddressValue = styled.div`
-  font-family: "Inter",ui-serif;
-  font-size: 16px;
+export const Address = styled.span`
+  font-family: "Inter";
+  font-size: 14px;
   font-weight: 400;
   line-height: normal;
   color: ${props => props.theme.colors.dimGray};
   flex: 1;
 `;
-export const CardContentContainerKPI = styled.div`
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 375px;
-`;
-export const CardContentContainerKPIValueContainer = styled.div`
-  border-radius: 10px;
+export const KPIWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+`;
+export const KPITitle = styled.span`
+  font-family: ${props => props.theme.fonts.inter18Bold.family};
+  font-size: 14px;
+  font-weight: ${props => props.theme.fonts.inter18Bold.weight};
+  line-height: ${props => props.theme.fonts.inter18Bold.lineHeight};
+  margin-bottom: 8px;
+  color: ${props => props.theme.colors.mediumSlateBlue};
+`;
+export const KPI = styled.span`
+  background-color: #FFEAA7;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  width: 187px;
-  align-self: stretch;
-`;
-export const CardContentContainerKPIValueContainerDescription = styled.div`
-  font-family: "Inter",system-ui;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: normal;
-  color: ${props => props.theme.colors.mediumSlateBlue};
-  text-align: center;
-  padding: 10px;
-`;
-export const Value1 = styled.div`
-  background-color: ${props =>
-          props.theme.colors.sandyBrown};
+  padding: 6px 0;
+  width: 100px;
+  height: 30px;
   border-radius: 10px;
-  padding: 6px;
-  height: 22px;
-  width: 140px;
-  /*display: flex;
-  align-items: center;*/
   color: ${props => props.theme.colors.mediumSlateBlue};
-  text-align: center;
-  font-family: ${props =>
-    props.theme.fonts.inter18Medium.family};
-  font-size: ${props =>
-    props.theme.fonts.inter18Medium.size};
-  font-weight: ${props =>
-    props.theme.fonts.inter18Medium.weight};
-  line-height: ${props =>
-    props.theme.fonts.inter18Medium.lineHeight};
 `;
+

@@ -1,18 +1,22 @@
 import PropertyCard from "./PropertyCard";
 import styled from "styled-components";
 
-export default function PropertyShowcase() {
+export default function PropertyShowcase({properties}) {
 
     return (
-        <Showcase>
-            <PropertyCard/>
-        </Showcase>
+        <Wrapper>
+            {
+                properties.map(property => <PropertyCard key={property.propertyId} property={property}/> )
+            }
+        </Wrapper>
     )
 }
 
-const Showcase = styled.div`
+const Wrapper = styled.section`
   display: flex;
   flex-wrap: wrap;
-  margin: 12px;
   justify-content: left;
+  align-items: center;
+  min-height: calc(50vh - 60px);
+  max-width: 1920px;
 `

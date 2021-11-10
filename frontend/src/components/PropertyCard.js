@@ -1,53 +1,51 @@
 import React from "react";
 import {
-    CardSurface,
-    CardImage,
-    CardContent,
-    CardContainerTitle,
-    CardContainerTitleText,
-    DetailsButton,
-    DetailsButtonVectors,
-    CardContainerAddress,
-    CardContainerAddressVectors,
-    CardContainerAddressValue,
-    CardContentContainerKPI,
-    CardContentContainerKPIValueContainer,
-    CardContentContainerKPIValueContainerDescription,
-    Value1
+    CardWrapper,
+    CardImageWrapper, CardImage,
+    CardContentWrapper,
+    CardSection, Divider,
+    CardTitle, ButtonWrapper,
+    AddressWrapper, AddressImageWrapper, Address,
+    KPIWrapper, KPITitle, KPI
 } from "../styles/PropertyCard.style";
+import {Image} from "../styles/Header.style";
+import {useHistory} from "react-router-dom";
 
-const PropertyCard = () => {
+export default function PropertyCard({property}){
+    const history = useHistory()
+
     return (
-        <CardSurface>
-            <CardImage src={process.env.PUBLIC_URL + "/RealEstateExample.png"} alt="RealEstateExample"/>
-            <CardContent>
-                <CardContainerTitle>
-                    <CardContainerTitleText>Write a title here</CardContainerTitleText>
-                    <DetailsButton>
-                        <DetailsButtonVectors src={process.env.PUBLIC_URL + "/DetailsButtonLogo.svg"} alt="DetailsButton"/>
-                    </DetailsButton>
-                </CardContainerTitle>
-                <CardContainerAddress>
-                    <CardContainerAddressVectors src={process.env.PUBLIC_URL + "/AddressLogo.svg"} alt="AddressLogo"/>
-                    <CardContainerAddressValue>
-                        Markstrasse 2, Berlin
-                    </CardContainerAddressValue>
-                </CardContainerAddress>
-                <CardContentContainerKPI>
-                    <CardContentContainerKPIValueContainer>
-                        <CardContentContainerKPIValueContainerDescription>
-                            Return on Investment
-                        </CardContentContainerKPIValueContainerDescription>
-                        <Value1>2.3 %</Value1>
-                    </CardContentContainerKPIValueContainer>
-                    <CardContentContainerKPIValueContainer>
-                        <CardContentContainerKPIValueContainerDescription>Cash Flow</CardContentContainerKPIValueContainerDescription>
-                        <Value1>820 €</Value1>
-                    </CardContentContainerKPIValueContainer>
-                </CardContentContainerKPI>
-            </CardContent>
-        </CardSurface>
-    );
-};
-
-export default PropertyCard;
+        <CardWrapper>
+            <CardImageWrapper>
+                <CardImage src={process.env.PUBLIC_URL + "/RealEstateExample.png"} alt="RealEstateExample"/>
+            </CardImageWrapper>
+            <CardContentWrapper>
+                <CardSection>
+                    <CardTitle>{property.propertyName}</CardTitle>
+                    <ButtonWrapper onClick={()=> history.push(`properties/${property.propertyId}`)}>
+                        <Image src={process.env.PUBLIC_URL + "/DetailsLogoWhite.svg"} alt={"DetailsLogoWhite"}/>
+                    </ButtonWrapper>
+                </CardSection>
+                <CardSection>
+                    <AddressWrapper>
+                        <AddressImageWrapper>
+                            <Image src={process.env.PUBLIC_URL + "/AddressLogo.svg"} alt="AddressLogo"/>
+                        </AddressImageWrapper>
+                        <Address>{property.address.street} {property.address.number}, {property.address.city}</Address>
+                    </AddressWrapper>
+                </CardSection>
+                <Divider/>
+                <CardSection>
+                    <KPIWrapper>
+                        <KPITitle>Return on Investment</KPITitle>
+                        <KPI>{property.adjustedNetReturn}</KPI>
+                    </KPIWrapper>
+                    <KPIWrapper>
+                        <KPITitle>Cashflow</KPITitle>
+                        <KPI> {property.CFBTMonth}</KPI>
+                    </KPIWrapper>
+                </CardSection>
+            </CardContentWrapper>
+        </CardWrapper>
+    )
+}
