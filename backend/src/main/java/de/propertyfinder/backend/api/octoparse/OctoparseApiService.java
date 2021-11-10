@@ -84,8 +84,6 @@ public class OctoparseApiService {
     public List<OctoparseApiDto> mapToOctoparseApiDto(String allDataFromOctoparseApi) throws JsonProcessingException {
         final ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
-        /*OctoparseApiDto[] propertyArrayofObjects = objectMapper.readValue(allDataFromOctoparseApi, OctoparseApiDto[].class);
-        List<OctoparseApiDto> listOfPropertyObjects = new ArrayList(Arrays.asList(propertyArrayofObjects));*/
         List<OctoparseApiDto> listOfPropertyObjects = objectMapper.readValue(allDataFromOctoparseApi, new TypeReference<List<OctoparseApiDto>>(){});
         return listOfPropertyObjects;
     }

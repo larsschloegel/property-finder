@@ -1,8 +1,13 @@
 package de.propertyfinder.backend.api.octoparse;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class OctoparseApiDto {
 
     @JsonProperty("ansprechpartnerimpressum")
