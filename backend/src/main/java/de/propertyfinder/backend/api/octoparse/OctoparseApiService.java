@@ -40,7 +40,6 @@ public class OctoparseApiService {
 
         String tokenUrl = "https://dataapi.octoparse.com/token";
         String getToken = accessTokenUtil.getToken(userName, passWord, tokenUrl);
-
         String accessToken = getValueFromJson(getToken, "access_token");
         log.info("AccessToken: " + accessToken);
 
