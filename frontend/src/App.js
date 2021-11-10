@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import styled, {ThemeProvider} from "styled-components";
-import stylesheet from "./styles/Stylesheet";
+import stylesheet from "./styles/GlobalStyle";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import SearchInputs from "./pages/SearchInputs";
@@ -42,6 +42,6 @@ export default function App() {
   );
 }
 const PageLayout = styled.div`
-  background-color: #FFEAA7;
+  background-color: ${props => props.theme.colors.sandyBrownTint};
   padding: 20px;
 `

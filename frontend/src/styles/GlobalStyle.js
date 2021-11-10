@@ -7,6 +7,7 @@ export default {
         greyPrimary: "rgba(106,118,118,1)",
         mediumSlateBlue: "rgba(108,92,231,1)",
         sandyBrown: "rgba(253,203,110,1)",
+        sandyBrownTint: "rgb(253,234,167)",
         white: "rgba(255,255,255,1)"
     },
     fonts: {
@@ -20,6 +21,24 @@ export default {
             family: "Inter",
             size: "18px",
             weight: "500",
+            lineHeight: "normal"
+        },
+        inter14Bold: {
+            family: "Inter",
+            size: "14px",
+            weight: "700",
+            lineHeight: "normal"
+        },
+        inter14Medium: {
+            family: "Inter",
+            size: "14px",
+            weight: "400",
+            lineHeight: "normal"
+        },
+        inter48Bold: {
+            family: "Inter",
+            size: "48px",
+            weight: "700",
             lineHeight: "normal"
         }
     }

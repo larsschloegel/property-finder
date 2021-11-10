@@ -32,10 +32,10 @@ export const ApplicationNameLogo = styled.svg`
   height: 55px;
 `;
 export const ApplicationNameTitle = styled.div`
-  font-family: "Inter",system-ui;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: normal;
+  font-family: ${props => props.theme.fonts.inter18Bold.family};
+  font-size: ${props => props.theme.fonts.inter18Bold.size};
+  font-weight: ${props => props.theme.fonts.inter18Bold.weight};
+  line-height: ${props => props.theme.fonts.inter18Bold.lineHeight};
   color: ${props => props.theme.colors.mediumSlateBlue};
 `;
 export const NavigationBar = styled.div`
@@ -72,11 +72,12 @@ export const Image = styled.img`
   height: 100%
 `;
 export const NavTitle = styled.p`
-  font-family: "Inter",system-ui;
+  font-family: ${props => props.theme.fonts.inter18Bold.family};
+  font-size: ${props => props.theme.fonts.inter18Bold.size};
+  font-weight: ${props => props.theme.fonts.inter18Bold.weight};
+  line-height: ${props => props.theme.fonts.inter18Bold.lineHeight};
   color: rgba(45, 52, 54, 1);
   letter-spacing: 0.2px;
-  font-weight: 700;
-  line-height: normal;
 `;
 
 
