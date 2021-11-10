@@ -24,25 +24,25 @@ const Header = () => {
             <NavigationBar>
                 <NavItem to="/">
                     <ImageWrapper>
-                        <Image src={process.env.PUBLIC_URL + "/HomeLogo.svg"} alt={"HomeLogo"}/>
+                        <Image src={"/HomeLogo.svg"} alt={"Home Logo"}/>
                     </ImageWrapper>
                     <NavTitle>Home</NavTitle>
                 </NavItem>
                 <NavItem to="/search-inputs" >
                     <ImageWrapper>
-                        <Image src={process.env.PUBLIC_URL + "/DetailsLogo.svg"} alt={"SearchInputsLogo"}/>
+                        <Image src={"/DetailsLogo.svg"} alt={"Search Inputs Logo"}/>
                     </ImageWrapper>
                     <NavTitle>Search Inputs</NavTitle>
                 </NavItem>
                 <NavItem to="/properties">
                     <ImageWrapper>
-                        <Image src={process.env.PUBLIC_URL + "/PropertiesLogo.svg"} alt={"PropertiesLogo"}/>
+                        <Image src={"/PropertiesLogo.svg"} alt={"Properties Logo"}/>
                     </ImageWrapper>
                     <NavTitle>Properties</NavTitle>
                 </NavItem>
                 <NavItem to="/login">
                     <ImageWrapper>
-                        <Image src={process.env.PUBLIC_URL + "/LoginLogo.svg"} alt={"LoginLogo"}/>
+                        <Image src={"/LoginLogo.svg"} alt={"Login Logo"}/>
                     </ImageWrapper>
                     <NavTitle>Login</NavTitle>
                 </NavItem>
