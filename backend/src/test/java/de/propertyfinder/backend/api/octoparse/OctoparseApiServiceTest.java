@@ -43,7 +43,7 @@ class OctoparseApiServiceTest {
             fail();
         } catch (NullPointerException e) {
             //Then
-            assertEquals(e.getMessage(), "Key " + "\"" + key + "\"" + " not found in JSON");
+            assertEquals(e.getMessage(), "Key \"" + key + "\" not found in JSON");
         }
     }
 

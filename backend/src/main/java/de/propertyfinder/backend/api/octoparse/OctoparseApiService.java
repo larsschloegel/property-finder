@@ -31,6 +31,7 @@ public class OctoparseApiService {
 
     private final AccessTokenUtil accessTokenUtil;
     private final ApiConnectionUtil apiConnectionUtil;
+    private final String BASEURL = "https://dataapi.octoparse.com/";
 
     public OctoparseApiService(AccessTokenUtil accessTokenUtil, ApiConnectionUtil apiConnectionUtil) {
         this.accessTokenUtil = accessTokenUtil;
@@ -39,7 +40,7 @@ public class OctoparseApiService {
 
     public List<OctoparseApiDto> getAllProperties() throws JsonProcessingException {
 
-        String tokenUrl = "https://dataapi.octoparse.com/token";
+        String tokenUrl = BASEURL + "token";
         String getToken = accessTokenUtil.getToken(userName, passWord, tokenUrl);
         String accessToken = getValueFromJson(getToken, "access_token");
         log.info("AccessToken: " + accessToken);
@@ -73,7 +74,7 @@ public class OctoparseApiService {
         JSONObject jsonString = (JSONObject) JSON.parse(JsonInput);
         String value = jsonString.getString(key);
         if(value == null){
-            throw new NullPointerException("Key "+  "\"" + key + "\"" + " not found in JSON");
+            throw new NullPointerException("Key \"" + key + "\" not found in JSON");
         }
         return value;
     }
@@ -83,7 +84,7 @@ public class OctoparseApiService {
         String offset = "0";
         String size = "1000";
         int restTotal = 1;
-        String allDataUrlOctoparse = "https://dataapi.octoparse.com/api/alldata/GetDataOfTaskByOffset";
+        String allDataUrlOctoparse = BASEURL+ "api/alldata/GetDataOfTaskByOffset";
         JSONArray finalArray = new JSONArray();
         do {
             //send request
