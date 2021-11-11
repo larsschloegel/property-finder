@@ -12,8 +12,9 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 
 @Slf4j
@@ -44,8 +45,28 @@ public class OctoparseApiService {
         log.info("AccessToken: " + accessToken);
 
         String allDataFromOctoparseApi = getAllDataFromOctoparse(accessToken);
-        return mapToOctoparseApiDto(allDataFromOctoparseApi);
+        List<OctoparseApiDto> octoparseApiDtoList = mapToOctoparseApiDto(allDataFromOctoparseApi);
+        List<OctoparseApiDto> octoparseApiDtoListFilterd = filterOctparseApiData(octoparseApiDtoList);
+
+        return octoparseApiDtoListFilterd;
     }
+
+    private List<OctoparseApiDto> filterOctparseApiData(List<OctoparseApiDto> octoparseApiDtoList) {
+        return octoparseApiDtoList.stream()
+                .filter(string -> !string.getPurchasePrice().isEmpty())
+                .map(propertyObject -> {
+                    propertyObject.setPropertyTyp(propertyObject.getPropertyTyp().replaceAll("[/\\s/g]",""));
+                    propertyObject.setPurchasePrice(propertyObject.getPurchasePrice().replaceAll("[/\\s/g/€]",""));
+                    propertyObject.setSize(propertyObject.getSize().replaceAll("[/\\s/g/m²]",""));
+                    propertyObject.setRoomCount(propertyObject.getRoomCount().replaceAll("[/\\s/g]",""));
+                    propertyObject.setId(propertyObject.getId().replaceAll("[/\\s/g]",""));
+                    propertyObject.setUsableArea(propertyObject.getUsableArea().replaceAll("[/\\s/g/m²]",""));
+                    propertyObject.setLandArea(propertyObject.getLandArea().replaceAll("[/\\s/g/m²]",""));
+                return propertyObject;
+                })
+                .collect(Collectors.toList());
+    }
+
 
     public String getValueFromJson(String JsonInput, String key) {
         JSONObject jsonString = (JSONObject) JSON.parse(JsonInput);
