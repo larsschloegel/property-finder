@@ -51,7 +51,7 @@ public class OctoparseApiService {
         return octoparseApiDtoListFilterd;
     }
 
-    private List<OctoparseApiDto> filterOctparseApiData(List<OctoparseApiDto> octoparseApiDtoList) {
+    public List<OctoparseApiDto> filterOctparseApiData(List<OctoparseApiDto> octoparseApiDtoList) {
         String removeSpacesAndTabs = "[/\\sg]";
         String removeSpacesTabsAndUnit = "[/\\sgm²]";
         return octoparseApiDtoList.stream()
@@ -62,7 +62,6 @@ public class OctoparseApiService {
                     propertyObject.setSize(propertyObject.getSize().replaceAll(removeSpacesTabsAndUnit,""));
                     propertyObject.setRoomCount(propertyObject.getRoomCount().replaceAll(removeSpacesAndTabs,""));
                     propertyObject.setId(propertyObject.getId().replaceAll(removeSpacesAndTabs,"").replaceFirst("Objekt-Nr.:WHPO\\|Scout-ID:",""));
-                    //propertyObject.setId(propertyObject.getId().substring(18));
                     propertyObject.setUsableArea(propertyObject.getUsableArea().replaceAll(removeSpacesTabsAndUnit,""));
                     propertyObject.setLandArea(propertyObject.getLandArea().replaceAll(removeSpacesTabsAndUnit,""));
                 return propertyObject;
