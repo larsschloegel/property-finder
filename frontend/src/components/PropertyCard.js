@@ -17,19 +17,19 @@ export default function PropertyCard({property}){
     return (
         <CardWrapper>
             <CardImageWrapper>
-                <CardImage src={process.env.PUBLIC_URL + "/RealEstateExample.png"} alt="RealEstateExample"/>
+                <CardImage src={"/RealEstateExample.png"} alt="Real Estate Example"/>
             </CardImageWrapper>
             <CardContentWrapper>
                 <CardSection>
                     <CardTitle>{property.propertyName}</CardTitle>
                     <ButtonWrapper onClick={()=> history.push(`properties/${property.propertyId}`)}>
-                        <Image src={process.env.PUBLIC_URL + "/DetailsLogoWhite.svg"} alt={"DetailsLogoWhite"}/>
+                        <Image src={"/DetailsLogoWhite.svg"} alt={"Details Logo White"}/>
                     </ButtonWrapper>
                 </CardSection>
                 <CardSection>
                     <AddressWrapper>
                         <AddressImageWrapper>
-                            <Image src={process.env.PUBLIC_URL + "/AddressLogo.svg"} alt="AddressLogo"/>
+                            <Image src={"/AddressLogo.svg"} alt="Address Logo"/>
                         </AddressImageWrapper>
                         <Address>{property.address.street} {property.address.number}, {property.address.city}</Address>
                     </AddressWrapper>

@@ -44,8 +44,8 @@ export const Divider = styled.div`
 `;
 
 export const CardTitle = styled.h2`
-  color: ${props => props.theme.colors.blackPrimary};
   flex: 1;
+  color: ${props => props.theme.colors.blackPrimary};
   font-family: ${props => props.theme.fonts.inter18Bold.family};
   font-size: ${props => props.theme.fonts.inter18Bold.size};
   font-weight: ${props => props.theme.fonts.inter18Bold.weight};
@@ -76,10 +76,10 @@ export const AddressImageWrapper = styled.div`
   margin-right: 2px;
 `;
 export const Address = styled.span`
-  font-family: "Inter";
-  font-size: 14px;
-  font-weight: 400;
-  line-height: normal;
+  font-family: ${props => props.theme.fonts.inter14Medium.family};
+  font-size: ${props => props.theme.fonts.inter14Medium.size};
+  font-weight: ${props => props.theme.fonts.inter14Medium.weight};
+  line-height: ${props => props.theme.fonts.inter14Medium.lineHeight};
   color: ${props => props.theme.colors.dimGray};
   flex: 1;
 `;
@@ -90,14 +90,18 @@ export const KPIWrapper = styled.div`
   width: 100%;
 `;
 export const KPITitle = styled.span`
-  font-family: ${props => props.theme.fonts.inter18Bold.family};
-  font-size: 14px;
-  font-weight: ${props => props.theme.fonts.inter18Bold.weight};
-  line-height: ${props => props.theme.fonts.inter18Bold.lineHeight};
+  font-family: ${props => props.theme.fonts.inter14Bold.family};
+  font-size: ${props => props.theme.fonts.inter14Bold.size};
+  font-weight: ${props => props.theme.fonts.inter14Bold.weight};
+  line-height: ${props => props.theme.fonts.inter14Bold.lineHeight};
   margin-bottom: 8px;
   color: ${props => props.theme.colors.mediumSlateBlue};
 `;
 export const KPI = styled.span`
+  font-family: ${props => props.theme.fonts.inter14Medium.family};
+  font-size: ${props => props.theme.fonts.inter14Medium.size};
+  font-weight: ${props => props.theme.fonts.inter14Medium.weight};
+  line-height: ${props => props.theme.fonts.inter14Medium.lineHeight};
   background-color: #FFEAA7;
   display: flex;
   align-items: center;
