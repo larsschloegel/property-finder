@@ -52,21 +52,22 @@ public class OctoparseApiService {
     }
 
     private List<OctoparseApiDto> filterOctparseApiData(List<OctoparseApiDto> octoparseApiDtoList) {
+        String removeSpacesAndTabs = "[/\\sg]";
+        String removeSpacesTabsAndUnit = "[/\\sgm²]";
         return octoparseApiDtoList.stream()
                 .filter(string -> !string.getPurchasePrice().isEmpty())
                 .map(propertyObject -> {
-                    propertyObject.setPropertyTyp(propertyObject.getPropertyTyp().replaceAll("[/\\s/g]",""));
-                    propertyObject.setPurchasePrice(propertyObject.getPurchasePrice().replaceAll("[/\\s/g/€]",""));
-                    propertyObject.setSize(propertyObject.getSize().replaceAll("[/\\s/g/m²]",""));
-                    propertyObject.setRoomCount(propertyObject.getRoomCount().replaceAll("[/\\s/g]",""));
-                    propertyObject.setId(propertyObject.getId().replaceAll("[/\\s/g]",""));
-                    propertyObject.setUsableArea(propertyObject.getUsableArea().replaceAll("[/\\s/g/m²]",""));
-                    propertyObject.setLandArea(propertyObject.getLandArea().replaceAll("[/\\s/g/m²]",""));
+                    propertyObject.setPropertyTyp(propertyObject.getPropertyTyp().replaceAll(removeSpacesAndTabs,""));
+                    propertyObject.setPurchasePrice(propertyObject.getPurchasePrice().replaceAll("[/\\sg€]",""));
+                    propertyObject.setSize(propertyObject.getSize().replaceAll(removeSpacesTabsAndUnit,""));
+                    propertyObject.setRoomCount(propertyObject.getRoomCount().replaceAll(removeSpacesAndTabs,""));
+                    propertyObject.setId(propertyObject.getId().replaceAll(removeSpacesAndTabs,""));
+                    propertyObject.setUsableArea(propertyObject.getUsableArea().replaceAll(removeSpacesTabsAndUnit,""));
+                    propertyObject.setLandArea(propertyObject.getLandArea().replaceAll(removeSpacesTabsAndUnit,""));
                 return propertyObject;
                 })
                 .collect(Collectors.toList());
     }
-
 
     public String getValueFromJson(String JsonInput, String key) {
         JSONObject jsonString = (JSONObject) JSON.parse(JsonInput);
