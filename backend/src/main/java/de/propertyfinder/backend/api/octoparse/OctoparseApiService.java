@@ -6,14 +6,12 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 
@@ -33,6 +31,7 @@ public class OctoparseApiService {
     private final ApiConnectionUtil apiConnectionUtil;
     private final String BASEURL = "https://dataapi.octoparse.com/";
 
+    @Autowired
     public OctoparseApiService(AccessTokenUtil accessTokenUtil, ApiConnectionUtil apiConnectionUtil) {
         this.accessTokenUtil = accessTokenUtil;
         this.apiConnectionUtil = apiConnectionUtil;

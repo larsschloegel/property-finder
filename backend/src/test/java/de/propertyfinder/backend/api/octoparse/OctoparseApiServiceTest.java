@@ -65,7 +65,7 @@ class OctoparseApiServiceTest {
 
     @Test
     @DisplayName("returns Filterd List of ApiDto")
-    void filterOctparseApiDataTest() throws JsonProcessingException {
+    void filterOctparseApiDataTest()  {
         //Given
         List<OctoparseApiDto> octoparseApiDtoList = List.of(new OctoparseApiDto("", "", "", "", "", "\n        Villa\n        \n      ", "\n          \n            \n            315.000 €\n          \n        ", "\n                220  m²\n            ", "\n                10\n            ",
                         "\n        \n          Objekt-Nr.: WHPO |\n        \n        Scout-ID: 126237570\n      ", "", "\n                    157  m²\n                    \n                    \n                    \n                ", "\n                760  m²\n            "));
