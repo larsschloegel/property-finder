@@ -38,9 +38,10 @@ export const CardSection = styled.section`
   padding: 5px;
 `;
 export const Divider = styled.div`
-  height: 3px;
+  height: 4px;
   background-color: ${props => props.theme.colors.mediumSlateBlue};
   margin: 10px 0px 10px 0px;
+  border-radius: 5px;
 `;
 
 export const CardTitle = styled.h2`
@@ -107,7 +108,7 @@ export const KPI = styled.span`
   align-items: center;
   justify-content: center;
   padding: 6px 0;
-  width: 100px;
+  width: 150px;
   height: 30px;
   border-radius: 10px;
   color: ${props => props.theme.colors.mediumSlateBlue};

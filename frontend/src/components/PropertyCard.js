@@ -21,8 +21,8 @@ export default function PropertyCard({property}){
             </CardImageWrapper>
             <CardContentWrapper>
                 <CardSection>
-                    <CardTitle>{property.propertyName}</CardTitle>
-                    <ButtonWrapper onClick={()=> history.push(`properties/${property.propertyId}`)}>
+                    <CardTitle>{property.name}</CardTitle>
+                    <ButtonWrapper onClick={()=> history.push(`properties/${property.id}`)}>
                         <Image src={"/DetailsLogoWhite.svg"} alt={"Details Logo White"}/>
                     </ButtonWrapper>
                 </CardSection>
