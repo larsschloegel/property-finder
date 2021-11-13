@@ -1,6 +1,4 @@
-import {
-    StyledTableWithResults
-} from "../../styles/TableWithResults.style";
+import {StyledTableWithResults} from "../../styles/TableWithResults.style";
 import {StyledTableWithoutResults} from "../../styles/TableWithoutResults";
 
 export default function PropertyDetailsTable({property, units}) {
@@ -102,12 +100,12 @@ export default function PropertyDetailsTable({property, units}) {
                 <tr>
                     <td> size</td>
                     <td>{property.size}</td>
-                    <td></td>
+                    <td> </td>
                 </tr>
                 <tr>
                     <td> Maintenance cost and improvements</td>
                     <td>{property.maintenanceCostAndImprovementsFactor}</td>
-                    <td></td>
+                    <td> </td>
                 </tr>
                 <tr>
                     <td> Management fee per year</td>
@@ -119,35 +117,35 @@ export default function PropertyDetailsTable({property, units}) {
                     <td>{property.vacancyRateFactor}</td>
                     <td>{units.percent}</td>
                 </tr>
-                <tr>
+         {/*       <tr>
                     <td> street</td>
                     <td>{property.address.street}</td>
-                    <td></td>
+                    <td> </td>
                 </tr>
                 <tr>
                     <td> number</td>
                     <td>{property.address.number}</td>
-                    <td></td>
+                    <td> </td>
                 </tr>
                 <tr>
                     <td> PLZ</td>
                     <td>{property.address.PLZ}</td>
-                    <td></td>
+                    <td> </td>
                 </tr>
                 <tr>
                     <td> State</td>
                     <td>{property.address.state}</td>
-                    <td></td>
-                </tr>
+                    <td> </td>
+                </tr>*/}
                 <tr>
                     <td> Contact person</td>
                     <td>{property.contactPerson}</td>
-                    <td></td>
+                    <td> </td>
                 </tr>
                 <tr>
                     <td> exposeURL</td>
                     <td>{property.exposeURL}</td>
-                    <td></td>
+                    <td> </td>
                 </tr>
                 </tbody>
             </StyledTableWithoutResults>

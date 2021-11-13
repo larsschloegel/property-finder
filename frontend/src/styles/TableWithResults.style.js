@@ -7,6 +7,8 @@ export const StyledTableWithResults = styled.table`
   border-spacing: 0;
   margin-bottom: 20px;
   border-radius: 20px 20px 20px 20px;
+  table-layout: fixed;
+  overflow-x: auto;
   
   thead, tfoot{
     text-align: left;
@@ -57,5 +59,5 @@ export const StyledTableWithResults = styled.table`
       text-align: right;
     }
   }
-
+  
 `;

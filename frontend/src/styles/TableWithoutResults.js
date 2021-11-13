@@ -7,6 +7,8 @@ export const StyledTableWithoutResults = styled.table`
   border-spacing: 0;
   margin-bottom: 20px;
   border-radius: 20px 20px 20px 20px;
+  table-layout: fixed;
+  overflow-x: auto;
   
   thead {
     text-align: left;
