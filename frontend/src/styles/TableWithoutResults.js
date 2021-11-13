@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledTable = styled.table`
+export const StyledTableWithoutResults = styled.table`
   width: 100%;
   border-collapse: separate;
   background-color: ${props => props.theme.colors.white};
@@ -8,7 +8,7 @@ export const StyledTable = styled.table`
   margin-bottom: 20px;
   border-radius: 20px 20px 20px 20px;
   
-  thead, tfoot{
+  thead {
     text-align: left;
     font-family: ${props => props.theme.fonts.inter18Bold.family};
     font-size: ${props => props.theme.fonts.inter18Bold.size};
@@ -23,25 +23,14 @@ export const StyledTable = styled.table`
   }
   td,th {
     padding: 10px;
-    border: 1px groove ${props => props.theme.colors.grey40};
+    border-left: 1px groove ${props => props.theme.colors.grey40};
+    border-top: 1px groove ${props => props.theme.colors.grey40};
   }
   th {
     background-color: ${props => props.theme.colors.greySecondary};
     color: ${props => props.theme.colors.blackPrimary};
   }
-  tfoot th{
-    :first-child{
-      border-bottom-left-radius: 20px;
-    }
-    :last-child{
-      border-bottom-right-radius: 20px;
-    }
-    border: 1px groove ${props => props.theme.colors.greySecondary};
-    border-top: none;
-    :nth-child(2){
-      text-align: right;
-    }
-  }
+  
   thead th{
     :first-child{
       border-top-left-radius: 20px;
@@ -49,14 +38,15 @@ export const StyledTable = styled.table`
     :last-child{
       border-top-right-radius: 20px;
     }
-    border: 1px groove ${props => props.theme.colors.greySecondary};
-    border-bottom: none;
   }
   tbody td {
     :nth-of-type(2){
       background-color: ${props => props.theme.colors.ligthSlateBlue};
       text-align: right;
     }
+  }
+  td:first-child, th:first-child{
+    border-left: none;
   }
 
 `;

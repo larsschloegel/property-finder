@@ -1,7 +1,7 @@
 import {Heading} from "../styles/Heading.style";
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import PurchasePriceTable from "../components/PropertyDetailsTableWithResults";
+import PropertyDetailsTable from "../components/tables/PropertyDetailsTable";
 
 export default function PropertyDetails({properties, units}) {
 
@@ -12,11 +12,10 @@ export default function PropertyDetails({properties, units}) {
         setProperty(properties.find(property => property.id === id))
     }, [id])
 
-    console.log(property)
     return (
         <section>
             <Heading>Property Details of {property?.name}</Heading>
-            <PurchasePriceTable property={property} units={units}></PurchasePriceTable>
+            <PropertyDetailsTable property={property} units={units}></PropertyDetailsTable>
         </section>
     )
 }
