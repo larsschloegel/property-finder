@@ -13,7 +13,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("properties")
+@RequestMapping("api/properties")
 public class PropertyController {
 
     private final PropertyService propertyService;
