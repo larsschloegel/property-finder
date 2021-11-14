@@ -67,14 +67,14 @@ class OctoparseApiServiceTest {
     @DisplayName("returns Filterd List of ApiDto")
     void filterOctparseApiDataTest()  {
         //Given
-        List<OctoparseApiDto> octoparseApiDtoList = List.of(new OctoparseApiDto("", "", "", "", "", "\n        Villa\n        \n      ", "\n          \n            \n            315.000 €\n          \n        ", "\n                220  m²\n            ", "\n                10\n            ",
+        List<OctoparseApiDto> octoparseApiDtoList = List.of(new OctoparseApiDto("", "", "", "", "", "\n        Villa\n        \n      ", "\n          \n            \n            315.000 €\n          \n        ", "\n                220,23  m²\n            ", "\n                10\n            ",
                         "\n        \n          Objekt-Nr.: WHPO |\n        \n        Scout-ID: 126237570\n      ", "", "\n                    157  m²\n                    \n                    \n                    \n                ", "\n                760  m²\n            "));
         //When
         OctoparseApiService octoparseApiService = new OctoparseApiService(accessTokenUtil, apiConnectionUtil);
         List<OctoparseApiDto> actual = octoparseApiService.filterOctparseApiData(octoparseApiDtoList);
         //Then
         List<OctoparseApiDto> expected = List.of(
-                new OctoparseApiDto("", "", "", "", "", "Villa", "315.000", "220", "10",
+                new OctoparseApiDto("", "", "", "", "", "Villa", "315000", "220.23", "10",
                         "126237570", "", "157", "760")
         );
         assertThat(actual, is(expected));

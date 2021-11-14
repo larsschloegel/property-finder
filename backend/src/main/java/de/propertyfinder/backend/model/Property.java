@@ -17,9 +17,10 @@ public class Property {
     private String name;
 
     private String source;
-    private String exposeURL;
+    private String exposeUrl;
     private String contactPerson;
     private String type;
+    private String imageUrl;
 
     //address
     private String street;
