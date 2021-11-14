@@ -23,13 +23,18 @@ public class PropertyService {
         this.octoparseApiService = octoparseApiService;
     }
 
-    public List<Property> getPropertyList() throws JsonProcessingException {
+    public List<Property> getAllPropertiesFromApiAfterMapping() throws JsonProcessingException {
         List<OctoparseApiDto> octoparseApiDtoList = octoparseApiService.getAllProperties();
         return propertyMapper.toProperties(octoparseApiDtoList);
     }
 
-    public List<Property> addPropertiesFromApi() throws JsonProcessingException {
+    public List<Property> addPropertiesFromApiToDB() throws JsonProcessingException {
+        propertyRepo.deleteAll();
         List<OctoparseApiDto> octoparseApiDtoList = octoparseApiService.getAllProperties();
         return (List<Property>) propertyRepo.saveAll(propertyMapper.toProperties(octoparseApiDtoList));
+    }
+
+    public List<Property> getAllProperties() {
+        return propertyRepo.findAll();
     }
 }
