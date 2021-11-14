@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("properties")
+@RequestMapping()
 public class PropertyController {
     private PropertyService propertyService;
 
@@ -19,8 +19,13 @@ public class PropertyController {
         this.propertyService = propertyService;
     }
 
-    @GetMapping
+    @GetMapping("properties")
     public List<Property> getAllProperties() throws JsonProcessingException {
         return propertyService.getPropertyList();
+    }
+
+    @PostMapping("addproperties")
+    public List<Property> addPropertiesFromApi() throws JsonProcessingException {
+        return propertyService.addPropertiesFromApi();
     }
 }

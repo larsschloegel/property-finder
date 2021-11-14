@@ -18,8 +18,8 @@ public class PropertyMapper {
                 .exposeUrl(octoparseApiDto.getExposeUrl())
                 .contactPerson(octoparseApiDto.getContactPerson())
                 .type(octoparseApiDto.getPropertyTyp())
-                .plz(octoparseApiDto.getAddress())
-                .city(octoparseApiDto.getAddress())
+                .plz(octoparseApiDto.getPlz())
+                .city(octoparseApiDto.getCity())
                 .purchasePriceInEuro(Double.parseDouble(octoparseApiDto.getPurchasePrice()))
                 .sizeInSquareMeter(Double.parseDouble(octoparseApiDto.getSize()))
                 .build();

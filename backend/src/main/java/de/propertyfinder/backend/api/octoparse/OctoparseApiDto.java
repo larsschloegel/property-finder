@@ -14,6 +14,8 @@ public class OctoparseApiDto {
     private String imprintCompany;
     @JsonProperty("address")
     private String address;
+    private String plz;
+    private String city;
     @JsonProperty("ansprechpartner")
     private String contactPerson;
     @JsonProperty("title")

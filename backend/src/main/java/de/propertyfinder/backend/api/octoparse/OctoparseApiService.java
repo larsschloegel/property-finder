@@ -64,6 +64,8 @@ public class OctoparseApiService {
                     propertyObject.setId(propertyObject.getId().replaceAll(removeSpacesAndTabs,"").replaceFirst("Objekt-Nr.:WHPO\\|Scout-ID:",""));
                     propertyObject.setUsableArea(propertyObject.getUsableArea().replaceAll(removeSpacesTabsAndUnit,""));
                     propertyObject.setLandArea(propertyObject.getLandArea().replaceAll(removeSpacesTabsAndUnit,""));
+                    propertyObject.setPlz(propertyObject.getAddress().substring(0,5));
+                    propertyObject.setCity(propertyObject.getAddress().replaceAll("(,).*", "").replaceFirst(".*? ",""));
                 return propertyObject;
                 })
                 .collect(Collectors.toList());
