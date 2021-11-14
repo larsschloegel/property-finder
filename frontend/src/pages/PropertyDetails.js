@@ -14,7 +14,7 @@ export default function PropertyDetails({properties, units}) {
 
     return (
         <section>
-            <Heading>Property Details of {property?.name}</Heading>
+            <Heading>Property Details of "{property?.name}"</Heading>
             <PropertyDetailsTable property={property} units={units}></PropertyDetailsTable>
         </section>
     )

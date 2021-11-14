@@ -31,7 +31,7 @@ export default function PropertyCard({property}){
                         <AddressImageWrapper>
                             <Image src={"/AddressLogo.svg"} alt="Address Logo"/>
                         </AddressImageWrapper>
-                        <Address>{property.street}, {property.city}</Address>
+                        <Address>{property.plz}, {property.city}</Address>
                     </AddressWrapper>
                 </CardSection>
                 <Divider/>
