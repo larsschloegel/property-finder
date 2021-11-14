@@ -9,6 +9,8 @@ import de.propertyfinder.backend.repo.PropertyRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 public class PropertyService {
@@ -36,5 +38,13 @@ public class PropertyService {
 
     public List<Property> getAllProperties() {
         return propertyRepo.findAll();
+    }
+
+    public Property getSingleProperty(String id){
+        Optional<Property> optionalProperty = propertyRepo.findById(id);
+        if (optionalProperty.isEmpty()){
+            throw new NoSuchElementException("Property with id: "+ id +" not found!");
+        }
+        return optionalProperty.get();
     }
 }
