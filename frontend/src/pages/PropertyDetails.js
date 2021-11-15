@@ -1,21 +1,15 @@
 import {Heading} from "../styles/Heading.style";
-import {useParams} from "react-router-dom";
-import {useEffect, useState} from "react";
 import PropertyDetailsTable from "../components/tables/PropertyDetailsTable";
+import useSingleProperty from "../hooks/useSingleProperty";
 
-export default function PropertyDetails({properties, units}) {
+export default function PropertyDetails({units}) {
 
-    const {id} = useParams();
-    const [property, setProperty] = useState([]);
-
-    useEffect(()=>{
-        setProperty(properties.find(property => property.id === id))
-    }, [id])
+    const {property} = useSingleProperty()
 
     return (
         <section>
-            <Heading>Property Details of {property?.name}</Heading>
-            <PropertyDetailsTable property={property} units={units}></PropertyDetailsTable>
+            <Heading>Property Details of "{property.name}"</Heading>
+            <PropertyDetailsTable property={property} units={units}/>
         </section>
     )
 }

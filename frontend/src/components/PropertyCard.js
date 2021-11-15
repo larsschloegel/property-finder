@@ -31,18 +31,18 @@ export default function PropertyCard({property}){
                         <AddressImageWrapper>
                             <Image src={"/AddressLogo.svg"} alt="Address Logo"/>
                         </AddressImageWrapper>
-                        <Address>{property.address.street} {property.address.number}, {property.address.city}</Address>
+                        <Address>{property.plz}, {property.city}</Address>
                     </AddressWrapper>
                 </CardSection>
                 <Divider/>
                 <CardSection>
                     <KPIWrapper>
                         <KPITitle>Return on Investment</KPITitle>
-                        <KPI>{property.adjustedNetReturn}</KPI>
+                        <KPI>{property.adjustedNetReturnInPercent}</KPI>
                     </KPIWrapper>
                     <KPIWrapper>
                         <KPITitle>Cashflow</KPITitle>
-                        <KPI> {property.CFBTMonth}</KPI>
+                        <KPI> {property.cfbtInEuroPerMonth}</KPI>
                     </KPIWrapper>
                 </CardSection>
             </CardContentWrapper>

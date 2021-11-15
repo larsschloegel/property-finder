@@ -9,6 +9,7 @@ export const CardWrapper = styled.article`
   margin: 12px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   padding: 16px;
+  width: 375px;
 `;
 
 export const CardImageWrapper = styled.div`
@@ -45,12 +46,18 @@ export const Divider = styled.div`
 `;
 
 export const CardTitle = styled.h2`
-  flex: 1;
   color: ${props => props.theme.colors.blackPrimary};
   font-family: ${props => props.theme.fonts.inter18Bold.family};
   font-size: ${props => props.theme.fonts.inter18Bold.size};
   font-weight: ${props => props.theme.fonts.inter18Bold.weight};
   line-height: ${props => props.theme.fonts.inter18Bold.lineHeight};
+  margin: 0px;
+  padding: 0px;
+  width: 360px;
+  height: 22px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 `;
 export const ButtonWrapper = styled.button`
   width: 40px;
