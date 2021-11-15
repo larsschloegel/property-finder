@@ -17,12 +17,12 @@ import java.util.List;
 public class AdminController {
     private PropertyService propertyService;
 
-    @GetMapping("admin/properties")
+    @GetMapping("api/admin/properties")
     public List<Property> getAllPropertiesFromApiAfterMapping() throws JsonProcessingException {
         return propertyService.getAllPropertiesFromApiAfterMapping();
     }
 
-    @PostMapping("admin/addproperties")
+    @PostMapping("api/admin/addproperties")
     public List<Property> addPropertiesFromApiToDB() throws JsonProcessingException {
         return propertyService.addPropertiesFromApiToDB();
     }

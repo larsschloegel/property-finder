@@ -54,6 +54,10 @@ export const CardTitle = styled.h2`
   margin: 0px;
   padding: 0px;
   width: 360px;
+  height: 22px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 `;
 export const ButtonWrapper = styled.button`
   width: 40px;
