@@ -1,7 +1,6 @@
 package de.propertyfinder.backend.api.octoparse;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;

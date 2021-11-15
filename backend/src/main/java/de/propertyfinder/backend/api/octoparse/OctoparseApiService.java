@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,6 +18,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class OctoparseApiService {
     @Value("${de.propertyfinder.backend.octoparse.userName}")
     private String userName;
@@ -30,12 +32,6 @@ public class OctoparseApiService {
     private final AccessTokenUtil accessTokenUtil;
     private final ApiConnectionUtil apiConnectionUtil;
     private final String BASEURL = "https://dataapi.octoparse.com/";
-
-    @Autowired
-    public OctoparseApiService(AccessTokenUtil accessTokenUtil, ApiConnectionUtil apiConnectionUtil) {
-        this.accessTokenUtil = accessTokenUtil;
-        this.apiConnectionUtil = apiConnectionUtil;
-    }
 
     public List<OctoparseApiDto> getAllProperties() throws JsonProcessingException {
 
