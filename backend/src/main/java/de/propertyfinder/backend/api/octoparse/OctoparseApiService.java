@@ -48,22 +48,9 @@ public class OctoparseApiService {
     }
 
     public List<OctoparseApiDto> filterOctparseApiData(List<OctoparseApiDto> octoparseApiDtoList) {
-        String removeSpacesAndTabs = "[/\\sg]";
-        String removeSpacesTabsAndUnit = "[/\\sgm²]";
-        return octoparseApiDtoList.stream()
-                .filter(string -> !string.getPurchasePrice().isEmpty() && !string.getSize().isEmpty())
-                .map(propertyObject -> {
-                    propertyObject.setPropertyTyp(propertyObject.getPropertyTyp().replaceAll(removeSpacesAndTabs,""));
-                    propertyObject.setPurchasePrice(propertyObject.getPurchasePrice().replaceAll("[/\\sg€.]",""));
-                    propertyObject.setSize(propertyObject.getSize().replaceAll(removeSpacesTabsAndUnit,"").replaceAll("[,]","."));
-                    propertyObject.setRoomCount(propertyObject.getRoomCount().replaceAll(removeSpacesAndTabs,""));
-                    propertyObject.setId(propertyObject.getId().replaceAll(removeSpacesAndTabs,"").replaceFirst("Objekt-Nr.:WHPO\\|Scout-ID:",""));
-                    propertyObject.setUsableArea(propertyObject.getUsableArea().replaceAll(removeSpacesTabsAndUnit,""));
-                    propertyObject.setLandArea(propertyObject.getLandArea().replaceAll(removeSpacesTabsAndUnit,""));
-                    propertyObject.setPlz(propertyObject.getAddress().substring(0,5));
-                    propertyObject.setCity(propertyObject.getAddress().replaceAll("(,).*", "").replaceFirst(".*? ",""));
-                return propertyObject;
-                })
+                return octoparseApiDtoList.stream()
+                .filter(propertyObject -> !propertyObject.getPurchasePrice().isEmpty() && !propertyObject.getSize().isEmpty())
+                .map(this::cleanPropertyObject)
                 .collect(Collectors.toList());
     }
 
@@ -105,5 +92,20 @@ public class OctoparseApiService {
         objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         List<OctoparseApiDto> listOfPropertyObjects = objectMapper.readValue(allDataFromOctoparseApi, new TypeReference<List<OctoparseApiDto>>(){});
         return listOfPropertyObjects;
+    }
+
+    public OctoparseApiDto cleanPropertyObject (OctoparseApiDto propertyObject){
+        String removeSpacesAndTabs = "[/\\sg]";
+        String removeSpacesTabsAndUnit = "[/\\sgm²]";
+        propertyObject.setPropertyTyp(propertyObject.getPropertyTyp().replaceAll(removeSpacesAndTabs,""));
+        propertyObject.setPurchasePrice(propertyObject.getPurchasePrice().replaceAll("[/\\sg€.]",""));
+        propertyObject.setSize(propertyObject.getSize().replaceAll(removeSpacesTabsAndUnit,"").replaceAll("[,]","."));
+        propertyObject.setRoomCount(propertyObject.getRoomCount().replaceAll(removeSpacesAndTabs,""));
+        propertyObject.setId(propertyObject.getId().replaceAll(removeSpacesAndTabs,"").replaceFirst("Objekt-Nr.:WHPO\\|Scout-ID:",""));
+        propertyObject.setUsableArea(propertyObject.getUsableArea().replaceAll(removeSpacesTabsAndUnit,""));
+        propertyObject.setLandArea(propertyObject.getLandArea().replaceAll(removeSpacesTabsAndUnit,""));
+        propertyObject.setPlz(propertyObject.getAddress().substring(0,5));
+        propertyObject.setCity(propertyObject.getAddress().replaceAll("(,).*", "").replaceFirst(".*? ",""));
+        return propertyObject;
     }
 }
