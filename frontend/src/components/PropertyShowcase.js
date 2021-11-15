@@ -6,7 +6,7 @@ export default function PropertyShowcase({properties}) {
     return (
         <Wrapper>
             {
-                properties.map(property => <PropertyCard key={property.propertyId} property={property}/> )
+                properties.map(property => <PropertyCard key={property.id} property={property}/> )
             }
         </Wrapper>
     )

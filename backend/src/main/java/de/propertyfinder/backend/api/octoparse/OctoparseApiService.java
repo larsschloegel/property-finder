@@ -6,14 +6,13 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Slf4j
@@ -30,7 +29,9 @@ public class OctoparseApiService {
 
     private final AccessTokenUtil accessTokenUtil;
     private final ApiConnectionUtil apiConnectionUtil;
+    private final String BASEURL = "https://dataapi.octoparse.com/";
 
+    @Autowired
     public OctoparseApiService(AccessTokenUtil accessTokenUtil, ApiConnectionUtil apiConnectionUtil) {
         this.accessTokenUtil = accessTokenUtil;
         this.apiConnectionUtil = apiConnectionUtil;
@@ -38,20 +39,41 @@ public class OctoparseApiService {
 
     public List<OctoparseApiDto> getAllProperties() throws JsonProcessingException {
 
-        String tokenUrl = "https://dataapi.octoparse.com/token";
+        String tokenUrl = BASEURL + "token";
         String getToken = accessTokenUtil.getToken(userName, passWord, tokenUrl);
         String accessToken = getValueFromJson(getToken, "access_token");
         log.info("AccessToken: " + accessToken);
 
         String allDataFromOctoparseApi = getAllDataFromOctoparse(accessToken);
-        return mapToOctoparseApiDto(allDataFromOctoparseApi);
+        List<OctoparseApiDto> octoparseApiDtoList = mapToOctoparseApiDto(allDataFromOctoparseApi);
+        List<OctoparseApiDto> octoparseApiDtoListFilterd = filterOctparseApiData(octoparseApiDtoList);
+
+        return octoparseApiDtoListFilterd;
+    }
+
+    public List<OctoparseApiDto> filterOctparseApiData(List<OctoparseApiDto> octoparseApiDtoList) {
+        String removeSpacesAndTabs = "[/\\sg]";
+        String removeSpacesTabsAndUnit = "[/\\sgm²]";
+        return octoparseApiDtoList.stream()
+                .filter(string -> !string.getPurchasePrice().isEmpty())
+                .map(propertyObject -> {
+                    propertyObject.setPropertyTyp(propertyObject.getPropertyTyp().replaceAll(removeSpacesAndTabs,""));
+                    propertyObject.setPurchasePrice(propertyObject.getPurchasePrice().replaceAll("[/\\sg€]",""));
+                    propertyObject.setSize(propertyObject.getSize().replaceAll(removeSpacesTabsAndUnit,""));
+                    propertyObject.setRoomCount(propertyObject.getRoomCount().replaceAll(removeSpacesAndTabs,""));
+                    propertyObject.setId(propertyObject.getId().replaceAll(removeSpacesAndTabs,"").replaceFirst("Objekt-Nr.:WHPO\\|Scout-ID:",""));
+                    propertyObject.setUsableArea(propertyObject.getUsableArea().replaceAll(removeSpacesTabsAndUnit,""));
+                    propertyObject.setLandArea(propertyObject.getLandArea().replaceAll(removeSpacesTabsAndUnit,""));
+                return propertyObject;
+                })
+                .collect(Collectors.toList());
     }
 
     public String getValueFromJson(String JsonInput, String key) {
         JSONObject jsonString = (JSONObject) JSON.parse(JsonInput);
         String value = jsonString.getString(key);
         if(value == null){
-            throw new NullPointerException("Key "+  "\"" + key + "\"" + " not found in JSON");
+            throw new NullPointerException("Key \"" + key + "\" not found in JSON");
         }
         return value;
     }
@@ -61,7 +83,7 @@ public class OctoparseApiService {
         String offset = "0";
         String size = "1000";
         int restTotal = 1;
-        String allDataUrlOctoparse = "https://dataapi.octoparse.com/api/alldata/GetDataOfTaskByOffset";
+        String allDataUrlOctoparse = BASEURL+ "api/alldata/GetDataOfTaskByOffset";
         JSONArray finalArray = new JSONArray();
         do {
             //send request

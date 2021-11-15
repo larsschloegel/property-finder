@@ -1,6 +1,5 @@
 import Header from "./components/Header";
 import styled, {ThemeProvider} from "styled-components";
-import stylesheet from "./styles/GlobalStyle";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import SearchInputs from "./pages/SearchInputs";
@@ -8,13 +7,16 @@ import Properties from "./pages/Properties";
 import Login from "./pages/Login";
 import PropertyDetails from "./pages/PropertyDetails";
 import propertyResponse from "./properties.json";
+import unitsResponse from "./units.json";
+import GlobalStyle from "./styles/GlobalStyle";
 
 export default function App() {
 
   const properties = propertyResponse;
+  const units = unitsResponse;
 
   return (
-      <ThemeProvider theme={stylesheet}>
+      <ThemeProvider theme={GlobalStyle}>
         <PageLayout>
           <Router>
             <Header/>
@@ -29,7 +31,7 @@ export default function App() {
                 <Properties properties={properties}/>
               </Route>
                 <Route exact path="/properties/:id">
-                    <PropertyDetails/>
+                    <PropertyDetails properties={properties} units={units}/>
                 </Route>
               <Route exact path="/login">
                 <Login/>
