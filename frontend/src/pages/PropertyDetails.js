@@ -8,7 +8,7 @@ export default function PropertyDetails({units}) {
 
     return (
         <section>
-            <Heading>Property Details of "{property?.name}"</Heading>
+            <Heading>Property Details of "{property.name}"</Heading>
             <PropertyDetailsTable property={property} units={units}/>
         </section>
     )
