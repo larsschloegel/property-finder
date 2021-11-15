@@ -6,7 +6,6 @@ import de.propertyfinder.backend.api.octoparse.OctoparseApiService;
 import de.propertyfinder.backend.mapper.PropertyMapper;
 import de.propertyfinder.backend.model.Property;
 import de.propertyfinder.backend.repo.PropertyRepo;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
