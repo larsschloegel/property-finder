@@ -4,10 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import de.propertyfinder.backend.model.Property;
 import de.propertyfinder.backend.service.PropertyService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,15 +12,19 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping
 public class AdminController {
-    private PropertyService propertyService;
+    private final PropertyService propertyService;
 
     @GetMapping("api/admin/properties")
     public List<Property> getAllPropertiesFromApiAfterMapping() throws JsonProcessingException {
         return propertyService.getAllPropertiesFromApiAfterMapping();
     }
 
-    @PostMapping("api/admin/addproperties")
+    @PostMapping("api/admin/addpropertiesfromApi")
     public List<Property> addPropertiesFromApiToDB() throws JsonProcessingException {
         return propertyService.addPropertiesFromApiToDB();
+    }
+    @PostMapping("api/admin/addpropertiesfromPostman")
+    public List<Property> addPropertiesFromApiToDB(@RequestBody List<Property> properties)  {
+        return propertyService.addPropertiesFromPostman(properties);
     }
 }
