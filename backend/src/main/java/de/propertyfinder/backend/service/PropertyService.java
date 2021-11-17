@@ -11,6 +11,7 @@ import de.propertyfinder.backend.model.Property;
 import de.propertyfinder.backend.repo.AdditionalPurchaseCostRepo;
 import de.propertyfinder.backend.repo.PlzRepo;
 import de.propertyfinder.backend.repo.PropertyRepo;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -46,10 +47,10 @@ public class PropertyService {
         return propertyRepo.findAll();
     }
 
-    public Property getSingleProperty(String id){
+    public Property getSingleProperty(String id) {
         Optional<Property> optionalProperty = propertyRepo.findById(id);
-        if (optionalProperty.isEmpty()){
-            throw new NoSuchElementException("Property with id: "+ id +" not found!");
+        if (optionalProperty.isEmpty()) {
+            throw new NoSuchElementException("Property with id: " + id + " not found!");
         }
         return optionalProperty.get();
     }
@@ -72,40 +73,36 @@ public class PropertyService {
         return property;
     }
 
-    public Property setRealEstateAgentFee(Property property){
+    public Property setRealEstateAgentFee(Property property) {
         AdditionalPurchaseCosts additionalPurchaseCosts = additionalPurchaseCostRepo.findByState(property.getState());
         property.setRealEstateAgentFeeInPercent(additionalPurchaseCosts.getRealEstateAgentFeeInPercent());
-        property.setRealEstateAgentFeeInEuro(property.getRealEstateAgentFeeInPercent()*property.getPurchasePriceInEuro());
+        property.setRealEstateAgentFeeInEuro(property.getRealEstateAgentFeeInPercent() * property.getPurchasePriceInEuro());
         return property;
     }
 
-    public Property setRealEstateTransferTax(Property property){
+    public Property setRealEstateTransferTax(Property property) {
         AdditionalPurchaseCosts additionalPurchaseCosts = additionalPurchaseCostRepo.findByState(property.getState());
         property.setRealEstateTransferTaxInPercent(additionalPurchaseCosts.getRealEstateTransferTaxInPercent());
-        property.setRealEstateTransferTaxInEuro(property.getRealEstateTransferTaxInPercent()*property.getPurchasePriceInEuro());
+        property.setRealEstateTransferTaxInEuro(property.getRealEstateTransferTaxInPercent() * property.getPurchasePriceInEuro());
         return property;
     }
 
-    public Property setNotaryFee(Property property){
+    public Property setNotaryFee(Property property) {
         AdditionalPurchaseCosts additionalPurchaseCosts = additionalPurchaseCostRepo.findByState(property.getState());
         property.setNotaryFeeInPercent(additionalPurchaseCosts.getNotaryFeeInPercent());
-        property.setNotaryFeeInEuro(property.getNotaryFeeInPercent()*property.getPurchasePriceInEuro());
+        property.setNotaryFeeInEuro(property.getNotaryFeeInPercent() * property.getPurchasePriceInEuro());
         return property;
     }
 
-    public Property setSumAdditionalPurchaseCost(Property property){
+    public Property setSumAdditionalPurchaseCost(Property property) {
         property.setSumAdditionalPurchaseCostInEuro(property.getRealEstateAgentFeeInEuro() + property.getRealEstateTransferTaxInEuro() + property.getNotaryFeeInEuro());
         return property;
     }
 
-    public Property setOverallPurchasePrice(Property property){
+    public Property setOverallPurchasePrice(Property property) {
         property.setOverallPurchasePriceInEuro(property.getPurchasePriceInEuro() + property.getSumAdditionalPurchaseCostInEuro());
         return property;
     }
-
-
-
-
 
 
 }
