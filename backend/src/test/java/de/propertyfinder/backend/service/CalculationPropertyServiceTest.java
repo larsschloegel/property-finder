@@ -285,4 +285,213 @@ public class CalculationPropertyServiceTest {
         assertThat(actual, is(expected));
     }
 
+    @Test
+    @DisplayName("set net rent per month")
+    void setNetRentPerMonthTest() {
+        //Given
+        Property property = Property.builder()
+                .sizeInSquareMeter(100.0)
+                .netRentPerSizeInEuroPerMonth(5.00)
+                .netRentInEuroPerMonth(0.0)
+                .build();
+        //When
+        Property actual = calculationPropertyService.setNetRentPerMonth(property);
+        //Then
+        Property expected = Property.builder()
+                .sizeInSquareMeter(100.0)
+                .netRentPerSizeInEuroPerMonth(5.00)
+                .netRentInEuroPerMonth(500)
+                .build();
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    @DisplayName("set net rent per year")
+    void setNetRentPerYearTest() {
+        //Given
+        Property property = Property.builder()
+                .netRentInEuroPerMonth(500)
+                .netRentInEuroPerYear(0.0)
+                .build();
+        //When
+        Property actual = calculationPropertyService.setNetRentPerYear(property);
+        //Then
+        Property expected = Property.builder()
+                .netRentInEuroPerMonth(500)
+                .netRentInEuroPerYear(6000.0)
+                .build();
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    @DisplayName("set maintenance cost and improvement factor")
+    void setMaintenanceCostAndImprovementFactorTest() {
+        //Given
+        Property property = Property.builder()
+                .maintenanceCostAndImprovementFactorInEuroPerSquareMeterPerYear(0.0)
+                .build();
+        //When
+        Property actual = calculationPropertyService.setMaintenanceCostAndImprovementFactor(property);
+        //Then
+        Property expected = Property.builder()
+                .maintenanceCostAndImprovementFactorInEuroPerSquareMeterPerYear(25.0)
+                .build();
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    @DisplayName("set management fee")
+    void setManagementFeeTest() {
+        //Given
+        Property property = Property.builder()
+                .managementFeeInEuroPerYear(0.0)
+                .build();
+        //When
+        Property actual = calculationPropertyService.setManagementFee(property);
+        //Then
+        Property expected = Property.builder()
+                .managementFeeInEuroPerYear(300.0)
+                .build();
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    @DisplayName("set vacancy rate in percent")
+    void setVacancyRateInPercentTest() {
+        //Given
+        Property property = Property.builder()
+                .vacancyRateInPercent(0.0)
+                .build();
+        //When
+        Property actual = calculationPropertyService.setVacancyRateInPercent(property);
+        //Then
+        Property expected = Property.builder()
+                .vacancyRateInPercent(5.0)
+                .build();
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    @DisplayName("set price per size incl. additional cost")
+    void setPricePerSizeTest() {
+        //Given
+        Property property = Property.builder()
+                .overallPurchasePriceInEuro(1000.0)
+                .sizeInSquareMeter(20)
+                .pricePerSizeInclAdditionalCostInEuroPerYear(0)
+                .build();
+        //When
+        Property actual = calculationPropertyService.setPricePerSize(property);
+        //Then
+        Property expected = Property.builder()
+                .overallPurchasePriceInEuro(1000.0)
+                .sizeInSquareMeter(20)
+                .pricePerSizeInclAdditionalCostInEuroPerYear(50)
+                .build();
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    @DisplayName("set maintenance cost and improvement")
+    void setMaintenanceCostAndImprovementPerYearTest() {
+        //Given
+        Property property = Property.builder()
+                .maintenanceCostAndImprovementFactorInEuroPerSquareMeterPerYear(25)
+                .sizeInSquareMeter(30)
+                .maintenanceCostAndImprovementInEuroPerYear(0)
+                .build();
+        //When
+        Property actual = calculationPropertyService.setMaintenanceCostAndImprovementPerYear(property);
+        //Then
+        Property expected = Property.builder()
+                .maintenanceCostAndImprovementFactorInEuroPerSquareMeterPerYear(25)
+                .sizeInSquareMeter(30)
+                .maintenanceCostAndImprovementInEuroPerYear(750)
+                .build();
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    @DisplayName("set vacancy rate per year")
+    void setVacancyRatePerYearTest() {
+        //Given
+        Property property = Property.builder()
+                .vacancyRateInPercent(5)
+                .netRentInEuroPerYear(4800)
+                .vacancyRateInEuroPerYear(0)
+                .build();
+        //When
+        Property actual = calculationPropertyService.setVacancyRatePerYear(property);
+        //Then
+        Property expected = Property.builder()
+                .vacancyRateInPercent(5)
+                .netRentInEuroPerYear(4800)
+                .vacancyRateInEuroPerYear(240)
+                .build();
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    @DisplayName("set adjusted net rent")
+    void setAdjustedNetRentTest() {
+        //Given
+        Property property = Property.builder()
+                .netRentInEuroPerYear(4800)
+                .maintenanceCostAndImprovementInEuroPerYear(750)
+                .vacancyRateInEuroPerYear(240)
+                .managementFeeInEuroPerYear(300)
+                .adjustedNetRentInEuroPerYear(0)
+                .build();
+        //When
+        Property actual = calculationPropertyService.setAdjustedNetRent(property);
+        //Then
+        Property expected = Property.builder()
+                .netRentInEuroPerYear(4800)
+                .maintenanceCostAndImprovementInEuroPerYear(750)
+                .vacancyRateInEuroPerYear(240)
+                .managementFeeInEuroPerYear(300)
+                .adjustedNetRentInEuroPerYear(3510)
+                .build();
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    @DisplayName("set adjusted net return")
+    void setAdjustedNetReturnTest() {
+        //Given
+        Property property = Property.builder()
+                .adjustedNetRentInEuroPerYear(3510)
+                .overallPurchasePriceInEuro(107587)
+                .adjustedNetReturnInPercent(0)
+                .build();
+        //When
+        Property actual = calculationPropertyService.setAdjustedNetReturn(property);
+        //Then
+        Property expected = Property.builder()
+                .adjustedNetRentInEuroPerYear(3510)
+                .overallPurchasePriceInEuro(107587)
+                .adjustedNetReturnInPercent(3.262475949696525)
+                .build();
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    @DisplayName("set adjusted net return with other data")
+    void setAdjustedNetReturnTest2() {
+        //Given
+        Property property = Property.builder()
+                .adjustedNetRentInEuroPerYear(38700)
+                .overallPurchasePriceInEuro(568400)
+                .adjustedNetReturnInPercent(0)
+                .build();
+        //When
+        Property actual = calculationPropertyService.setAdjustedNetReturn(property);
+        //Then
+        Property expected = Property.builder()
+                .adjustedNetRentInEuroPerYear(38700)
+                .overallPurchasePriceInEuro(568400)
+                .adjustedNetReturnInPercent(6.808585503166784)
+                .build();
+        assertThat(actual, is(expected));
+    }
 }

@@ -33,6 +33,11 @@ public class CalculationPropertyService {
                 .map(this::setCreditRatePerYear)
                 .map(this::setCreditRatePerMonth)
                 .map(this::setEquityCapital)
+                .map(this::setNetRentPerMonth)
+                .map(this::setNetRentPerYear)
+                .map(this::setMaintenanceCostAndImprovementFactor)
+                .map(this::setManagementFee)
+                .map(this::setVacancyRateInPercent)
                 .collect(Collectors.toList());
         return properties;
     }
@@ -103,4 +108,56 @@ public class CalculationPropertyService {
         property.setEquityCapitalInEuro(0.0);
         return property;
     }
+
+    public Property setNetRentPerMonth(Property property){
+        property.setNetRentInEuroPerMonth(property.getNetRentPerSizeInEuroPerMonth()* property.getSizeInSquareMeter());
+        return property;
+    }
+
+    public Property setNetRentPerYear(Property property){
+        property.setNetRentInEuroPerYear(property.getNetRentInEuroPerMonth()*12);
+        return property;
+    }
+
+    public Property setMaintenanceCostAndImprovementFactor(Property property){
+        property.setMaintenanceCostAndImprovementFactorInEuroPerSquareMeterPerYear(25);
+        return property;
+    }
+
+    public Property setManagementFee(Property property){
+        property.setManagementFeeInEuroPerYear(300);
+        return property;
+    }
+
+    public Property setVacancyRateInPercent(Property property){
+        property.setVacancyRateInPercent(5);
+        return property;
+    }
+
+    public Property setPricePerSize(Property property){
+        property.setPricePerSizeInclAdditionalCostInEuroPerYear(property.getOverallPurchasePriceInEuro()/property.getSizeInSquareMeter());
+        return property;
+    }
+
+    public Property setMaintenanceCostAndImprovementPerYear(Property property){
+        property.setMaintenanceCostAndImprovementInEuroPerYear(property.getMaintenanceCostAndImprovementFactorInEuroPerSquareMeterPerYear()* property.getSizeInSquareMeter());
+        return property;
+    }
+
+    public Property setVacancyRatePerYear(Property property){
+        property.setVacancyRateInEuroPerYear(property.getNetRentInEuroPerYear() * property.getVacancyRateInPercent()/100);
+        return property;
+    }
+
+    public Property setAdjustedNetRent(Property property){
+        property.setAdjustedNetRentInEuroPerYear(property.getNetRentInEuroPerYear() - property.getMaintenanceCostAndImprovementInEuroPerYear() - property.getVacancyRateInEuroPerYear() - property.getManagementFeeInEuroPerYear());
+        return property;
+    }
+
+    public Property setAdjustedNetReturn(Property property){
+        property.setAdjustedNetReturnInPercent(property.getAdjustedNetRentInEuroPerYear()/property.getOverallPurchasePriceInEuro()*100);
+        return property;
+    }
+
+
 }
