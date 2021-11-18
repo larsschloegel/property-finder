@@ -57,7 +57,7 @@ class PropertyServiceTest {
         //Given
         AdditionalPurchaseCosts additionalPurchaseCosts = AdditionalPurchaseCosts.builder()
                 .state("Baden-Württemberg")
-                .realEstateAgentFeeInPercent(0.0357)
+                .realEstateAgentFeeInPercent(3.57)
                 .build();
         Property property = Property.builder()
                 .plz("78267")
@@ -74,7 +74,7 @@ class PropertyServiceTest {
                 .plz("78267")
                 .state("Baden-Württemberg")
                 .purchasePriceInEuro(1000.0)
-                .realEstateAgentFeeInPercent(0.0357)
+                .realEstateAgentFeeInPercent(3.57)
                 .realEstateAgentFeeInEuro(35.7)
                 .build();
         assertThat(actual, is(expected));
@@ -86,7 +86,7 @@ class PropertyServiceTest {
         //Given
         AdditionalPurchaseCosts additionalPurchaseCosts = AdditionalPurchaseCosts.builder()
                 .state("Baden-Württemberg")
-                .realEstateTransferTaxInPercent(0.05)
+                .realEstateTransferTaxInPercent(5.0)
                 .build();
         Property property = Property.builder()
                 .plz("78267")
@@ -103,7 +103,7 @@ class PropertyServiceTest {
                 .plz("78267")
                 .state("Baden-Württemberg")
                 .purchasePriceInEuro(1000.0)
-                .realEstateTransferTaxInPercent(0.05)
+                .realEstateTransferTaxInPercent(5.0)
                 .realEstateTransferTaxInEuro(50.0)
                 .build();
         assertThat(actual, is(expected));
@@ -115,7 +115,7 @@ class PropertyServiceTest {
         //Given
         AdditionalPurchaseCosts additionalPurchaseCosts = AdditionalPurchaseCosts.builder()
                 .state("Baden-Württemberg")
-                .notaryFeeInPercent(0.02)
+                .notaryFeeInPercent(2.0)
                 .build();
         Property property = Property.builder()
                 .plz("78267")
@@ -132,7 +132,7 @@ class PropertyServiceTest {
                 .plz("78267")
                 .state("Baden-Württemberg")
                 .purchasePriceInEuro(1000.0)
-                .notaryFeeInPercent(0.02)
+                .notaryFeeInPercent(2.0)
                 .notaryFeeInEuro(20.0)
                 .build();
         assertThat(actual, is(expected));

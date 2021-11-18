@@ -1,7 +1,6 @@
 package de.propertyfinder.backend.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import de.propertyfinder.backend.api.octoparse.OctoparseApiDto;
 import de.propertyfinder.backend.api.octoparse.OctoparseApiService;
 import de.propertyfinder.backend.mapper.PropertyMapper;
@@ -11,7 +10,6 @@ import de.propertyfinder.backend.model.Property;
 import de.propertyfinder.backend.repo.AdditionalPurchaseCostRepo;
 import de.propertyfinder.backend.repo.PlzRepo;
 import de.propertyfinder.backend.repo.PropertyRepo;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -76,21 +74,21 @@ public class PropertyService {
     public Property setRealEstateAgentFee(Property property) {
         AdditionalPurchaseCosts additionalPurchaseCosts = additionalPurchaseCostRepo.findByState(property.getState());
         property.setRealEstateAgentFeeInPercent(additionalPurchaseCosts.getRealEstateAgentFeeInPercent());
-        property.setRealEstateAgentFeeInEuro(property.getRealEstateAgentFeeInPercent() * property.getPurchasePriceInEuro());
+        property.setRealEstateAgentFeeInEuro(property.getRealEstateAgentFeeInPercent() * property.getPurchasePriceInEuro() /100);
         return property;
     }
 
     public Property setRealEstateTransferTax(Property property) {
         AdditionalPurchaseCosts additionalPurchaseCosts = additionalPurchaseCostRepo.findByState(property.getState());
         property.setRealEstateTransferTaxInPercent(additionalPurchaseCosts.getRealEstateTransferTaxInPercent());
-        property.setRealEstateTransferTaxInEuro(property.getRealEstateTransferTaxInPercent() * property.getPurchasePriceInEuro());
+        property.setRealEstateTransferTaxInEuro(property.getRealEstateTransferTaxInPercent() * property.getPurchasePriceInEuro() /100);
         return property;
     }
 
     public Property setNotaryFee(Property property) {
         AdditionalPurchaseCosts additionalPurchaseCosts = additionalPurchaseCostRepo.findByState(property.getState());
         property.setNotaryFeeInPercent(additionalPurchaseCosts.getNotaryFeeInPercent());
-        property.setNotaryFeeInEuro(property.getNotaryFeeInPercent() * property.getPurchasePriceInEuro());
+        property.setNotaryFeeInEuro(property.getNotaryFeeInPercent() * property.getPurchasePriceInEuro() /100);
         return property;
     }
 
