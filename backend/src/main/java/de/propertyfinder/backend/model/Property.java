@@ -69,8 +69,8 @@ public class Property {
     private double adjustedNetReturnInPercent;
 
     //cash flow calulation
-    private double improvementsInEuroPerYear;
-    private double improvementsInEuroPerMonth;
+    private double operatingCostPerYear;
+    private double operatingCostPerMonth;
     private double cfbtInEuroPerYear;
     private double cfbtInEuroPerMonth;
 

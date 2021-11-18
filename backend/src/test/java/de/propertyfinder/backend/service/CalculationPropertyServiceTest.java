@@ -236,7 +236,7 @@ public class CalculationPropertyServiceTest {
         Property property = Property.builder()
                 .initialRepaymentInPercent(1.0)
                 .interestRateInPercent(1.5)
-                .bankLoanInEuro(1000.0)
+                .bankLoanInEuro(107587.0)
                 .creditRateInEuroPerYear(0.0)
                 .build();
         //When
@@ -245,8 +245,8 @@ public class CalculationPropertyServiceTest {
         Property expected = Property.builder()
                 .initialRepaymentInPercent(1.0)
                 .interestRateInPercent(1.5)
-                .bankLoanInEuro(1000.0)
-                .creditRateInEuroPerYear(2500.0)
+                .bankLoanInEuro(107587.0)
+                .creditRateInEuroPerYear(2689.675)
                 .build();
         assertThat(actual, is(expected));
     }
@@ -392,6 +392,24 @@ public class CalculationPropertyServiceTest {
     }
 
     @Test
+    @DisplayName("set net rent per size per year")
+    void setNetRentPerSizePerYearTest() {
+        //Given
+        Property property = Property.builder()
+                .netRentPerSizeInEuroPerYear(0.0)
+                .netRentPerSizeInEuroPerMonth(13.333333333333333)
+                .build();
+        //When
+        Property actual = calculationPropertyService.setNetRentPerSizePerYear(property);
+        //Then
+        Property expected = Property.builder()
+                .netRentPerSizeInEuroPerYear(160)
+                .netRentPerSizeInEuroPerMonth(13.333333333333333)
+                .build();
+        assertThat(actual, is(expected));
+    }
+
+    @Test
     @DisplayName("set maintenance cost and improvement")
     void setMaintenanceCostAndImprovementPerYearTest() {
         //Given
@@ -432,14 +450,52 @@ public class CalculationPropertyServiceTest {
     }
 
     @Test
+    @DisplayName("set operating costs per year")
+    void setOperatingCostPerYearTest() {
+        //Given
+        Property property = Property.builder()
+                .vacancyRateInEuroPerYear(240)
+                .managementFeeInEuroPerYear(300)
+                .maintenanceCostAndImprovementInEuroPerYear(750)
+                .operatingCostPerYear(0)
+                .build();
+        //When
+        Property actual = calculationPropertyService.setOperatingCostPerYear(property);
+        //Then
+        Property expected = Property.builder()
+                .vacancyRateInEuroPerYear(240)
+                .managementFeeInEuroPerYear(300)
+                .maintenanceCostAndImprovementInEuroPerYear(750)
+                .operatingCostPerYear(1290)
+                .build();
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    @DisplayName("set operating costs per month")
+    void setOperatingCostPerMonthTest() {
+        //Given
+        Property property = Property.builder()
+                .operatingCostPerYear(1290)
+                .operatingCostPerMonth(0)
+                .build();
+        //When
+        Property actual = calculationPropertyService.setOperatingCostPerMonth(property);
+        //Then
+        Property expected = Property.builder()
+                .operatingCostPerYear(1290)
+                .operatingCostPerMonth(107.5)
+                .build();
+        assertThat(actual, is(expected));
+    }
+
+    @Test
     @DisplayName("set adjusted net rent")
     void setAdjustedNetRentTest() {
         //Given
         Property property = Property.builder()
                 .netRentInEuroPerYear(4800)
-                .maintenanceCostAndImprovementInEuroPerYear(750)
-                .vacancyRateInEuroPerYear(240)
-                .managementFeeInEuroPerYear(300)
+                .operatingCostPerYear(1290)
                 .adjustedNetRentInEuroPerYear(0)
                 .build();
         //When
@@ -447,9 +503,7 @@ public class CalculationPropertyServiceTest {
         //Then
         Property expected = Property.builder()
                 .netRentInEuroPerYear(4800)
-                .maintenanceCostAndImprovementInEuroPerYear(750)
-                .vacancyRateInEuroPerYear(240)
-                .managementFeeInEuroPerYear(300)
+                .operatingCostPerYear(1290)
                 .adjustedNetRentInEuroPerYear(3510)
                 .build();
         assertThat(actual, is(expected));
@@ -491,6 +545,46 @@ public class CalculationPropertyServiceTest {
                 .adjustedNetRentInEuroPerYear(38700)
                 .overallPurchasePriceInEuro(568400)
                 .adjustedNetReturnInPercent(6.808585503166784)
+                .build();
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    @DisplayName("set cash flow per year")
+    void setCashFlowPerYearTest() {
+        //Given
+        Property property = Property.builder()
+                .netRentInEuroPerYear(4800)
+                .creditRateInEuroPerYear(2689.675)
+                .operatingCostPerYear(1290)
+                .cfbtInEuroPerYear(0)
+                .build();
+        //When
+        Property actual = calculationPropertyService.setCashFlowPerYear(property);
+        //Then
+        Property expected = Property.builder()
+                .netRentInEuroPerYear(4800)
+                .creditRateInEuroPerYear(2689.675)
+                .operatingCostPerYear(1290)
+                .cfbtInEuroPerYear(820.3249999999998)
+                .build();
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    @DisplayName("set cash flow per month")
+    void setCashFlowPerMonthTest() {
+        //Given
+        Property property = Property.builder()
+                .cfbtInEuroPerYear(820.3249999999998)
+                .cfbtInEuroPerMonth(0)
+                .build();
+        //When
+        Property actual = calculationPropertyService.setCashFlowPerMonth(property);
+        //Then
+        Property expected = Property.builder()
+                .cfbtInEuroPerYear(820.3249999999998)
+                .cfbtInEuroPerMonth(68.36041666666665)
                 .build();
         assertThat(actual, is(expected));
     }

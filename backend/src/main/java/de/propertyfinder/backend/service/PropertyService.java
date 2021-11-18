@@ -55,7 +55,7 @@ public class PropertyService {
 
     public List<Property> addPropertiesFromPostman(List<Property> properties) {
         List<Property> propertiesWithInitialValues = calculationPropertyService.setInitialValues(properties);
-        return (List<Property>) propertyRepo.saveAll(properties);
+        return (List<Property>) propertyRepo.saveAll(propertiesWithInitialValues);
     }
 
 
