@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import com.alibaba.fastjson.JSON;
@@ -84,6 +83,7 @@ public class OctoparseApiService {
             JSONArray dataJsonToArray = (JSONArray) JSON.parse(dataJson);
             finalArray.addAll(dataJsonToArray);
         } while (restTotal != 0);
+        //set flag for taskID
         return finalArray.toString();
     }
 
@@ -97,7 +97,7 @@ public class OctoparseApiService {
     public OctoparseApiDto cleanPropertyObject (OctoparseApiDto propertyObject){
         String removeSpacesAndTabs = "[/\\sg]";
         String removeSpacesTabsAndUnit = "[/\\sgm²]";
-        propertyObject.setPropertyTyp(propertyObject.getPropertyTyp().replaceAll(removeSpacesAndTabs,""));
+        propertyObject.setSubtyp(propertyObject.getSubtyp().replaceAll(removeSpacesAndTabs,""));
         propertyObject.setPurchasePrice(propertyObject.getPurchasePrice().replaceAll("[/\\sg€.]",""));
         propertyObject.setSize(propertyObject.getSize().replaceAll(removeSpacesTabsAndUnit,"").replaceAll("[,]","."));
         propertyObject.setRoomCount(propertyObject.getRoomCount().replaceAll(removeSpacesAndTabs,""));

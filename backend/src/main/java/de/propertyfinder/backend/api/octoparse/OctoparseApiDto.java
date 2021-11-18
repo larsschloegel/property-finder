@@ -23,7 +23,7 @@ public class OctoparseApiDto {
     @JsonProperty("Image1")
     private String propertyPictureUrl;
     @JsonProperty("typ")
-    private String propertyTyp;
+    private String subtyp;
     @JsonProperty("kaufpreis")
     private String purchasePrice;
     @JsonProperty("wohnflaeche")

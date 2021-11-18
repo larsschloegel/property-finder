@@ -1,6 +1,7 @@
 package de.propertyfinder.backend.mapper;
 
 import de.propertyfinder.backend.api.octoparse.OctoparseApiDto;
+import de.propertyfinder.backend.model.PlzGermany;
 import de.propertyfinder.backend.model.Property;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +11,7 @@ import java.util.UUID;
 @Component
 public class PropertyMapper {
 
-    public static Property toProperty(OctoparseApiDto octoparseApiDto){
+    public static Property OctoparseApiDtoToProperty(OctoparseApiDto octoparseApiDto){
         return  Property
                 .builder()
                 .id(UUID.randomUUID().toString())
@@ -18,7 +19,7 @@ public class PropertyMapper {
                 .source("Immobilien Scout 24")
                 .exposeUrl(octoparseApiDto.getExposeUrl())
                 .contactPerson(octoparseApiDto.getContactPerson())
-                .type(octoparseApiDto.getPropertyTyp())
+                .type(octoparseApiDto.getSubtyp())
                 .plz(octoparseApiDto.getPlz())
                 .city(octoparseApiDto.getCity())
                 .purchasePriceInEuro(Double.parseDouble(octoparseApiDto.getPurchasePrice()))
@@ -29,7 +30,7 @@ public class PropertyMapper {
     public List<Property> toProperties(List<OctoparseApiDto> octoparseApiDtoList){
         return octoparseApiDtoList
                 .stream()
-                .map(PropertyMapper::toProperty)
+                .map(PropertyMapper::OctoparseApiDtoToProperty)
                 .toList();
     }
 }
