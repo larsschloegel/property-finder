@@ -38,11 +38,11 @@ export default function PropertyCard({property}){
                 <CardSection>
                     <KPIWrapper>
                         <KPITitle>Return on Investment</KPITitle>
-                        <KPI>{property.adjustedNetReturnInPercent}</KPI>
+                        <KPI>{new Intl.NumberFormat('de-DE', {style:'unit', unit: 'percent', signDisplay: 'always',maximumFractionDigits:2}).format(property.adjustedNetReturnInPercent)}</KPI>
                     </KPIWrapper>
                     <KPIWrapper>
                         <KPITitle>Cashflow</KPITitle>
-                        <KPI> {property.cfbtInEuroPerMonth}</KPI>
+                        <KPI> {new Intl.NumberFormat('de-DE', {style:'currency', currency: 'EUR',maximumFractionDigits:2}).format(property.cfbtInEuroPerMonth)}</KPI>
                     </KPIWrapper>
                 </CardSection>
             </CardContentWrapper>

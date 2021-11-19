@@ -10,32 +10,32 @@ export default function PropertyDetailsTables({property, units}) {
                 rows={[
                     {
                         title: "net rent per size",
-                        value: property.netRentPerSizeInEuroPerYear,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.netRentPerSizeInEuroPerYear),
                         unit: units.euroPerSquareMeterPerYear
                     },
                     {
                         title: "net rent per size",
-                        value: property.netRentPerSizeInEuroPerMonth,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.netRentPerSizeInEuroPerMonth),
                         unit: units.euroPerSquareMeterPerMonth
                     },
                     {
                         title: "size of house or apartment",
-                        value: property.sizeInSquareMeter,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.sizeInSquareMeter),
                         unit: units.squareMeter
                     },
                     {
                         title: "maintenance and improvement cost",
-                        value: property.maintenanceCostAndImprovementFactorInEuroPerSquareMeterPerYear,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.maintenanceCostAndImprovementFactorInEuroPerSquareMeterPerYear),
                         unit: units.euroPerSquareMeterPerYear
                     },
                     {
                         title: "mangement fee",
-                        value: property.managementFeeInEuroPerYear,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.managementFeeInEuroPerYear),
                         unit: units.euroPerYear
                     },
                     {
                         title: "vacancy rate",
-                        value: property.vacancyRateInPercent,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.vacancyRateInPercent),
                         unit: units.percent
                     }
 
@@ -45,62 +45,62 @@ export default function PropertyDetailsTables({property, units}) {
                 rows={[
                     {
                         title: "purchase price",
-                        value: property.purchasePriceInEuro,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.purchasePriceInEuro),
                         unit: units.euro
                     },
                     {
                         title: "real estate agent fees",
-                        value: property.realEstateAgentFeeInEuro,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.realEstateAgentFeeInEuro),
                         unit: units.euro
                     },
                     {
                         title: "real estate transfer tax",
-                        value: property.realEstateTransferTaxInEuro,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.realEstateTransferTaxInEuro),
                         unit: units.euro
                     },
                     {
                         title: "notary fee",
-                        value: property.notaryFeeInEuro,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.notaryFeeInEuro),
                         unit: units.euro
                     },
                     {
                         title: "sum additial purchase cost",
-                        value: property.sumAdditionalPurchaseCostInEuro,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.sumAdditionalPurchaseCostInEuro),
                         unit: units.euro
                     }
                 ]}
-                footer={{title: "Sum", value: property.overallPurchasePriceInEuro, unit: units.euro}}/>
+                footer={{title: "Sum", value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.overallPurchasePriceInEuro), unit: units.euro}}/>
             <PropertyDetailsTableWithoutResults
                 title={"Funding Calculation"}
                 rows={[
                     {
                         title: "bank loan",
-                        value: property.bankLoanInEuro,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.bankLoanInEuro),
                         unit: units.euro
                     },
                     {
                         title: "initial repayment",
-                        value: property.initialRepaymentInPercent,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.initialRepaymentInPercent),
                         unit: units.percent
                     },
                     {
                         title: "interest rate",
-                        value: property.interestRateInPercent,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.interestRateInPercent),
                         unit: units.percent
                     },
                     {
                         title: "credit rate per year",
-                        value: property.creditRateInEuroPerYear,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.creditRateInEuroPerYear),
                         unit: units.euroPerYear
                     },
                     {
                         title: "credit rate per month",
-                        value: property.creditRateInEuroPerMonth,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.creditRateInEuroPerMonth),
                         unit: units.euroPerMonth
                     },
                     {
                         title: "equity capital",
-                        value: property.equityCapitalInEuro,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.equityCapitalInEuro),
                         unit: units.euro
                     }
 
@@ -110,61 +110,61 @@ export default function PropertyDetailsTables({property, units}) {
                 rows={[
                     {
                         title: "net rent per year",
-                        value: property.netRentInEuroPerYear,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.netRentInEuroPerYear),
                         unit: units.euroPerYear
                     },
                     {
                         title: "vacancy",
-                        value: property.vacancyRateInEuroPerYear,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.vacancyRateInEuroPerYear),
                         unit: units.euroPerYear
                     },
                     {
                         title: "cost improvements and maintenance",
-                        value: property.maintenanceCostAndImprovementInEuroPerYear,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.maintenanceCostAndImprovementInEuroPerYear),
                         unit: units.euroPerYear
                     },
                     {
                         title: "management fee",
-                        value: property.managementFeeInEuroPerYear,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.managementFeeInEuroPerYear),
                         unit: units.euroPerYear
                     },
                     {
                         title: "adjusted net rent per year",
-                        value: property.adjustedNetRentInEuroPerYear,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.adjustedNetRentInEuroPerYear),
                         unit: units.euroPerYear
                     },
                     {
                         title: "overall purchase price",
-                        value: property.overallPurchasePriceInEuro,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.overallPurchasePriceInEuro),
                         unit: units.euro
                     }
                 ]}
-                footer={{title: "Adjusted net return", value: property.adjustedNetReturnInPercent, unit: units.percent}}/>
+                footer={{title: "Adjusted net return", value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.adjustedNetReturnInPercent), unit: units.percent}}/>
             <PropertyDetailsTableWithResults
                 title={"Cash Flow Calculation"}
                 rows={[
                     {
                         title: "net rent per year",
-                        value: property.netRentInEuroPerYear,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.netRentInEuroPerYear),
                         unit: units.euroPerYear
                     },
                     {
                         title: "operating cost per year",
-                        value: property.operatingCostPerYear,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.operatingCostPerYear),
                         unit: units.euroPerYear
                     },
                     {
                         title: "credit rate per year",
-                        value: property.creditRateInEuroPerYear,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.creditRateInEuroPerYear),
                         unit: units.euroPerYear
                     },
                     {
                         title: "cash flow per year",
-                        value: property.cfbtInEuroPerYear,
+                        value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.cfbtInEuroPerYear),
                         unit: units.euroPerYear
                     }
                 ]}
-                footer={{title: "Cash flow Before Taxes per month", value: property.cfbtInEuroPerMonth, unit: units.euroPerMonth}}/>
+                footer={{title: "Cash flow Before Taxes per month", value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.cfbtInEuroPerMonth), unit: units.euroPerMonth}}/>
         </div>
 
     )
