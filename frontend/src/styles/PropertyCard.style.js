@@ -9,7 +9,7 @@ export const CardWrapper = styled.article`
   margin: 12px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   padding: 16px;
-  width: 375px;
+  width: 300px;
 `;
 
 export const CardImageWrapper = styled.div`
@@ -36,7 +36,6 @@ export const CardSection = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px;
 `;
 export const Divider = styled.div`
   height: 4px;
@@ -58,18 +57,21 @@ export const CardTitle = styled.h2`
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  margin-right: 10px;
 `;
 export const ButtonWrapper = styled.button`
-  width: 40px;
-  height: 40px;
+  width: 41px;
   background-color: ${props => props.theme.colors.mediumSlateBlue};
   border-radius: 8px;
-  padding: 0px;
+  padding: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 2px 3px 0 rgba(38, 50, 56, 0.2), 0 3px 6px 0 rgba(38, 50, 56, 0.08);
+  border:none;
+  transform: rotate(+45deg);
+  box-shadow: 0 2px 3px 0 rgba(38, 50, 56, 0.2),
+  0 3px 6px 0 rgba(38, 50, 56, 0.08);
 `;
 export const AddressWrapper = styled.div`
   display: flex;
@@ -115,9 +117,14 @@ export const KPI = styled.span`
   align-items: center;
   justify-content: center;
   padding: 6px 0;
-  width: 150px;
+  width: 100px;
   height: 30px;
   border-radius: 10px;
   color: ${props => props.theme.colors.mediumSlateBlue};
 `;
+export const ButtonImage = styled.img`
+  transform: rotate(-45deg);
+  width: 100%;
+  height: 100%
+`
 

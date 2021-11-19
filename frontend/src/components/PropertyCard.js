@@ -6,7 +6,7 @@ import {
     CardSection, Divider,
     CardTitle, ButtonWrapper,
     AddressWrapper, AddressImageWrapper, Address,
-    KPIWrapper, KPITitle, KPI
+    KPIWrapper, KPITitle, KPI, ButtonImage
 } from "../styles/PropertyCard.style";
 import {Image} from "../styles/Header.style";
 import {useHistory} from "react-router-dom";
@@ -23,7 +23,7 @@ export default function PropertyCard({property}){
                 <CardSection>
                     <CardTitle>{property.name}</CardTitle>
                     <ButtonWrapper onClick={()=> history.push(`properties/${property.id}`)}>
-                        <Image src={"/DetailsLogoWhite.svg"} alt={"Details Logo White"}/>
+                        <ButtonImage src={"/DetailsLogoWhite.svg"} alt={"Details Logo White"}/>
                     </ButtonWrapper>
                 </CardSection>
                 <CardSection>
