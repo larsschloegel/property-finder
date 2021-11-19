@@ -27,8 +27,8 @@ public class PropertyService {
     private final PropertyRepo propertyRepo;
     private final PropertyMapper propertyMapper;
     private final OctoparseApiService octoparseApiService;
-    private final PlzRepo plzRepo;
-    private final AdditionalPurchaseCostRepo additionalPurchaseCostRepo;
+    private final CalculationPropertyService calculationPropertyService;
+
 
     public List<Property> getAllPropertiesFromApiAfterMapping() throws JsonProcessingException {
         List<OctoparseApiDto> octoparseApiDtoList = octoparseApiService.getAllProperties();
@@ -36,8 +36,8 @@ public class PropertyService {
     }
 
     public List<Property> addPropertiesFromApiToDB() throws JsonProcessingException {
-        propertyRepo.deleteAll();
         List<OctoparseApiDto> octoparseApiDtoList = octoparseApiService.getAllProperties();
+        propertyRepo.deleteAll();
         return (List<Property>) propertyRepo.saveAll(propertyMapper.toProperties(octoparseApiDtoList));
     }
 
@@ -54,52 +54,8 @@ public class PropertyService {
     }
 
     public List<Property> addPropertiesFromPostman(List<Property> properties) {
-        properties.stream()
-                .map(this::setState)
-                .map(this::setRealEstateAgentFee)
-                .map(this::setRealEstateTransferTax)
-                .map(this::setNotaryFee)
-                .map(this::setSumAdditionalPurchaseCost)
-                .map(this::setOverallPurchasePrice)
-                .collect(Collectors.toList());
-        return (List<Property>) propertyRepo.saveAll(properties);
-    }
-
-    public Property setState(Property property) {
-        PlzGermany plzGermany = plzRepo.findByPlz(property.getPlz());
-        property.setState(plzGermany.getBundesland());
-        return property;
-    }
-
-    public Property setRealEstateAgentFee(Property property) {
-        AdditionalPurchaseCosts additionalPurchaseCosts = additionalPurchaseCostRepo.findByState(property.getState());
-        property.setRealEstateAgentFeeInPercent(additionalPurchaseCosts.getRealEstateAgentFeeInPercent());
-        property.setRealEstateAgentFeeInEuro(property.getRealEstateAgentFeeInPercent() * property.getPurchasePriceInEuro() /100);
-        return property;
-    }
-
-    public Property setRealEstateTransferTax(Property property) {
-        AdditionalPurchaseCosts additionalPurchaseCosts = additionalPurchaseCostRepo.findByState(property.getState());
-        property.setRealEstateTransferTaxInPercent(additionalPurchaseCosts.getRealEstateTransferTaxInPercent());
-        property.setRealEstateTransferTaxInEuro(property.getRealEstateTransferTaxInPercent() * property.getPurchasePriceInEuro() /100);
-        return property;
-    }
-
-    public Property setNotaryFee(Property property) {
-        AdditionalPurchaseCosts additionalPurchaseCosts = additionalPurchaseCostRepo.findByState(property.getState());
-        property.setNotaryFeeInPercent(additionalPurchaseCosts.getNotaryFeeInPercent());
-        property.setNotaryFeeInEuro(property.getNotaryFeeInPercent() * property.getPurchasePriceInEuro() /100);
-        return property;
-    }
-
-    public Property setSumAdditionalPurchaseCost(Property property) {
-        property.setSumAdditionalPurchaseCostInEuro(property.getRealEstateAgentFeeInEuro() + property.getRealEstateTransferTaxInEuro() + property.getNotaryFeeInEuro());
-        return property;
-    }
-
-    public Property setOverallPurchasePrice(Property property) {
-        property.setOverallPurchasePriceInEuro(property.getPurchasePriceInEuro() + property.getSumAdditionalPurchaseCostInEuro());
-        return property;
+        List<Property> propertiesWithInitialValues = calculationPropertyService.setInitialValues(properties);
+        return (List<Property>) propertyRepo.saveAll(propertiesWithInitialValues);
     }
 
 
