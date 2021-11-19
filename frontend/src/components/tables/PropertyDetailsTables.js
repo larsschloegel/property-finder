@@ -1,211 +1,170 @@
-import {StyledTableWithResults} from "../../styles/TableWithResults.style";
-import {StyledTableWithoutResults} from "../../styles/TableWithoutResults";
 import PropertyDetailsTableWithResults from "./PropertyDetailsTableWithResults";
+import PropertyDetailsTableWithoutResults from "./PropertyDetailsTableWithoutResults";
 
 export default function PropertyDetailsTables({property, units}) {
 
     return (
         <div>
+            <PropertyDetailsTableWithoutResults
+                title={"Inputs market"}
+                rows={[
+                    {
+                        title: "net rent per size",
+                        value: property.netRentPerSizeInEuroPerYear,
+                        unit: units.euroPerSquareMeterPerYear
+                    },
+                    {
+                        title: "net rent per size",
+                        value: property.netRentPerSizeInEuroPerMonth,
+                        unit: units.euroPerSquareMeterPerMonth
+                    },
+                    {
+                        title: "size of house or apartment",
+                        value: property.sizeInSquareMeter,
+                        unit: units.squareMeter
+                    },
+                    {
+                        title: "maintenance and improvement cost",
+                        value: property.maintenanceCostAndImprovementFactorInEuroPerSquareMeterPerYear,
+                        unit: units.euroPerSquareMeterPerYear
+                    },
+                    {
+                        title: "mangement fee",
+                        value: property.managementFeeInEuroPerYear,
+                        unit: units.euroPerYear
+                    },
+                    {
+                        title: "vacancy rate",
+                        value: property.vacancyRateInPercent,
+                        unit: units.percent
+                    }
+
+                ]}/>
             <PropertyDetailsTableWithResults
                 title={"Purchase Price"}
                 rows={[
                     {
-                        title: "Purchase Price",
+                        title: "purchase price",
                         value: property.purchasePriceInEuro,
                         unit: units.euro
                     },
                     {
-                        title: "Purchase Price",
-                        value: property.purchasePriceInEuro,
+                        title: "real estate agent fees",
+                        value: property.realEstateAgentFeeInEuro,
+                        unit: units.euro
+                    },
+                    {
+                        title: "real estate transfer tax",
+                        value: property.realEstateTransferTaxInEuro,
+                        unit: units.euro
+                    },
+                    {
+                        title: "notary fee",
+                        value: property.notaryFeeInEuro,
+                        unit: units.euro
+                    },
+                    {
+                        title: "sum additial purchase cost",
+                        value: property.sumAdditionalPurchaseCostInEuro,
                         unit: units.euro
                     }
                 ]}
                 footer={{title: "Sum", value: property.overallPurchasePriceInEuro, unit: units.euro}}/>
-            <StyledTableWithoutResults>
-                <thead>
-                <tr>
-                    <th colSpan={3}>Funding Calculation</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td> Bank loan</td>
-                    <td>{property.bankLoanInEuro}</td>
-                    <td>{units.euro}</td>
-                </tr>
-                <tr>
-                    <td> Initial Repayment</td>
-                    <td>{property.initialRepaymentInPercent}</td>
-                    <td>{units.percent}</td>
-                </tr>
-                <tr>
-                    <td> Interest rate</td>
-                    <td>{property.interestRateInPercent}</td>
-                    <td>{units.percent}</td>
-                </tr>
-                <tr>
-                    <td> Credit rate (year)</td>
-                    <td>{property.creditRateInEuroPerYear}</td>
-                    <td>{units.euro}</td>
-                </tr>
-                <tr>
-                    <td> Credit rate (month)</td>
-                    <td>{property.creditRateInEuroPerMonth}</td>
-                    <td>{units.euro}</td>
-                </tr>
-                <tr>
-                    <td> equity capital</td>
-                    <td>{property.equityCapitalInEuro}</td>
-                    <td>{units.euro}</td>
-                </tr>
-                </tbody>
-            </StyledTableWithoutResults>
-            <StyledTableWithoutResults>
-                <thead>
-                <tr>
-                    <th colSpan={3}>Market and real estate data</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td> Net rent (per month)</td>
-                    <td>{property.netRentInEuroPerMonth}</td>
-                    <td>{units.euro}</td>
-                </tr>
-                <tr>
-                    <td> net rent (per year)</td>
-                    <td>{property.netRentInEuroPerYear}</td>
-                    <td>{units.euro}</td>
-                </tr>
-                <tr>
-                    <td> size</td>
-                    <td>{property.sizeInSquareMeter}</td>
-                    <td>m2</td>
-                </tr>
-                <tr>
-                    <td> Maintenance cost and improvements</td>
-                    <td>{property.maintenanceCostAndImprovementFactorInEuroPerSquareMeterPerYear}</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td> Management fee per year</td>
-                    <td>{property.managementFeeInEuroPerYear}</td>
-                    <td>{units.euro}</td>
-                </tr>
-                <tr>
-                    <td> Vacancy Rate</td>
-                    <td>{property.vacancyRateInPercent}</td>
-                    <td>{units.percent}</td>
-                </tr>
-                <tr>
-                    <td> PLZ</td>
-                    <td>{property.plz}</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td> State</td>
-                    <td>{property.state}</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td> Contact person</td>
-                    <td>{property.contactPerson}</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td> exposeURL</td>
-                    <td>{property.exposeUrl}</td>
-                    <td></td>
-                </tr>
-                </tbody>
-            </StyledTableWithoutResults>
-            <StyledTableWithResults>
-                <thead>
-                <tr>
-                    <th colSpan={3}>Net Return calculation</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td> Price per size incl. additional cost</td>
-                    <td>{property.pricePerSizeInclAdditionalCostInEuroPerYear}</td>
-                    <td>{units.euro}</td>
-                </tr>
-                <tr>
-                    <td> Net rent per size per month</td>
-                    <td>{property.netRentPerSizeInEuroPerMonth}</td>
-                    <td>{units.euro}</td>
-                </tr>
-                <tr>
-                    <td> Net rent per size per year</td>
-                    <td>{property.netRentPerSizeInEuroPerYear}</td>
-                    <td>{units.euro}</td>
-                </tr>
-                <tr>
-                    <td> Net rent (per year)</td>
-                    <td>{property.netRentInEuroPerYear}</td>
-                    <td>{units.euro}</td>
-                </tr>
-                <tr>
-                    <td> Adjusted annual net rent</td>
-                    <td>{property.adjustedNetRentInEuroPerYear}</td>
-                    <td>{units.percent}</td>
-                </tr>
-                </tbody>
-                <tfoot>
-                <tr>
-                    <th>Adjusted net return</th>
-                    <th>{property.adjustedNetReturnInPercent}</th>
-                    <th>{units.percent}</th>
-                </tr>
-                </tfoot>
-            </StyledTableWithResults>
-            <StyledTableWithResults>
-                <thead>
-                <tr>
-                    <th colSpan={3}>Cash Flow calculation</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td> Maintenance cost and improvements</td>
-                    <td>{property.maintenanceCostAndImprovementInEuroPerYear}</td>
-                    <td>{units.euro}</td>
-                </tr>
-                <tr>
-                    <td> Management fee (year)</td>
-                    <td>{property.managementFeeInEuroPerYear}</td>
-                    <td>{units.euro}</td>
-                </tr>
-                <tr>
-                    <td> Vacancy rate</td>
-                    <td>{property.vacancyRateInEuroPerYear}</td>
-                    <td>{units.euro}</td>
-                </tr>
-                <tr>
-                    <td> Improvements per month</td>
-                    <td>{property.improvementsInEuroPerMonth}</td>
-                    <td>{units.euro}</td>
-                </tr>
-                <tr>
-                    <td> Improvements per year</td>
-                    <td>{property.improvementsInEuroPerYear}</td>
-                    <td>{units.euro}</td>
-                </tr>
-                <tr>
-                    <td> CFBT year</td>
-                    <td>{property.cfbtInEuroPerYear}</td>
-                    <td>{units.euro}</td>
-                </tr>
-                </tbody>
-                <tfoot>
-                <tr>
-                    <th>Cash Flow Before Taxes per month</th>
-                    <th>{property.cfbtInEuroPerMonth}</th>
-                    <th>{units.euro}</th>
-                </tr>
-                </tfoot>
-            </StyledTableWithResults>
+            <PropertyDetailsTableWithoutResults
+                title={"Funding Calculation"}
+                rows={[
+                    {
+                        title: "bank loan",
+                        value: property.bankLoanInEuro,
+                        unit: units.euro
+                    },
+                    {
+                        title: "initial repayment",
+                        value: property.initialRepaymentInPercent,
+                        unit: units.percent
+                    },
+                    {
+                        title: "interest rate",
+                        value: property.interestRateInPercent,
+                        unit: units.percent
+                    },
+                    {
+                        title: "credit rate per year",
+                        value: property.creditRateInEuroPerYear,
+                        unit: units.euroPerYear
+                    },
+                    {
+                        title: "credit rate per month",
+                        value: property.creditRateInEuroPerMonth,
+                        unit: units.euroPerMonth
+                    },
+                    {
+                        title: "equity capital",
+                        value: property.equityCapitalInEuro,
+                        unit: units.euro
+                    }
+
+                ]}/>
+            <PropertyDetailsTableWithResults
+                title={"Net Return Calculation"}
+                rows={[
+                    {
+                        title: "net rent per year",
+                        value: property.netRentInEuroPerYear,
+                        unit: units.euroPerYear
+                    },
+                    {
+                        title: "vacancy",
+                        value: property.vacancyRateInEuroPerYear,
+                        unit: units.euroPerYear
+                    },
+                    {
+                        title: "cost improvements and maintenance",
+                        value: property.maintenanceCostAndImprovementInEuroPerYear,
+                        unit: units.euroPerYear
+                    },
+                    {
+                        title: "management fee",
+                        value: property.managementFeeInEuroPerYear,
+                        unit: units.euroPerYear
+                    },
+                    {
+                        title: "adjusted net rent per year",
+                        value: property.adjustedNetRentInEuroPerYear,
+                        unit: units.euroPerYear
+                    },
+                    {
+                        title: "overall purchase price",
+                        value: property.overallPurchasePriceInEuro,
+                        unit: units.euro
+                    }
+                ]}
+                footer={{title: "Adjusted net return", value: property.adjustedNetReturnInPercent, unit: units.percent}}/>
+            <PropertyDetailsTableWithResults
+                title={"Cash Flow Calculation"}
+                rows={[
+                    {
+                        title: "net rent per year",
+                        value: property.netRentInEuroPerYear,
+                        unit: units.euroPerYear
+                    },
+                    {
+                        title: "operating cost per year",
+                        value: property.operatingCostPerYear,
+                        unit: units.euroPerYear
+                    },
+                    {
+                        title: "credit rate per year",
+                        value: property.creditRateInEuroPerYear,
+                        unit: units.euroPerYear
+                    },
+                    {
+                        title: "cash flow per year",
+                        value: property.cfbtInEuroPerYear,
+                        unit: units.euroPerYear
+                    }
+                ]}
+                footer={{title: "Cash flow Before Taxes per month", value: property.cfbtInEuroPerMonth, unit: units.euroPerMonth}}/>
         </div>
 
     )
