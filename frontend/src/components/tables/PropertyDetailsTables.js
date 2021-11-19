@@ -1,46 +1,26 @@
 import {StyledTableWithResults} from "../../styles/TableWithResults.style";
 import {StyledTableWithoutResults} from "../../styles/TableWithoutResults";
+import PropertyDetailsTableWithResults from "./PropertyDetailsTableWithResults";
 
-export default function PropertyDetailsTable({property, units}) {
+export default function PropertyDetailsTables({property, units}) {
 
     return (
         <div>
-            <StyledTableWithResults>
-                <thead>
-                <tr>
-                    <th colSpan={3}>Purchase Price</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td> Purchase Price</td>
-                    <td>{property.purchasePriceInEuro}</td>
-                    <td>{units.euro}</td>
-                </tr>
-                <tr>
-                    <td> Real estate agent fees</td>
-                    <td>{property.realEstateAgentFeeInEuro}</td>
-                    <td>{units.euro}</td>
-                </tr>
-                <tr>
-                    <td> Real estate transfer tax</td>
-                    <td>{property.realEstateTransferTaxInEuro}</td>
-                    <td>{units.euro}</td>
-                </tr>
-                <tr>
-                    <td> Notary fee</td>
-                    <td>{property.notaryFeeInEuro}</td>
-                    <td>{units.euro}</td>
-                </tr>
-                </tbody>
-                <tfoot>
-                <tr>
-                    <th>Sum</th>
-                    <th>{property.overallPurchasePriceInEuro}</th>
-                    <th>{units.euro}</th>
-                </tr>
-                </tfoot>
-            </StyledTableWithResults>
+            <PropertyDetailsTableWithResults
+                title={"Purchase Price"}
+                rows={[
+                    {
+                        title: "Purchase Price",
+                        value: property.purchasePriceInEuro,
+                        unit: units.euro
+                    },
+                    {
+                        title: "Purchase Price",
+                        value: property.purchasePriceInEuro,
+                        unit: units.euro
+                    }
+                ]}
+                footer={{title: "Sum", value: property.overallPurchasePriceInEuro, unit: units.euro}}/>
             <StyledTableWithoutResults>
                 <thead>
                 <tr>
@@ -105,7 +85,7 @@ export default function PropertyDetailsTable({property, units}) {
                 <tr>
                     <td> Maintenance cost and improvements</td>
                     <td>{property.maintenanceCostAndImprovementFactorInEuroPerSquareMeterPerYear}</td>
-                    <td> </td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td> Management fee per year</td>
@@ -120,22 +100,22 @@ export default function PropertyDetailsTable({property, units}) {
                 <tr>
                     <td> PLZ</td>
                     <td>{property.plz}</td>
-                    <td> </td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td> State</td>
                     <td>{property.state}</td>
-                    <td> </td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td> Contact person</td>
                     <td>{property.contactPerson}</td>
-                    <td> </td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td> exposeURL</td>
                     <td>{property.exposeUrl}</td>
-                    <td> </td>
+                    <td></td>
                 </tr>
                 </tbody>
             </StyledTableWithoutResults>
