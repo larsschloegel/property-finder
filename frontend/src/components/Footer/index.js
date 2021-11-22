@@ -1,4 +1,4 @@
-
+import {NavLink} from "react-router-dom"
 const Footer = () => {
 
 
@@ -6,9 +6,8 @@ const Footer = () => {
         <div className="footer">
             <div className="container">
                             <div className="bottom">
-                    <div className="copyright">
-                        Copyright © 2021 UI8 LLC. All rights reserved
-                    </div>
+                                <NavLink to="#">Imprint</NavLink>
+                                <NavLink to="#">Privacy</NavLink>
                 </div>
             </div>
         </div>

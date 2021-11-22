@@ -21,25 +21,25 @@ export default function App() {
             <PageLayout>
                 <Router>
                     <Switch>
-                        <Route
-                            exact
-                            path="/"
-                            render={() => (
-                                <Page>
-                                    <Homepage/>
-                                </Page>
-                            )}/>
+                        <Route exact path="/">
+                            <Page>
+                                <Homepage/>
+                            </Page>
+                        </Route>
                         <Route exact path="/search-inputs">
-                            <SearchInputs/>
+                            <Page>
+                                <SearchInputs/>
+                            </Page>
                         </Route>
                         <Route exact path="/properties">
-                            <Properties properties={properties}/>
+                            <Page>
+                                <Properties properties={properties}/>
+                            </Page>
                         </Route>
                         <Route exact path="/properties/:id">
-                            <PropertyDetails units={units}/>
-                        </Route>
-                        <Route exact path="/login">
-                            <Login/>
+                            <Page>
+                                <PropertyDetails units={units}/>
+                            </Page>
                         </Route>
                     </Switch>
                 </Router>
