@@ -1,11 +1,15 @@
-import {css} from "styled-components";
+import styled, {css} from "styled-components";
 
-export const pageStyles = css(
-    ({theme}) => css`
-        .inner {
-          overflow:hidden;
-        }
-    `
+export const pageStyles = styled.div`
+  .inner {
+    overflow: hidden;
+  }
+`
 
 
-)
+
+
+
+
+
+

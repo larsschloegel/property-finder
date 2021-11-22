@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import { withRouter, useLocation } from "react-router-dom";
 import Header from "../Header";
-
 import Footer from "../Footer";
-
+import {pageStyles} from "./page.style";
 
 const Page = ({
                   separatorHeader,
@@ -15,9 +14,8 @@ const Page = ({
 
 
     return (
-        <>
-
-                <div className="page">
+        <pageStyles>
+                <div>
                     <Header
                         separatorHeader={separatorHeader}
                         wide={wide}
@@ -25,8 +23,7 @@ const Page = ({
                     <div className="inner">{children}</div>
                     {!fooferHide && <Footer />}
                 </div>
-
-        </>
+        </pageStyles>
 
     );
 };

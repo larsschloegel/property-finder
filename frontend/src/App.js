@@ -1,15 +1,14 @@
-import Header from "./components/Header";
 import styled, {ThemeProvider} from "styled-components";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import SearchInputs from "./pages/SearchInputs";
 import Properties from "./pages/Properties";
-import Login from "./pages/Login";
 import PropertyDetails from "./pages/PropertyDetails";
 import unitsResponse from "./units.json";
 import GlobalStyle from "./styles/theme";
 import useProperties from "./hooks/useProperties";
 import Page from "./components/Page";
+import "./styles/app.sass";
 
 export default function App() {
     const {properties} = useProperties();
@@ -18,14 +17,17 @@ export default function App() {
 
     return (
         <ThemeProvider theme={GlobalStyle}>
-            <PageLayout>
+
                 <Router>
                     <Switch>
-                        <Route exact path="/">
-                            <Page>
-                                <Homepage/>
-                            </Page>
-                        </Route>
+                        <Route
+                            exact path="/"
+                            render={() => (
+                                <Page>
+                                    <Homepage/>
+                                </Page>
+                            )}
+                           />
                         <Route exact path="/search-inputs">
                             <Page>
                                 <SearchInputs/>
@@ -43,7 +45,7 @@ export default function App() {
                         </Route>
                     </Switch>
                 </Router>
-            </PageLayout>
+
         </ThemeProvider>
 
     );

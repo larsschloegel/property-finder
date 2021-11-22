@@ -1,5 +1,6 @@
 import styled, {css} from "styled-components";
 import {sectionStyles} from "./blocks/section";
+import {containerStyles} from "./blocks/container";
 
 
 export const Wrapper = styled.section(
@@ -32,6 +33,7 @@ export const Wrapper = styled.section(
         ${theme.media.m(css`
           padding: 0 8px;
         `)}
+        {${containerStyles}
       }
 
       .preview {
