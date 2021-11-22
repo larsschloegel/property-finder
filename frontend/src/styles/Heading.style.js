@@ -10,4 +10,6 @@ export const Heading = styled.h1`
   align-items: center;
   text-shadow: 0 4px 0 ${props => props.theme.colors.white};
   letter-spacing: -1px;
+  margin-bottom: 40px;
+  margin-top: 40px;
 `;

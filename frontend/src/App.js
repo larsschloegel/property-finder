@@ -7,8 +7,9 @@ import Properties from "./pages/Properties";
 import Login from "./pages/Login";
 import PropertyDetails from "./pages/PropertyDetails";
 import unitsResponse from "./units.json";
-import GlobalStyle from "./styles/GlobalStyle";
+import GlobalStyle from "./styles/theme";
 import useProperties from "./hooks/useProperties";
+import Page from "./components/Page";
 
 export default function App() {
     const {properties} = useProperties();
@@ -19,11 +20,15 @@ export default function App() {
         <ThemeProvider theme={GlobalStyle}>
             <PageLayout>
                 <Router>
-                    <Header/>
                     <Switch>
-                        <Route exact path="/">
-                            <Homepage/>
-                        </Route>
+                        <Route
+                            exact
+                            path="/"
+                            render={() => (
+                                <Page>
+                                    <Homepage/>
+                                </Page>
+                            )}/>
                         <Route exact path="/search-inputs">
                             <SearchInputs/>
                         </Route>
