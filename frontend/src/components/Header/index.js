@@ -25,7 +25,7 @@ const Header = ({separatorHeader, wide,}) => {
                             src="/images/ApplicationNameLogo.svg"
                             alt="Property Finder 2.0"
                         />
-                        Property finder 2.0
+                        Property Finder 2.0
                     </Link>
                     <div className={cn(styles.wrapper, { [styles.active]: visibleNav })}>
                     <NavLink
