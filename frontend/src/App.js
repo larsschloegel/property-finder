@@ -9,6 +9,7 @@ import GlobalStyle from "./styles/theme";
 import useProperties from "./hooks/useProperties";
 import Page from "./components/Page";
 import "./styles/app.sass";
+import Home from "./screens/Home";
 
 export default function App() {
     const {properties} = useProperties();
@@ -17,14 +18,13 @@ export default function App() {
 
     return (
         <ThemeProvider theme={GlobalStyle}>
-
                 <Router>
                     <Switch>
                         <Route
                             exact path="/"
                             render={() => (
                                 <Page>
-                                    <Homepage/>
+                                    <Home/>
                                 </Page>
                             )}
                            />
