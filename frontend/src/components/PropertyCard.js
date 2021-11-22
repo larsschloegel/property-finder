@@ -8,7 +8,6 @@ import {
     AddressWrapper, AddressImageWrapper, Address,
     KPIWrapper, KPITitle, KPI, ButtonImage
 } from "../styles/PropertyCard.style";
-import {Image} from "../styles/Header.style";
 import {useHistory} from "react-router-dom";
 
 export default function PropertyCard({property}){
@@ -29,7 +28,7 @@ export default function PropertyCard({property}){
                 <CardSection>
                     <AddressWrapper>
                         <AddressImageWrapper>
-                            <Image src={"/AddressLogo.svg"} alt="Address Logo"/>
+                            <CardImage src={"/AddressLogo.svg"} alt="Address Logo"/>
                         </AddressImageWrapper>
                         <Address>{property.plz}, {property.city}</Address>
                     </AddressWrapper>

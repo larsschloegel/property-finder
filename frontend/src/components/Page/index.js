@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
-import { withRouter, useLocation } from "react-router-dom";
+import React, {useEffect} from "react";
+import {withRouter, useLocation} from "react-router-dom";
+import {clearAllBodyScrollLocks} from "body-scroll-lock";
 import Header from "../Header";
 import Footer from "../Footer";
-import {pageStyles} from "./page.style";
+import styles from "./Page.module.sass";
 
 const Page = ({
                   separatorHeader,
@@ -10,20 +11,25 @@ const Page = ({
                   fooferHide,
                   wide,
               }) => {
-    const { pathname } = useLocation();
+    const {pathname} = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        clearAllBodyScrollLocks();
+    }, [pathname]);
 
 
     return (
-        <pageStyles>
-                <div>
-                    <Header
-                        separatorHeader={separatorHeader}
-                        wide={wide}
-                    />
-                    <div className="inner">{children}</div>
-                    {!fooferHide && <Footer />}
-                </div>
-        </pageStyles>
+        <>
+            <div className={styles.page}>
+                <Header
+                    separatorHeader={separatorHeader}
+                    wide={wide}
+                />
+                <div className={styles.inner}>{children}</div>
+                {!fooferHide && <Footer/>}
+            </div>
+        </>
 
     );
 };

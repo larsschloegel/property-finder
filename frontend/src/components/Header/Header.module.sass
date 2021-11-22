@@ -1,0 +1,168 @@
+@import ../../styles/helpers
+
+.header
+  position: relative
+  z-index: 10
+  padding: 24px 0
+  +m
+    padding: 48px 0 24px
+
+  &.wide
+    .container
+      max-width: 100%
+
+.headerBorder
+  box-shadow: inset 0 -1px 0 0 $n6
+  +dark
+    box-shadow: inset 0 -1px 0 0 $n2
+
+.container
+  display: flex
+  align-items: center
+
+.logo
+  margin-right: 40px
+  color: $n4
+  font-size: 24px
+  font-weight: 600
+  +d
+    margin-right: 32px
+  +m
+    position: relative
+    z-index: 15
+    margin-right: auto
+    font-size: 20px
+
+  img
+    width: 50px
+    border-radius: 8px
+
+.pic
+  background-color: $white
+  margin-right: 10px
+
+.wrapper
+  display: flex
+  align-items: center
+  flex-grow: 1
+  padding-left: 40px
+  border-left: 2px solid $n6
+  +d
+    padding-left: 32px
+  +t
+    padding-left: 0
+    border: none
+  +m
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    z-index: 10
+    flex-direction: column
+    align-items: stretch
+    min-height: auto
+    padding: 132px 32px 48px
+    background: $n8
+    visibility: hidden
+    opacity: 0
+    pointer-events: none
+    transition: all .3s
+    +dark
+      background: $n1
+    &.active
+      visibility: visible
+      opacity: 1
+      pointer-events: all
+  +dark
+    border-color: $n2
+
+  & > div
+    &:first-child
+      +t
+        margin-right: auto
+      +m
+        margin: 0
+
+.link
+  margin-left: auto
+  +button-2
+  color: $n4
+  transition: color .2s
+  +t
+    display: none
+  +m
+    display: flex
+    align-items: center
+    margin: 0 -32px
+    padding: 0 32px
+    height: 64px
+    +poppins
+    font-size: 24px
+    font-weight: 600
+
+  svg
+    margin-right: 10px
+    background-color: $white
+    border-radius: 8px
+    padding: 3px
+
+  &:hover,
+  &.active
+    color: $n2
+    +m
+      background: none
+      box-shadow: inset 2px 0 0 $p1
+    +dark
+      color: $n6
+      +m
+        background: none
+        color: $n6
+
+.button
+  margin-left: 40px
+  +t
+    margin-left: 32px
+  +m
+    width: 100%
+    height: 48px
+    margin: auto 0 0
+
+  &.active
+    background: $n2
+    box-shadow: inset 0 0 0 2px $n2
+    color: $n8
+
+.burger
+  display: none
+  +m
+    display: block
+    position: relative
+    z-index: 15
+    margin-left: 20px
+    width: 32px
+    height: 32px
+    background: none
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+    &.active
+      &:before
+        transform: translateY(0) rotate(-45deg)
+
+      &:after
+        transform: translateY(0) rotate(45deg)
+    &:before,
+    &:after
+      content: ''
+      position: absolute
+      top: 16px
+      left: 6px
+      width: 20px
+      height: 2px
+      background: $n4
+      border-radius: 2px
+      transition: transform .2s
+    &:before
+      transform: translateY(-4px)
+    &:after
+      transform: translateY(3px)
+
+
