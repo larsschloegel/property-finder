@@ -3,7 +3,6 @@ import cn from "classnames";
 import styles from "./Header.module.sass";
 import {Link, NavLink} from "react-router-dom";
 import Image from "../Image";
-import Modal from "../Modal";
 import Icon from "../Icon";
 
 const Header = ({separatorHeader, wide,}) => {
@@ -51,8 +50,6 @@ const Header = ({separatorHeader, wide,}) => {
                     ></button>
                 </div>
             </div>
-            {/*<Modal visible={visible} onClose={() => setVisible(false)}>
-            </Modal>*/}
         </>
     );
 };
