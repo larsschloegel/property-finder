@@ -1,35 +1,44 @@
 import React from "react";
 import cn from "classnames";
-import { Link } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import styles from "./Card.module.sass";
 import Icon from "../../../../components/Icon";
 
-const Card = ({ className, item }) => {
+const Card = ({ className, property }) => {
+    const history = useHistory()
     return (
-        <Link className={cn(className, styles.card)} to={item.url}>
+        <div className={cn(className, styles.card)}>
             <div className={styles.preview}>
-                <img srcSet={`${item.image2x} 2x`} src={item.image} alt="Card" />
+                <img src={"/images/content/card-pic-default.png"} alt="Real Estate Default Picture" />
             </div>
             <div className={styles.body}>
                 <div className={styles.line}>
                     <div className={styles.details}>
-                        <div className={styles.subtitle}>{item.title}</div>
-                        <div className={styles.location}>{item.location}</div>
+                        <div className={styles.subtitle}>{property.name}</div>
+                        <div className={styles.address}>
+                        <Icon className={styles.addressIcon} name="location" size="12"/>
+                            {property.plz}, {property.city}
+                        </div>
                     </div>
-                    <div className={styles.price}>
-                        <div className={styles.old}>{item.priceOld}</div>
-                        <div className={styles.actual}>{item.priceActual}</div>
-                    </div>
+                    <button
+                        className={cn("button-card", styles.button)}
+                        onClick={()=> history.push(`properties/${property.id}`)}
+                    >
+                        <Icon className={styles.icon} name="search" size="18" />
+                    </button>
                 </div>
                 <div className={styles.line}>
-                    <div className={styles.date}>{item.date}</div>
-                    <div className={styles.rating}>
-                        <Icon name="star" size="12" />
-                        {item.rating}
+                    <div className={styles.kpi}>
+                        <div>Return on Investment</div>
+                        <div>{new Intl.NumberFormat('de-DE', {style:'unit', unit: 'percent', signDisplay: 'always',maximumFractionDigits:2}).format(property.adjustedNetReturnInPercent)}</div>
+                    </div>
+                    <div className={styles.kpi}>
+                        <div>Cashflow</div>
+                        <div>{new Intl.NumberFormat('de-DE', {style:'currency', currency: 'EUR',maximumFractionDigits:2}).format(property.cfbtInEuroPerMonth)}</div>
                     </div>
                 </div>
             </div>
-        </Link>
+        </div>
     );
 };
 

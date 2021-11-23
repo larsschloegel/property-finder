@@ -16,7 +16,7 @@ export default function PropertyCard({property}){
     return (
         <CardWrapper>
             <CardImageWrapper>
-                <CardImage src={"/RealEstateExample.png"} alt="Real Estate Example"/>
+                <CardImage src={"/card-pic-default.png"} alt="Real Estate Example"/>
             </CardImageWrapper>
             <CardContentWrapper>
                 <CardSection>

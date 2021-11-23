@@ -9,6 +9,7 @@ import useProperties from "./hooks/useProperties";
 import Page from "./components/Page";
 import "./styles/app.sass";
 import Property from "./screens/Property";
+import Catalog from "./screens/Property/Catalog";
 
 export default function App() {
     const {properties} = useProperties();
@@ -34,7 +35,7 @@ export default function App() {
                         </Route>
                         <Route exact path="/properties">
                             <Page>
-                                <Properties properties={properties}/>
+                                <Catalog properties={properties}/>
                             </Page>
                         </Route>
                         <Route exact path="/properties/:id">

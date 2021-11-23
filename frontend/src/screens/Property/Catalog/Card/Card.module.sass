@@ -1,0 +1,81 @@
+@import ../../../../styles/helpers
+
+.card
+  border-radius: 16px
+  overflow: hidden
+  background: $n8
+  color: $n2
+  +dark
+    background: $n2
+    color: $n8
+
+.preview
+  position: relative
+  overflow: hidden
+  &:before
+    content: ""
+    display: block
+    padding-bottom: 89%
+  img
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    object-fit: cover
+    transition: transform 1s
+
+.body
+  padding: 20px
+  background-color: white
+
+.line
+  display: flex
+  justify-content: space-between
+  align-items: flex-start
+  &:not(:last-child)
+    margin-bottom: 16px
+    padding-bottom: 16px
+    border-bottom: 1px solid $n6
+    +dark
+      border-color: $n3
+
+.subtitle
+  +body-bold-2
+  transition: color .2s
+  width: 181px
+  text-overflow: ellipsis
+  overflow: hidden
+  white-space: nowrap
+  +m
+    width: 230px
+
+.address
+  padding: 5px 0
+  +caption-2
+  color: $n3
+  +dark
+    color: $n6
+
+.addressIcon
+  margin-right: 5px
+
+.icon
+  transform: rotate(-45deg)
+
+.kpi
+  +caption-bold-2
+  color: $n6
+
+.date
+  margin-right: 20px
+  +caption-2
+  color: $n4
+
+.rating
+  display: flex
+  align-items: center
+  +caption-bold-2
+  svg
+    margin-right: 4px
+    fill: $s3
