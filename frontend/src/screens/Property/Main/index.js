@@ -14,7 +14,7 @@ const Main = () => {
                             media="(max-width: 767px)"
                             srcSet="/images/content/main-pic-mobile-1.jpg"
                         />
-                        <img src="/images/content/main-pic-2.jpg" alt="Main" />
+                        <img src="/images/content/main-pic-1.jpg" alt="Main" />
                     </picture>
                     <div className={styles.wrap}>
                         <h1 className={cn("hero", styles.title)}>Property Finder 2.0</h1>

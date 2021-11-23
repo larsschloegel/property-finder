@@ -8,7 +8,7 @@ import GlobalStyle from "./styles/theme";
 import useProperties from "./hooks/useProperties";
 import Page from "./components/Page";
 import "./styles/app.sass";
-import Home from "./screens/Home";
+import Property from "./screens/Property";
 
 export default function App() {
     const {properties} = useProperties();
@@ -23,7 +23,7 @@ export default function App() {
                             exact path="/"
                             render={() => (
                                 <Page>
-                                    <Home/>
+                                    <Property/>
                                 </Page>
                             )}
                            />
