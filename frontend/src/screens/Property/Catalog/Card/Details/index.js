@@ -3,6 +3,7 @@ import cn from "classnames";
 import styles from "./Details.module.sass";
 import useSingleProperty from "../../../../../hooks/useSingleProperty";
 import Table from "./Table";
+import Actions from "../../../../../components/Actions";
 
 const Details = ({units}) => {
 
@@ -12,7 +13,11 @@ const Details = ({units}) => {
         <div className={cn("section-mb64", styles.section)}>
             <div className={cn("container", styles.container)}>
                 <div className={styles.wrapper}>
-                    <h2 className={cn("h2", styles.title)}>The details of your dream investment</h2>
+                    <div className={styles.head}>
+                        <div className={styles.box}>
+                            <h2 className={cn("h2", styles.title)}>The details of your dream investment</h2>
+                        </div>
+                    </div>
                     <div className={styles.table}>
                         <Table property={property} units={units}/>
                     </div>

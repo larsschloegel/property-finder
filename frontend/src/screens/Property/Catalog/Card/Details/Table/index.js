@@ -1,10 +1,11 @@
 import TableWithResults from "../../../../../../components/Tables/WithResults/index";
 import TableWithoutResults from "../../../../../../components/Tables/WithoutResults";
+import styles from "./Table.module.sass";
 
 const Table = ({property, units}) => {
 
     return (
-        <div>
+        <div className={styles.list}>
             <TableWithoutResults
                 title={"Inputs market"}
                 rows={[
