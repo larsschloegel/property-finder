@@ -1,7 +1,6 @@
 import styled, {ThemeProvider} from "styled-components";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import SearchInputs from "./pages/SearchInputs";
-import Properties from "./pages/Properties";
 import PropertyDetails from "./pages/PropertyDetails";
 import unitsResponse from "./units.json";
 import GlobalStyle from "./styles/theme";
