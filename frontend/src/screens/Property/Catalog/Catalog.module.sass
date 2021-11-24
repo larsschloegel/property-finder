@@ -28,46 +28,6 @@
   +m
     text-align: center
 
-.link
-  display: flex
-  padding: 6px 12px
-  border-radius: 14px
-  background: none
-  +button-2
-  color: $n4
-  transition: all .2s
-  svg
-    margin-right: 8px
-    fill: $n4
-    transition: fill .2s
-  &:hover
-    color: $n3
-    svg
-      fill: $n3
-    +dark
-      color: $n6
-      svg
-        fill: $n6
-  &.active
-    background: $n3
-    color: $n8
-    svg
-      fill: $n8
-    +dark
-      background: $n6
-      color: $n2
-      svg
-        fill: $n2
-  &:not(:last-child)
-    margin-right: 16px
-
-.box
-  flex-shrink: 0
-  width: 256px
-  +m
-    width: 100%
-    &:not(:last-child)
-      margin-bottom: 16px
 
 .list
   display: flex
@@ -82,8 +42,8 @@
     margin: 0
 
 .card
-  flex: 0 0 calc(25% - 32px)
-  width: calc(25% - 32px)
+  flex: 0 0 calc(33.333% - 32px)
+  width: calc(33.333% - 32px)
   margin: 32px 16px 0
   +x
     flex: 0 0 calc(25% - 20px)

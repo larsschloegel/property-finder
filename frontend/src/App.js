@@ -2,7 +2,6 @@ import styled, {ThemeProvider} from "styled-components";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import SearchInputs from "./pages/SearchInputs";
 import unitsResponse from "./units.json";
-import GlobalStyle from "./styles/theme";
 import useProperties from "./hooks/useProperties";
 import Page from "./components/Page";
 import "./styles/app.sass";
@@ -16,7 +15,6 @@ export default function App() {
     const units = unitsResponse;
 
     return (
-        <ThemeProvider theme={GlobalStyle}>
                 <Router>
                     <Switch>
                         <Route
@@ -45,7 +43,6 @@ export default function App() {
                     </Switch>
                 </Router>
 
-        </ThemeProvider>
 
     );
 }

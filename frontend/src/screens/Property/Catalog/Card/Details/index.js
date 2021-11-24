@@ -12,7 +12,7 @@ const Details = ({units}) => {
         <div className={cn("section-mb64", styles.section)}>
             <div className={cn("container", styles.container)}>
                 <div className={styles.wrapper}>
-                    <h2 className={cn("h2", styles.title)}>Property details of "{property.name}"</h2>
+                    <h2 className={cn("h2", styles.title)}>The details of your dream investment</h2>
                     <div className={styles.table}>
                         <Table property={property} units={units}/>
                     </div>

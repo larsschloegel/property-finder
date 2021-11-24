@@ -1,11 +1,11 @@
-import PropertyDetailsTableWithoutResults from "../../../../../../components/Tables/PropertyDetailsTableWithoutResults";
 import TableWithResults from "../../../../../../components/Tables/WithResults/index";
+import TableWithoutResults from "../../../../../../components/Tables/WithoutResults";
 
 const Table = ({property, units}) => {
 
     return (
         <div>
-            <PropertyDetailsTableWithoutResults
+            <TableWithoutResults
                 title={"Inputs market"}
                 rows={[
                     {
@@ -70,7 +70,7 @@ const Table = ({property, units}) => {
                     }
                 ]}
                 footer={{title: "Sum", value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.overallPurchasePriceInEuro), unit: units.euro}}/>
-            <PropertyDetailsTableWithoutResults
+            <TableWithoutResults
                 title={"Funding Calculation"}
                 rows={[
                     {
