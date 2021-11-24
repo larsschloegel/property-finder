@@ -63,19 +63,23 @@
 .icon
   transform: rotate(-45deg)
 
+.flex
+  display: flex
+  justify-content: space-between
+
+
 .kpi
   +caption-bold-2
   color: $n6
-
-.date
-  margin-right: 20px
-  +caption-2
-  color: $n4
-
-.rating
-  display: flex
+  flex: 1 1 0
+  text-align: center
   align-items: center
-  +caption-bold-2
-  svg
-    margin-right: 4px
-    fill: $s3
+  padding: 2px
+
+.value
+  text-align: center
+  background-color: $n9
+  padding: 4px
+  border-radius: 5px
+
+

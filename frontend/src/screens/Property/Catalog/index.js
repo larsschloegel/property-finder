@@ -16,7 +16,7 @@ const Catalog = ({properties}) => {
                         }
                     </div>
                     <div className={styles.btns}>
-                        <button className={cn("button-stroke button-small", styles.button)}>
+                        <button className={cn("button", styles.button)}>
                             View all
                         </button>
                     </div>
