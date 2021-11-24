@@ -1,11 +1,12 @@
-import PropertyDetailsTableWithResults from "./PropertyDetailsTableWithResults";
-import PropertyDetailsTableWithoutResults from "./PropertyDetailsTableWithoutResults";
+import TableWithResults from "../../../../../../components/Tables/WithResults/index";
+import TableWithoutResults from "../../../../../../components/Tables/WithoutResults";
+import styles from "./Table.module.sass";
 
-export default function PropertyDetailsTables({property, units}) {
+const Table = ({property, units}) => {
 
     return (
-        <div>
-            <PropertyDetailsTableWithoutResults
+        <div className={styles.list}>
+            <TableWithoutResults
                 title={"Inputs market"}
                 rows={[
                     {
@@ -40,7 +41,7 @@ export default function PropertyDetailsTables({property, units}) {
                     }
 
                 ]}/>
-            <PropertyDetailsTableWithResults
+            <TableWithResults
                 title={"Purchase Price"}
                 rows={[
                     {
@@ -70,7 +71,7 @@ export default function PropertyDetailsTables({property, units}) {
                     }
                 ]}
                 footer={{title: "Sum", value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.overallPurchasePriceInEuro), unit: units.euro}}/>
-            <PropertyDetailsTableWithoutResults
+            <TableWithoutResults
                 title={"Funding Calculation"}
                 rows={[
                     {
@@ -105,7 +106,7 @@ export default function PropertyDetailsTables({property, units}) {
                     }
 
                 ]}/>
-            <PropertyDetailsTableWithResults
+            <TableWithResults
                 title={"Net Return Calculation"}
                 rows={[
                     {
@@ -140,7 +141,7 @@ export default function PropertyDetailsTables({property, units}) {
                     }
                 ]}
                 footer={{title: "Adjusted net return", value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.adjustedNetReturnInPercent), unit: units.percent}}/>
-            <PropertyDetailsTableWithResults
+            <TableWithResults
                 title={"Cash Flow Calculation"}
                 rows={[
                     {
@@ -166,6 +167,7 @@ export default function PropertyDetailsTables({property, units}) {
                 ]}
                 footer={{title: "Cash flow Before Taxes per month", value: new Intl.NumberFormat('de-DE', {maximumFractionDigits:2}).format(property.cfbtInEuroPerMonth), unit: units.euroPerMonth}}/>
         </div>
+    );
+};
 
-    )
-}
+export default Table;

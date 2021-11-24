@@ -1,20 +1,18 @@
-import {StyledTableWithResults} from "../../styles/TableWithResults.style";
+import React from "react";
+import styles from "./WithResults.module.sass";
 
-
-export default function PropertyDetailsTableWithResults({title, rows, footer}) {
-
+const TableWithResults = ({title, rows, footer}) => {
 
     return (
-        <StyledTableWithResults>
+        <table className={styles.table}>
             <thead>
             <tr>
-                <th colSpan={3}> {title}</th>
+                <th colSpan={3}>{title}</th>
             </tr>
             </thead>
             <tbody>
             {
                 rows.map(row => <tr>
-
                     <td> {row.title}</td>
                     <td> {row.value}</td>
                     <td> {row.unit}</td>
@@ -28,6 +26,8 @@ export default function PropertyDetailsTableWithResults({title, rows, footer}) {
                 <th>{footer.unit}</th>
             </tr>
             </tfoot>
-        </StyledTableWithResults>
-    )
-}
+        </table>
+    );
+};
+
+export default TableWithResults;
