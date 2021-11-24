@@ -1,7 +1,6 @@
 import styled, {ThemeProvider} from "styled-components";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import SearchInputs from "./pages/SearchInputs";
-import PropertyDetails from "./pages/PropertyDetails";
 import unitsResponse from "./units.json";
 import GlobalStyle from "./styles/theme";
 import useProperties from "./hooks/useProperties";
@@ -9,6 +8,7 @@ import Page from "./components/Page";
 import "./styles/app.sass";
 import Property from "./screens/Property";
 import Catalog from "./screens/Property/Catalog";
+import Details from "./screens/Property/Catalog/Card/Details";
 
 export default function App() {
     const {properties} = useProperties();
@@ -39,7 +39,7 @@ export default function App() {
                         </Route>
                         <Route exact path="/properties/:id">
                             <Page>
-                                <PropertyDetails units={units}/>
+                                <Details units={units}/>
                             </Page>
                         </Route>
                     </Switch>
