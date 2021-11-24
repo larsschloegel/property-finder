@@ -1,4 +1,9 @@
- {
-    "euro": "€",
-    "percent": "%"
- }
+{
+  "euro": "€",
+  "percent": "%",
+  "euroPerYear": "€/Year",
+  "euroPerMonth": "€/Month",
+  "squareMeter": "m²",
+  "euroPerSquareMeterPerYear": "€/m²/Year",
+  "euroPerSquareMeterPerMonth": "€/m²/Month"
+}

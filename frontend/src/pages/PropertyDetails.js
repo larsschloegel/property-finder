@@ -1,5 +1,4 @@
-import {Heading} from "../styles/Heading.style";
-import PropertyDetailsTable from "../components/tables/PropertyDetailsTable";
+import PropertyDetailsTables from "../components/tables/PropertyDetailsTables";
 import useSingleProperty from "../hooks/useSingleProperty";
 
 export default function PropertyDetails({units}) {
@@ -8,8 +7,7 @@ export default function PropertyDetails({units}) {
 
     return (
         <section>
-            <Heading>Property Details of "{property.name}"</Heading>
-            <PropertyDetailsTable property={property} units={units}/>
+            <PropertyDetailsTables property={property} units={units}/>
         </section>
     )
 }

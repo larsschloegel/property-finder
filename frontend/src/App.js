@@ -1,14 +1,14 @@
-import Header from "./components/Header";
 import styled, {ThemeProvider} from "styled-components";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import Homepage from "./pages/Homepage";
 import SearchInputs from "./pages/SearchInputs";
-import Properties from "./pages/Properties";
-import Login from "./pages/Login";
 import PropertyDetails from "./pages/PropertyDetails";
 import unitsResponse from "./units.json";
-import GlobalStyle from "./styles/GlobalStyle";
+import GlobalStyle from "./styles/theme";
 import useProperties from "./hooks/useProperties";
+import Page from "./components/Page";
+import "./styles/app.sass";
+import Property from "./screens/Property";
+import Catalog from "./screens/Property/Catalog";
 
 export default function App() {
     const {properties} = useProperties();
@@ -17,28 +17,34 @@ export default function App() {
 
     return (
         <ThemeProvider theme={GlobalStyle}>
-            <PageLayout>
                 <Router>
-                    <Header/>
                     <Switch>
-                        <Route exact path="/">
-                            <Homepage/>
-                        </Route>
+                        <Route
+                            exact path="/"
+                            render={() => (
+                                <Page>
+                                    <Property/>
+                                </Page>
+                            )}
+                           />
                         <Route exact path="/search-inputs">
-                            <SearchInputs/>
+                            <Page>
+                                <SearchInputs/>
+                            </Page>
                         </Route>
                         <Route exact path="/properties">
-                            <Properties properties={properties}/>
+                            <Page>
+                                <Catalog properties={properties}/>
+                            </Page>
                         </Route>
                         <Route exact path="/properties/:id">
-                            <PropertyDetails units={units}/>
-                        </Route>
-                        <Route exact path="/login">
-                            <Login/>
+                            <Page>
+                                <PropertyDetails units={units}/>
+                            </Page>
                         </Route>
                     </Switch>
                 </Router>
-            </PageLayout>
+
         </ThemeProvider>
 
     );
