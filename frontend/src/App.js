@@ -1,4 +1,4 @@
-import styled, {ThemeProvider} from "styled-components";
+import styled from "styled-components";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import SearchInputs from "./pages/SearchInputs";
 import unitsResponse from "./units.json";

@@ -1,19 +1,22 @@
 import React from "react";
 import cn from "classnames";
 import styles from "./Control.module.sass";
-import { Link } from "react-router-dom";
 import Icon from "../Icon";
+import {useHistory} from "react-router-dom";
 
 const Control = ({ className, lastUrl }) => {
+
+ const history = useHistory();
+
     return (
         <div className={cn(className, styles.control)}>
-            <Link
+            <button
                 className={cn("button-small", styles.button)}
-                to={"/properties"}
+                onClick={() => history.goBack()}
             >
                 <Icon name="arrow-left" size="10" />
                 <span>Go back</span>
-            </Link>
+            </button>
         </div>
     );
 };
