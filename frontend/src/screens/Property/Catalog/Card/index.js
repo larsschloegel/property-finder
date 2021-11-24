@@ -21,7 +21,7 @@ const Card = ({className, property}) => {
                         </div>
                     </div>
                     <button
-                        className={cn("button-card", styles.button)}
+                        className={cn("button-circle-card", styles.button)}
                         onClick={() => history.push(`properties/${property.id}`)}
                     >
                         <Icon className={styles.icon} name="search" size="18"/>

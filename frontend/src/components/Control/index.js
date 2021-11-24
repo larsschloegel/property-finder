@@ -8,11 +8,11 @@ const Control = ({ className, lastUrl }) => {
     return (
         <div className={cn(className, styles.control)}>
             <Link
-                className={cn("button-stroke button-small", styles.button)}
+                className={cn("button-small", styles.button)}
                 to={"/properties"}
             >
                 <Icon name="arrow-left" size="10" />
-                <span>Go home</span>
+                <span>Go back</span>
             </Link>
         </div>
     );

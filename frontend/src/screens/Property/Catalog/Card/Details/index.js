@@ -3,15 +3,18 @@ import cn from "classnames";
 import styles from "./Details.module.sass";
 import useSingleProperty from "../../../../../hooks/useSingleProperty";
 import Table from "./Table";
-import Actions from "../../../../../components/Actions";
+import Control from "../../../../../components/Control";
 
 const Details = ({units}) => {
 
     const {property} = useSingleProperty()
 
     return (
-        <div className={cn("section-mb64", styles.section)}>
+        <div className={cn("section", styles.section)}>
             <div className={cn("container", styles.container)}>
+                <Control
+                className={styles.control}
+                />
                 <div className={styles.wrapper}>
                     <div className={styles.head}>
                         <div className={styles.box}>

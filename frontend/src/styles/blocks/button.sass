@@ -18,9 +18,20 @@
   svg
     fill: $white
     transition: all .2s
+  &:not([class^="button-circle"])
+    svg
+      &:first-child
+        margin-right: 15px
+      &:last-child
+        margin-left: 15px
 
+.button-small
+  height: 40px
+  border-radius: 20px
+  padding: 0 16px
+  font-size: 14px
 
-.button-card
+.button-circle-card
   height: 35px
   width: 35px
   border-radius: 8px

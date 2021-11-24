@@ -15,33 +15,38 @@ export default function App() {
     const units = unitsResponse;
 
     return (
-                <Router>
-                    <Switch>
-                        <Route
-                            exact path="/"
-                            render={() => (
-                                <Page>
-                                    <Property/>
-                                </Page>
-                            )}
-                           />
-                        <Route exact path="/search-inputs">
-                            <Page>
-                                <SearchInputs/>
-                            </Page>
-                        </Route>
-                        <Route exact path="/properties">
-                            <Page>
-                                <Catalog properties={properties}/>
-                            </Page>
-                        </Route>
-                        <Route exact path="/properties/:id">
-                            <Page>
-                                <Details units={units}/>
-                            </Page>
-                        </Route>
-                    </Switch>
-                </Router>
+        <Router>
+            <Switch>
+                <Route exact path="/"
+                       render={() => (
+                           <Page>
+                               <Property/>
+                           </Page>
+                       )}
+                />
+                <Route exact path="/search-inputs"
+                       render={() => (
+                           <Page separatorHeader>
+                               <SearchInputs/>
+                           </Page>
+                       )}
+                />
+                <Route exact path="/properties"
+                       render={() => (
+                           <Page separatorHeader>
+                               <Catalog properties={properties}/>
+                           </Page>
+                       )}
+                />
+                <Route exact path="/properties/:id"
+                       render={() => (
+                           <Page separatorHeader>
+                               <Details units={units}/>
+                           </Page>
+                       )}
+                />
+            </Switch>
+        </Router>
 
 
     );
