@@ -51,27 +51,24 @@
   +m
     text-align: center
 
-.list
-  display: flex
-  flex-wrap: wrap
-  margin: -32px -16px 0
-  +x
-    margin: -32px -10px 0
-  +d
-    margin: -32px -16px 0
-  +m
-    display: block
-    margin: 0
-
 
 .item
-  &:not(:last-child)
-    margin-bottom: 40px
-    +m
-      margin-bottom: 32px
+  background-color: $white
+  box-shadow: 0 2px 3px 0 rgba(38, 50, 56, 0.2)
+  border-radius: 16px
+  padding: 20px
 
 .category
   +body-bold-2
+  margin-bottom: 24px
+  +m
+    margin-bottom: 20px
+
+.fieldset
+  .field
+      margin-bottom: 24px
+      +m
+        margin-bottom: 20px
 
 .item
   .button
@@ -80,13 +77,6 @@
   &:not(:first-child)
     .category
       margin-bottom: 24px
-
-.fieldset
-  .field
-    &:not(:last-child)
-      margin-bottom: 24px
-      +m
-        margin-bottom: 20px
 
 .foot
   display: flex

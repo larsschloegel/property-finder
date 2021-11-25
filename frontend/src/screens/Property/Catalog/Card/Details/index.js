@@ -12,9 +12,7 @@ const Details = ({units}) => {
     return (
         <div className={cn("section", styles.section)}>
             <div className={cn("container", styles.container)}>
-                <Control
-                className={styles.control}
-                />
+                <Control className={styles.control}/>
                 <div className={styles.wrapper}>
                     <div className={styles.head}>
                         <div className={styles.box}>

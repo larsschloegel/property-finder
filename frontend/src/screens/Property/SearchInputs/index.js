@@ -15,9 +15,7 @@ const SearchInputs = () => {
         <>
             <div className={cn("section", styles.section)}>
                 <div className={cn("container", styles.container)}>
-                    <Control
-                        className={styles.control}
-                    />
+                    <Control className={styles.control}/>
                     <div className={styles.inner}>
                         <div className={styles.wrapper}>
                             <div className={styles.head}>
@@ -30,10 +28,20 @@ const SearchInputs = () => {
                                         <div className={styles.fieldset}>
                                             <TextInput
                                                 className={styles.field}
-                                                label="Title"
-                                                name="title"
+                                                label="Repayment in 1st year"
+                                                name="repayment"
                                                 type="text"
                                                 placeholder='e. g. "1"'
+                                                required
+                                            />
+                                        </div>
+                                        <div className={styles.fieldset}>
+                                            <TextInput
+                                                className={styles.field}
+                                                label="Interest rate"
+                                                name="interesRate"
+                                                type="text"
+                                                placeholder='e. g. "1.5"'
                                                 required
                                             />
                                         </div>
