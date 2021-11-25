@@ -7,7 +7,7 @@ import Icon from "../Icon";
 
 const Header = ({separatorHeader, wide,}) => {
     const [visibleNav, setVisibleNav] = useState(false);
-    const [visible, setVisible] = useState(false);
+
     return (
         <>
             <div
@@ -31,6 +31,8 @@ const Header = ({separatorHeader, wide,}) => {
                         className={styles.link}
                         to="/search-inputs"
                         activeClassName={styles.active}
+                        onClick={() => setVisibleNav(!visibleNav)}
+                        exact
                     >
                         <Icon name="search" size="30"/>
                         Search Inputs
@@ -39,6 +41,7 @@ const Header = ({separatorHeader, wide,}) => {
                         className={styles.link}
                         to="/properties"
                         activeClassName={styles.active}
+                        onClick={() => setVisibleNav(!visibleNav)}
                     >
                         <Icon name="home" size="30"/>
                         Properties

@@ -6,10 +6,11 @@ import Icon from "../../../../components/Icon";
 
 const Card = ({className, property}) => {
     const history = useHistory()
+
     return (
         <div className={cn(className, styles.card)}>
             <div className={styles.preview}>
-                <img src={"/images/content/card-pic-default.png"} alt="Real Estate Default Picture"/>
+                <img srcSet={property.imageUrl} src={"/images/content/card-pic-default.png"} alt="Real Estate Default Picture"/>
             </div>
             <div className={styles.body}>
                 <div className={styles.line}>

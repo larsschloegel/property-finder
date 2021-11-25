@@ -1,19 +1,17 @@
 @import ../../styles/helpers
 
 .header
-  position: relative
+  position: sticky
+  top: 0
+  background-color: $n8
   z-index: 10
   padding: 24px 0
-  +m
-    padding: 48px 0 24px
   &.wide
     .container
       max-width: 50%
 
 .headerBorder
   box-shadow: inset 0 -1px 0 0 $white
-  +dark
-    box-shadow: inset 0 -1px 0 0 $n2
 
 .container
   display: flex
@@ -51,7 +49,7 @@
     padding-left: 32px
   +t
     padding-left: 0
-    border: none
+    border-bottom: 1px solid $n6
   +m
     position: absolute
     top: 0
@@ -67,14 +65,10 @@
     opacity: 0
     pointer-events: none
     transition: all .3s
-    +dark
-      background: $n1
     &.active
       visibility: visible
       opacity: 1
       pointer-events: all
-  +dark
-    border-color: $n2
 
   & > div
     &:first-child
@@ -113,11 +107,6 @@
     +m
       background: none
       box-shadow: inset 2px 0 0 $p1
-    +dark
-      color: $n6
-      +m
-        background: none
-        color: $n6
 
 .button
   margin-left: 20px

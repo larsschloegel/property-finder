@@ -31,7 +31,7 @@ const SearchInputs = () => {
                                                 label="Repayment in 1st year"
                                                 name="repayment"
                                                 type="text"
-                                                placeholder='e. g. "1"'
+                                                placeholder='e. g. "1 %"'
                                                 required
                                             />
                                         </div>
@@ -41,7 +41,7 @@ const SearchInputs = () => {
                                                 label="Interest rate"
                                                 name="interesRate"
                                                 type="text"
-                                                placeholder='e. g. "1.5"'
+                                                placeholder='e. g. "1.5 %"'
                                                 required
                                             />
                                         </div>
