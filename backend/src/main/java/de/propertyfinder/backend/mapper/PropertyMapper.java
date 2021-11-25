@@ -16,7 +16,7 @@ public class PropertyMapper {
                 .source("Immobilien Scout 24")
                 .exposeUrl(octoparseApiDto.getExposeUrl())
                 .contactPerson(octoparseApiDto.getContactPerson())
-                .type(octoparseApiDto.getSubtyp())
+                .subtyp(octoparseApiDto.getSubtyp())
                 .plz(octoparseApiDto.getPlz())
                 .city(octoparseApiDto.getCity())
                 .purchasePriceInEuro(Double.parseDouble(octoparseApiDto.getPurchasePrice()))

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import SearchInputs from "./pages/SearchInputs";
 import unitsResponse from "./units.json";
 import useProperties from "./hooks/useProperties";
 import Page from "./components/Page";
@@ -8,6 +7,7 @@ import "./styles/app.sass";
 import Property from "./screens/Property";
 import Catalog from "./screens/Property/Catalog";
 import Details from "./screens/Property/Catalog/Card/Details";
+import SearchInputs from "./screens/Property/SearchInputs";
 
 export default function App() {
     const {properties} = useProperties();

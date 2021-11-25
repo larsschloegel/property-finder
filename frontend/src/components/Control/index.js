@@ -4,7 +4,7 @@ import styles from "./Control.module.sass";
 import Icon from "../Icon";
 import {useHistory} from "react-router-dom";
 
-const Control = ({ className, lastUrl }) => {
+const Control = ({ className }) => {
 
  const history = useHistory();
 

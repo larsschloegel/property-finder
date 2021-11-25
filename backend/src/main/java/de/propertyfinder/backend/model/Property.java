@@ -21,7 +21,8 @@ public class Property {
     private String source;
     private String exposeUrl;
     private String contactPerson;
-    private String type;
+    private String typ;
+    private String subtyp;
     private String imageUrl;
 
     //address
