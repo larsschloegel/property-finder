@@ -4,11 +4,12 @@ import styles from "./SearchInputs.module.sass";
 import Control from "../../../components/Control";
 import Icon from "../../../components/Icon";
 import TextInput from "../../../components/TextInput";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
 
 const SearchInputs = () => {
 
+    const history = useHistory()
 
     return (
         <>
@@ -39,10 +40,15 @@ const SearchInputs = () => {
                                     </div>
                                 </div>
                                 <div className={styles.foot}>
-                                    <Link className={cn("button", styles.button)} to="/properties">
-                                        Search now
-                                        <Icon name="arrow-next" size="10"/>
-                                    </Link>
+                                    <div className={styles.btns}>
+                                        <button
+                                            className={cn("button", styles.button)}
+                                            onClick={() => history.push("/properties")}
+                                        >
+                                            Search now
+                                            <Icon name="arrow-next" size="10"/>
+                                        </button>
+                                    </div>
                                 </div>
                             </form>
                         </div>

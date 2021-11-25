@@ -52,12 +52,17 @@
     text-align: center
 
 .list
-  margin-bottom: 40px
-  padding-bottom: 40px
-  border-bottom: 1px solid $n6
+  display: flex
+  flex-wrap: wrap
+  margin: -32px -16px 0
+  +x
+    margin: -32px -10px 0
+  +d
+    margin: -32px -16px 0
   +m
-    margin-bottom: 32px
-    padding-bottom: 32px
+    display: block
+    margin: 0
+
 
 .item
   &:not(:last-child)
@@ -83,28 +88,18 @@
       +m
         margin-bottom: 20px
 
-
-.line
-  display: flex
-  height: 48px
-  box-shadow: inset 0 0 0 2px $n6
-  border-radius: 12px
-  align-items: center
-  +dark
-    box-shadow: inset 0 0 0 2px $n3
-
-
 .foot
   display: flex
   align-items: center
   +m
     display: block
     text-align: center
-  .button
-    +m
-      width: 100%
-    &:not(:last-child)
-      margin-right: 24px
-      +m
-        margin: 0 0 12px
 
+.btns
+  align-items: center
+  display: inline-flex
+  margin-left: auto
+  margin-top: 64px
+  text-align: center
+  +t
+    margin-top: 48px
