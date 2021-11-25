@@ -1,0 +1,110 @@
+@import ../../../styles/helpers
+
+.container
+  max-width: 1440px
+  +w
+    padding: 0 40px
+  +t
+    padding: 0
+
+.inner
+  padding: 80px
+  border-radius: 24px
+  background: none
+  box-shadow: inset 0 0 0 2px $white
+  display: flex
+  align-items: flex-start
+  +w
+    padding: 64px 40px
+  +t
+    display: block
+    +m
+      padding: 24px 32px
+
+
+.wrapper
+  flex: 0 0 calc(100% - 352px)
+  width: calc(100% - 352px)
+  padding-right: 128px
+  +x
+    padding-right: 64px
+  +d
+    flex: 0 0 calc(100% - 304px)
+    width: calc(100% - 304px)
+    padding-right: 32px
+  +t
+    width: 100%
+    padding: 0
+
+.head
+  display: flex
+  align-items: flex-start
+  margin-bottom: 64px
+  +m
+    display: block
+    margin-bottom: 48px
+
+.title
+  margin-bottom: 16px
+  +d
+    margin-bottom: 24px
+  +m
+    text-align: center
+
+.list
+  margin-bottom: 40px
+  padding-bottom: 40px
+  border-bottom: 1px solid $n6
+  +m
+    margin-bottom: 32px
+    padding-bottom: 32px
+
+.item
+  &:not(:last-child)
+    margin-bottom: 40px
+    +m
+      margin-bottom: 32px
+
+.category
+  +body-bold-2
+
+.item
+  .button
+    +dark
+      box-shadow: inset 0 0 0 2px $n3
+  &:not(:first-child)
+    .category
+      margin-bottom: 24px
+
+.fieldset
+  .field
+    &:not(:last-child)
+      margin-bottom: 24px
+      +m
+        margin-bottom: 20px
+
+
+.line
+  display: flex
+  height: 48px
+  box-shadow: inset 0 0 0 2px $n6
+  border-radius: 12px
+  align-items: center
+  +dark
+    box-shadow: inset 0 0 0 2px $n3
+
+
+.foot
+  display: flex
+  align-items: center
+  +m
+    display: block
+    text-align: center
+  .button
+    +m
+      width: 100%
+    &:not(:last-child)
+      margin-right: 24px
+      +m
+        margin: 0 0 12px
+
