@@ -4,7 +4,6 @@ import styles from "./Header.module.sass";
 import {Link, NavLink} from "react-router-dom";
 import Image from "../Image";
 import Icon from "../Icon";
-import * as url from "url";
 
 const Header = ({separatorHeader, wide,}) => {
     const [visibleNav, setVisibleNav] = useState(false);
