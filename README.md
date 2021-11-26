@@ -3,7 +3,7 @@
 ## Find your dream investment
 Are you looking for lucrative property as an investment in this day? No problem! With the Property Finder 2.0 you will find your dream investment in Germany.
 
-![Git: App Collection](images/Property Finder Picture Collection.png)
+![App Collection](./images/Property_Finder_Picture_Collection.png)
 
 ## Tech stack
 
