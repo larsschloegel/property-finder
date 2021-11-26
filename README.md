@@ -9,7 +9,7 @@ Are you looking for lucrative property as an investment in this day? No problem!
 
 ### Desktop Impression
 
-![App Desktop](./images/Property_Finder_Picture_Main_Desktop.png)
+![App Desktop](./images/Property_Finder_Picture_Desktop.png)
 
 ## Tech stack
 
