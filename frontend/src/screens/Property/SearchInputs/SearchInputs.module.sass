@@ -2,7 +2,7 @@
 
 .container
   max-width: 1440px
-  +w
+  +d
     padding: 0 40px
   +t
     padding: 0
@@ -14,7 +14,7 @@
   box-shadow: inset 0 0 0 2px $white
   display: flex
   align-items: flex-start
-  +w
+  +d
     padding: 64px 40px
   +t
     display: block
@@ -27,8 +27,6 @@
   flex: 0 0 calc(100% - 352px)
   width: calc(100% - 352px)
   padding-right: 128px
-  +x
-    padding-right: 64px
   +d
     flex: 0 0 calc(100% - 304px)
     width: calc(100% - 304px)
@@ -74,7 +72,7 @@
 .item
   .button
     +dark
-      box-shadow: inset 0 0 0 2px $n3
+      box-shadow: inset 0 0 0 2px $black
   &:not(:first-child)
     .category
       margin-bottom: 24px

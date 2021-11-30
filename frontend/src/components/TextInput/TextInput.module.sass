@@ -3,7 +3,7 @@
 .label
   margin-bottom: 12px
   +hairline-2
-  color: $n6
+  color: $purpleDark
 
 .wrap
   position: relative
@@ -13,19 +13,19 @@
   height: 48px
   padding: 0 14px
   border-radius: 12px
-  border: 2px solid $n6
+  border: 2px solid $purpleDark
   background: $white
   +poppins
   +caption-bold-1
-  color: $n2
+  color: $black
   transition: border-color .2s
   +dark
-    border-color: $n3
-    color: $n8
+    border-color: $black
+    color: $yellowLight
   +placeholder
-    color: $n4
+    color: $black
   &:focus
-    border-color: $n4
+    border-color: $black
 
 .toggle
   position: absolute
@@ -34,23 +34,23 @@
   bottom: 0
   width: 48px
   svg
-    fill: $n5
+    fill: $graySoft
     transition: fill .2s
   &:hover
     svg
-      fill: $n4
+      fill: $black
   &.active
     svg
-      fill: $n1
+      fill: $black
   +dark
     svg
-      fill: $n4
+      fill: $black
     &:hover
       svg
-        fill: $n5
+        fill: $graySoft
     &.active
       svg
-        fill: $n8
+        fill: $yellowLight
 
 .empty
   .input
