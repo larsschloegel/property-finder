@@ -31,7 +31,7 @@ const Card = ({className, property}) => {
                 <div className={styles.foot}>
                     <div className={styles.flex}>
                         <div className={styles.kpi}>
-                            <div>Return on Investment</div>
+                            <div>ROI</div>
                             <div className={styles.value}>{new Intl.NumberFormat('de-DE', {
                                 style: 'unit',
                                 unit: 'percent',

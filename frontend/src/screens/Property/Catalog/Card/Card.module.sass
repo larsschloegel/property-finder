@@ -24,7 +24,7 @@
     transition: transform 1s
 
 .body
-  padding: 20px
+  padding: 10px
   background-color: white
 
 .line
@@ -40,9 +40,7 @@
   +body-bold-2
   transition: color .2s
   width: 181px
-  text-overflow: ellipsis
-  overflow: hidden
-  white-space: nowrap
+  +text-overflow
   +m
     width: 230px
 
@@ -60,7 +58,7 @@
 .flex
   display: flex
   justify-content: space-between
-
+  align-items: end
 
 .kpi
   +caption-bold-2
