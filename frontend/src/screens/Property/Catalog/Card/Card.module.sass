@@ -3,8 +3,8 @@
 .card
   border-radius: 16px
   overflow: hidden
-  background: $n8
-  color: $n2
+  background: $yellowLight
+  color: $black
   box-shadow: 0 2px 3px 0 rgba(38, 50, 56, 0.2)
 
 .preview
@@ -24,7 +24,7 @@
     transition: transform 1s
 
 .body
-  padding: 20px
+  padding: 10px
   background-color: white
 
 .line
@@ -34,26 +34,20 @@
   &:not(:last-child)
     margin-bottom: 16px
     padding-bottom: 16px
-    border-bottom: 1px solid $n6
-    +dark
-      border-color: $n3
+    border-bottom: 1px solid $purpleDark
 
 .subtitle
   +body-bold-2
   transition: color .2s
   width: 181px
-  text-overflow: ellipsis
-  overflow: hidden
-  white-space: nowrap
+  +text-overflow
   +m
     width: 230px
 
 .address
   padding: 5px 0
   +caption-2
-  color: $n3
-  +dark
-    color: $n6
+  color: $black
 
 .addressIcon
   margin-right: 5px
@@ -64,11 +58,11 @@
 .flex
   display: flex
   justify-content: space-between
-
+  align-items: end
 
 .kpi
   +caption-bold-2
-  color: $n6
+  color: $purpleDark
   flex: 1 1 0
   text-align: center
   align-items: center
@@ -76,7 +70,7 @@
 
 .value
   text-align: center
-  background-color: $n9
+  background-color: $yellowDark
   padding: 4px
   border-radius: 5px
 

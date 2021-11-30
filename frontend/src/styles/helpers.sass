@@ -1,25 +1,17 @@
 // media queries
-=w
-  @media only screen and (max-width: "1419px")
-    @content
-=x
-  @media only screen and (max-width: "1339px")
-    @content
+//12.45 Zoll
 =d
-  @media only screen and (max-width: "1179px")
+  @media only screen and (max-width: "1195.2px")
     @content
+//Tablet
 =t
   @media only screen and (max-width: "1023px")
     @content
+//Mobile
 =m
   @media only screen and (max-width: "767px")
     @content
-=a
-  @media only screen and (max-width: "639px")
-    @content
-=s
-  @media only screen and (max-width: "474px")
-    @content
+
 
 // fonts
 =dm-sans
@@ -29,33 +21,15 @@
   font-family: 'Poppins', sans-serif
 
 // colors
-$p1: #6C5CE7
-$p2: #8BC5E5
-$p3: #92A5EF
-$p4: #58C27D
-$s1: #A4CDE3
-$s2: #E4D7CF
-$s3: #FFD166
-$s4: #FA8F54
+$purpleDark: #6C5CE7
+$black: #2D3436
 $white: #ffffff
-
-$n1: #141416
-//ok -> hover über Eintrag
-$n2: #23262F
-$n3: #353945
-//ok -> title
-$n4: #2D3436
-//grey 30%
-$n5: #E3E5E5
-//ok -> border
-$n6: #6C5CE7
-$n7: #F4F5F6
-//background
-$n8: #FFEAA7
-//show Value
-$n9: #FDCB6E
-//Table Header
-$n10: #ADADAD
+$yellowDark: #FDCB6E
+$yellowLight: #FFEAA7
+$grayDark: #5C5C5C
+$gray: #858585
+$grayLight: #ADADAD
+$graySoft: #C2C2C2
 
 // typography
 =body-1
@@ -120,51 +94,9 @@ $n10: #ADADAD
   line-height: (16/14)
   font-weight: 700
 
-//triangle
-=arr($width, $height, $bg, $direction)
-  width: 0px
-  height: 0px
-  border-style: solid
-  @if $direction == t
-    border-width: 0 $width / 2 + px $height + px $width / 2 + px
-    border-color: transparent transparent $bg transparent
-  @if $direction == r
-    border-width: $height / 2 + px 0 $height / 2 + px $width + px
-    border-color: transparent transparent transparent $bg
-  @if $direction == b
-    border-width: $height + px $width / 2 + px 0 $width / 2 + px
-    border-color: $bg transparent transparent transparent
-  @if $direction == l
-    border-width: $height / 2 + px $width + px $height / 2 + px 0
-    border-color: transparent $bg transparent transparent
-  @if $direction == tl
-    border-width: $height + px $width + px 0 0
-    border-color: $bg transparent transparent transparent
-  @if $direction == tr
-    border-width: 0 $width + px $height + px 0
-    border-color: transparent $bg transparent transparent
-  @if $direction == br
-    border-width: 0 0 $height + px $width + px
-    border-color: transparent transparent $bg transparent
-  @if $direction == bl
-    border-width: $width + px 0 0 $height + px
-    border-color: transparent transparent transparent $bg
-// example
-// +arr(500,50, #000, l)
-// +arr(500,50, #000, bl)
-
 // placeholder
 =placeholder
   &::placeholder
-    @content
-
-// media query width
-=r($width)
-  @media only screen and (max-width: $width+ "px")
-    @content
-
-=rmin($width)
-  @media only screen and (min-width: $width+ "px")
     @content
 
 =text-overflow
@@ -172,15 +104,3 @@ $n10: #ADADAD
   text-overflow: ellipsis
   white-space: nowrap
 
-// theme
-=dark
-  @at-root :global(.dark-mode) &
-    @content
-
-=dark-body
-  @at-root .dark-mode
-    @content
-
-=dark-common
-  @at-root .dark-mode &
-    @content
