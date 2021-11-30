@@ -20,7 +20,7 @@
 =poppins
   font-family: 'Poppins', sans-serif
 
-//colors
+// colors
 $purpleDark: #6C5CE7
 $black: #2D3436
 $white: #ffffff
@@ -104,15 +104,3 @@ $graySoft: #C2C2C2
   text-overflow: ellipsis
   white-space: nowrap
 
-// theme
-=dark
-  @at-root :global(.dark-mode) &
-    @content
-
-=dark-body
-  @at-root .dark-mode
-    @content
-
-=dark-common
-  @at-root .dark-mode &
-    @content
